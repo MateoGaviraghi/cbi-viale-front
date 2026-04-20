@@ -1,0 +1,53 @@
+# deps
+node_modules
+.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+.next/
+out/
+build
+dist
+
+# misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env
+.env*.local
+.env.production
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# prisma
+/prisma/*.db
+/prisma/migrations/dev.db*
+
+# editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea
+
+# claude harness (config local por máquina)
+.claude/
+
+# material privado del cliente (screenshots e imágenes sin procesar)
+public/info-cbi-viale/
+public/images-cbi/

@@ -1,0 +1,42 @@
+/* =====================================================================
+   CBI Viale — design tokens
+   Tipografía, espaciados, colores se definen en tailwind.config.ts.
+   Acá van variables que necesitan vivir en CSS (fonts, radius overrides,
+   tamaños compartidos con utilidades nativas).
+   ===================================================================== */
+
+:root {
+  /* fonts (se sobrescriben desde layout.tsx con next/font) */
+  --font-fraunces: 'Fraunces', Georgia, Cambria, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+
+  /* paleta — expuesta también como var para Framer Motion y libs externas */
+  --color-gold: #b8935a;
+  --color-gold-dark: #8a6d3f;
+  --color-beige: #f5f0e8;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #6b6b6b;
+  --color-line: #e5ded1;
+  --color-danger: #b8401f;
+
+  /* ritmo editorial — espacios verticales entre secciones */
+  --section-pad-sm: 4rem; /* 64px mobile */
+  --section-pad-md: 6rem; /* 96px tablet */
+  --section-pad-lg: 7.5rem; /* 120px desktop — mínimo pedido */
+
+  /* tamaños mínimos de accesibilidad */
+  --tap-min: 44px;
+
+  /* focus ring global — dorado oscuro con offset */
+  --focus-ring: 2px solid var(--color-gold-dark);
+  --focus-offset: 2px;
+}
+
+/* reset agresivo de border-radius global — garantía contra libs externas */
+* {
+  border-radius: 0;
+}
+/* única excepción autorizada: utilidades explícitas rounded-full */
+.rounded-full {
+  border-radius: 9999px !important;
+}
