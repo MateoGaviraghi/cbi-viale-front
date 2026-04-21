@@ -84,10 +84,10 @@ export function AboutPreview() {
               </p>
             </Reveal>
 
-            <StaggerGroup stagger={0.12} className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 border-t border-line pt-10">
-              <Stat n="+15" label="Años de trayectoria" />
-              <Stat n="+10.000" label="Análisis realizados" />
+            <StaggerGroup stagger={0.12} className="mt-12 grid grid-cols-3 gap-x-4 md:gap-x-8 gap-y-8 border-t border-line pt-10">
               <Stat n="6" label="Áreas especializadas" />
+              <Stat n="10k+" label="Análisis realizados" />
+              <Stat n="100%" label="Obras sociales recibidas" />
             </StaggerGroup>
 
             <Reveal direction="up" delay={0.4}>
@@ -114,10 +114,10 @@ export function AboutPreview() {
 function Stat({ n, label }: { n: string; label: string }) {
   return (
     <StaggerItem>
-      <dt className="font-mono text-4xl md:text-5xl text-gold-800 tracking-tight leading-none">
+      <dt className="font-mono text-3xl md:text-4xl lg:text-5xl text-gold-800 tracking-tight leading-none whitespace-nowrap">
         {n}
       </dt>
-      <dd className="mt-3 text-sm text-ink-muted leading-relaxed max-w-[14ch]">{label}</dd>
+      <dd className="mt-3 text-xs md:text-sm text-ink-muted leading-relaxed">{label}</dd>
     </StaggerItem>
   )
 }

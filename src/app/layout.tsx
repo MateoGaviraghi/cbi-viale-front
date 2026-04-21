@@ -77,6 +77,11 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: undefined,
+  // Desactiva auto-detección de iOS/Safari que subraya con puntos
+  // tel, direcciones, emails, fechas.
+  other: {
+    'format-detection': 'telephone=no, date=no, address=no, email=no',
+  },
 }
 
 export const viewport: Viewport = {

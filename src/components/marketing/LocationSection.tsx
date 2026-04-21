@@ -32,12 +32,6 @@ export function LocationSection() {
       ref={ref}
       className="relative bg-white border-t border-line overflow-hidden py-16 md:py-24 lg:py-28"
     >
-      {/* Decoración esquina superior derecha */}
-      <div
-        className="absolute top-0 right-0 w-32 h-32 border-l border-b border-gold/20 pointer-events-none"
-        aria-hidden
-      />
-
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* ============ LEFT: info ============ */}

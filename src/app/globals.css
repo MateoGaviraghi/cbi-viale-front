@@ -15,6 +15,16 @@
   body {
     @apply bg-background text-ink font-sans text-base;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    /* Desactiva los smart tap-links de iOS/Safari (subrayado punteado en tel/direcciones) */
+    -webkit-touch-callout: none;
+  }
+
+  /* Anti auto-detección de iOS: forza a que direcciones/teléfonos no reciban el estilo punteado */
+  address,
+  a[href^='tel:'],
+  a[href^='mailto:'] {
+    text-decoration: none;
+    -webkit-text-decoration-skip: none;
   }
 
   h1,
