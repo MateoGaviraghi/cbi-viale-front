@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -80,18 +79,14 @@ export function Navbar() {
               aria-label="CBI Viale — ir al inicio"
               className="group flex items-center gap-3 focus-visible:outline-none"
             >
-              <span className="relative inline-flex h-12 w-12 items-center justify-center overflow-hidden transition-transform duration-700 ease-editorial group-hover:scale-[1.04]">
-                {/* next/image: optimiza automático a AVIF/WebP en el tamaño exacto → nítido en retina */}
-                <Image
-                  src="/logo-cbi-transparent.png"
+              {/* SVG del cliente — el mask interno crea el logo dorado con transparencia.
+                  Se muestra igual en ambos estados (no tile, no filter). */}
+              <span className="relative inline-flex h-12 w-12 items-center justify-center transition-transform duration-700 ease-editorial group-hover:scale-[1.04]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo-sin-fondo-cbi-viale.svg"
                   alt=""
-                  width={96}
-                  height={96}
-                  priority
-                  className={cn(
-                    'h-full w-full object-contain transition-[filter] duration-500',
-                    !scrolled && 'brightness-0 invert',
-                  )}
+                  className="h-full w-full object-contain"
                 />
               </span>
               <span className="hidden sm:flex flex-col leading-none">

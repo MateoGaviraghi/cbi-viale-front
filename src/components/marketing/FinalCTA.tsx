@@ -1,35 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { Container } from '@/components/shared/Container'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { Reveal } from '@/components/shared/Reveal'
 import { SplitText } from '@/components/shared/SplitText'
 
-// CTA final con parallax en las esquinas decorativas y split-text en el headline.
+// CTA final — bloque beige limpio sin decoración de esquinas.
 export function FinalCTA() {
-  const ref = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const cornerA = useTransform(scrollYProgress, [0, 1], ['-12%', '12%'])
-  const cornerB = useTransform(scrollYProgress, [0, 1], ['12%', '-12%'])
-
   return (
-    <section ref={ref} className="relative bg-beige overflow-hidden">
-      {/* Decoración esquinas con parallax */}
-      <motion.div
-        style={{ y: cornerA }}
-        className="absolute top-0 left-0 w-40 h-40 border-b border-r border-gold/30 pointer-events-none"
-        aria-hidden
-      />
-      <motion.div
-        style={{ y: cornerB }}
-        className="absolute bottom-0 right-0 w-40 h-40 border-t border-l border-gold/30 pointer-events-none"
-        aria-hidden
-      />
-
+    <section className="relative bg-beige overflow-hidden">
       <Container className="py-24 md:py-32 lg:py-40">
         <div className="max-w-4xl mx-auto text-center">
           <Reveal direction="up" duration={0.7}>
