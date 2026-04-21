@@ -30,19 +30,34 @@ export function Hero() {
       ref={ref}
       className="relative isolate h-screen min-h-[640px] max-h-[960px] overflow-hidden bg-ink"
     >
-      {/* ========= CAPA 1: Foto de fondo con parallax ========= */}
+      {/* ========= CAPA 1: Foto de fondo con parallax.
+           Dos variantes:
+             · Mobile (< md): imagen portrait de la sala completa
+             · Desktop (>= md): imagen landscape de la recepción
+           Se usan dos <Image> con breakpoints para que cada una cargue la óptima. ========= */}
       <motion.div
         style={{ scale: bgScale, y: bgY }}
         className="absolute inset-0 w-full h-[108%]"
       >
+        {/* Mobile portrait */}
         <Image
-          src="/hero-recepcion.png"
+          src="/hero-recepcion-mobile.jpg"
           alt="Recepción del laboratorio CBI en Viale, Entre Ríos"
           fill
           priority
+          quality={88}
+          sizes="(max-width: 768px) 100vw, 0px"
+          className="md:hidden object-cover object-center"
+        />
+        {/* Desktop landscape */}
+        <Image
+          src="/hero-recepcion.png"
+          alt=""
+          fill
+          priority
           quality={92}
-          sizes="100vw"
-          className="object-cover object-[center_40%]"
+          sizes="(max-width: 768px) 0px, 100vw"
+          className="hidden md:block object-cover object-[center_40%]"
         />
       </motion.div>
 

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useEffect } from 'react'
 import { X } from 'lucide-react'
 import { SERVICE_SLUGS, SERVICES, CONTACT } from '@/lib/constants'
@@ -44,10 +45,11 @@ export function MobileMenu({ open, onClose }: Props) {
         {/* Top bar — logo SVG igual al del navbar + botón cerrar */}
         <div className="flex h-[72px] items-center justify-between border-b border-line px-5 sm:px-6">
           <div className="flex items-center gap-3">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logo-sin-fondo-cbi-viale.svg"
+            <Image
+              src="/logo-cbi-transparent.png"
               alt=""
+              width={88}
+              height={88}
               className="h-11 w-11 object-contain"
             />
             <span className="flex flex-col leading-none">

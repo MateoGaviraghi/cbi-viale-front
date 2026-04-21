@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -80,11 +81,13 @@ export function Navbar() {
               className="group flex items-center gap-3 focus-visible:outline-none"
             >
               <span className="relative inline-flex h-12 w-12 items-center justify-center overflow-hidden transition-transform duration-700 ease-editorial group-hover:scale-[1.04]">
-                {/* SVG del cliente — render directo */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/logo-sin-fondo-cbi-viale.svg"
+                {/* next/image: optimiza automático a AVIF/WebP en el tamaño exacto → nítido en retina */}
+                <Image
+                  src="/logo-cbi-transparent.png"
                   alt=""
+                  width={96}
+                  height={96}
+                  priority
                   className={cn(
                     'h-full w-full object-contain transition-[filter] duration-500',
                     !scrolled && 'brightness-0 invert',
