@@ -128,17 +128,17 @@ export function LocationSection() {
 
           {/* ============ RIGHT: Map ============ */}
           <Reveal direction="right" duration={0.9} className="lg:col-span-7">
+            {/* Strip superior editorial — FUERA del iframe */}
+            <div className="flex items-center justify-between border border-line border-b-0 bg-white px-4 py-3 font-mono text-[10px] uppercase tracking-[0.28em] text-ink-muted">
+              <span>N° 03 · Ubicación</span>
+              <span>Viale · Entre Ríos</span>
+            </div>
+
+            {/* Mapa limpio */}
             <motion.div
               style={{ y: mapY }}
-              className="group relative aspect-[5/4] lg:aspect-[4/3] w-full border border-line overflow-hidden bg-beige shadow-[0_12px_40px_-20px_rgba(0,0,0,0.15)]"
+              className="group relative aspect-[5/4] lg:aspect-[4/3] w-full border-x border-line overflow-hidden bg-beige"
             >
-              {/* Marker editorial superior */}
-              <div className="absolute inset-x-4 top-4 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-ink/80 z-10 pointer-events-none font-mono">
-                <span className="bg-white/90 backdrop-blur px-2 py-1">N° 03 · Ubicación</span>
-                <span className="bg-white/90 backdrop-blur px-2 py-1">Viale · E.R.</span>
-              </div>
-
-              {/* iframe del mapa */}
               <iframe
                 title="Ubicación CBI Viale en Google Maps"
                 className="h-full w-full grayscale-[0.15] contrast-[1.02] transition-all duration-700 ease-editorial group-hover:grayscale-0"
@@ -147,26 +147,27 @@ export function LocationSection() {
                 allowFullScreen
                 src={MAPS_EMBED_URL}
               />
-
-              {/* Marker editorial inferior con línea dorada */}
-              <div className="absolute inset-x-4 bottom-4 pointer-events-none z-10">
-                <div className="mb-2 h-px bg-gold/60" aria-hidden />
-                <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-ink font-mono">
-                  <span className="bg-white/90 backdrop-blur px-2 py-1">
-                    CBI · Centro Bioquímico Integral
-                  </span>
-                  <a
-                    href={MAPS_SHARE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="pointer-events-auto bg-gold-700 text-white px-2 py-1 inline-flex items-center gap-1 hover:bg-gold-800 transition-colors duration-500"
-                  >
-                    Abrir
-                    <ArrowUpRight size={11} strokeWidth={1.5} />
-                  </a>
-                </div>
-              </div>
             </motion.div>
+
+            {/* Strip inferior editorial — FUERA del iframe */}
+            <div className="flex items-center justify-between border border-line border-t-0 bg-white">
+              <span className="px-4 py-3 font-mono text-[10px] uppercase tracking-[0.28em] text-ink">
+                CBI · Centro Bioquímico Integral
+              </span>
+              <a
+                href={MAPS_SHARE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/abrir inline-flex h-full items-center gap-1.5 bg-gold-700 px-5 py-3 font-sans text-[10px] uppercase tracking-[0.22em] text-white hover:bg-gold-800 transition-colors duration-500"
+              >
+                Abrir en Maps
+                <ArrowUpRight
+                  size={11}
+                  strokeWidth={1.5}
+                  className="transition-transform duration-500 group-hover/abrir:-translate-y-0.5 group-hover/abrir:translate-x-0.5"
+                />
+              </a>
+            </div>
 
             {/* Pin info debajo del mapa */}
             <div className="mt-5 grid grid-cols-3 gap-4 lg:gap-6">

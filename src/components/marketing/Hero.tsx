@@ -139,17 +139,20 @@ export function Hero() {
             </StaggerGroup>
           </div>
 
-          {/* Abajo: stats en línea horizontal compacta */}
+          {/* Abajo: stats. En mobile sólo 3 (el último se oculta — evita overlap con el FAB de WhatsApp).
+              Padding derecho extra en mobile para dejar respirar al FAB. */}
           <StaggerGroup
             stagger={0.12}
             delay={1.9}
             whileInView={false}
-            className="mt-auto flex items-end justify-between gap-8 border-t border-white/20 pt-6"
+            className="mt-auto flex items-end justify-between gap-6 md:gap-8 border-t border-white/20 pt-6 pr-20 md:pr-0"
           >
             <StatInline n="15+" label="Años" />
             <StatInline n="10k+" label="Análisis" />
             <StatInline n="6" label="Áreas" />
-            <StatInline n="100%" label="Viale · E.R." />
+            <div className="hidden sm:block">
+              <StatInline n="100%" label="Viale · E.R." />
+            </div>
           </StaggerGroup>
         </Container>
       </motion.div>

@@ -41,9 +41,24 @@ export function MobileMenu({ open, onClose }: Props) {
       aria-label="Menú"
     >
       <div className="flex h-full flex-col overflow-y-auto">
-        {/* Top bar */}
+        {/* Top bar — logo SVG igual al del navbar + botón cerrar */}
         <div className="flex h-[72px] items-center justify-between border-b border-line px-5 sm:px-6">
-          <span className="font-serif text-xl tracking-tight text-ink">CBI Viale</span>
+          <div className="flex items-center gap-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo-sin-fondo-cbi-viale.svg"
+              alt=""
+              className="h-11 w-11 object-contain"
+            />
+            <span className="flex flex-col leading-none">
+              <span className="font-serif text-[18px] tracking-tight text-ink">
+                CBI <span className="italic text-gold-800">Viale</span>
+              </span>
+              <span className="mt-1 text-[9px] uppercase tracking-[0.24em] text-ink-muted">
+                Centro Bioquímico
+              </span>
+            </span>
+          </div>
           <button
             type="button"
             onClick={onClose}
