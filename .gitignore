@@ -35,10 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# prisma
-/prisma/*.db
-/prisma/migrations/dev.db*
-
 # editor
 .vscode/*
 !.vscode/settings.json
