@@ -4,6 +4,7 @@ import { SITE } from '@/lib/constants'
 import { Navbar } from '@/components/marketing/Navbar'
 import { Footer } from '@/components/marketing/Footer'
 import { FloatingActions } from '@/components/marketing/FloatingActions'
+import { PublicChrome } from '@/components/PublicChrome'
 import { orgSchema } from '@/lib/seo/schema-org'
 import './globals.css'
 
@@ -101,12 +102,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema()) }}
         />
-        <Navbar />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <FloatingActions />
+        <PublicChrome
+          navbar={<Navbar />}
+          footer={<Footer />}
+          floating={<FloatingActions />}
+        >
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+        </PublicChrome>
       </body>
     </html>
   )
