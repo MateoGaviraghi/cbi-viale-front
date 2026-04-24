@@ -10,9 +10,13 @@ export * from './types'
 import { authApi } from './endpoints/auth'
 import { servicesApi } from './endpoints/services'
 import { availabilityApi } from './endpoints/availability'
+import { appointmentsApi } from './endpoints/appointments'
+import { submissionsApi } from './endpoints/submissions'
 
 export const api = {
   auth: authApi,
   services: servicesApi,
   availability: availabilityApi,
+  appointments: appointmentsApi,
+  submissions: submissionsApi,
 }

@@ -5,6 +5,7 @@ import { Navbar } from '@/components/marketing/Navbar'
 import { Footer } from '@/components/marketing/Footer'
 import { FloatingActions } from '@/components/marketing/FloatingActions'
 import { PublicChrome } from '@/components/PublicChrome'
+import { Toaster } from '@/components/shared/Toaster'
 import { orgSchema } from '@/lib/seo/schema-org'
 import './globals.css'
 
@@ -111,6 +112,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
         </PublicChrome>
+        <Toaster />
       </body>
     </html>
   )

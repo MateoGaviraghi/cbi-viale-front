@@ -4,6 +4,7 @@ import { CONTACT, SITE } from '@/lib/constants'
 import { Container } from '@/components/shared/Container'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { FadeIn } from '@/components/shared/FadeIn'
+import { ContactForm } from './ContactForm'
 
 export const metadata = buildMetadata({
   title: 'Contacto — Reservá tu consulta',
@@ -17,8 +18,8 @@ export default function ContactoPage() {
     <section className="section border-b border-line">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Bloque intro + contacto */}
-          <div className="lg:col-span-7">
+          {/* Bloque intro + canales */}
+          <div className="lg:col-span-5">
             <FadeIn>
               <div className="flex items-center gap-4 mb-8">
                 <GoldRule />
@@ -38,7 +39,7 @@ export default function ContactoPage() {
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <dl className="mt-16 space-y-8">
+              <dl className="mt-12 space-y-6">
                 <Channel
                   icon={<MapPin width={20} height={20} strokeWidth={1.25} />}
                   label="Dirección"
@@ -90,13 +91,10 @@ export default function ContactoPage() {
                 )}
               </dl>
             </FadeIn>
-          </div>
 
-          {/* Horarios */}
-          <div className="lg:col-span-5">
             <FadeIn delay={0.15}>
-              <div className="bg-beige/50 border border-line p-8 md:p-10">
-                <div className="flex items-center gap-4 mb-8">
+              <div className="mt-12 bg-beige/50 border border-line p-8">
+                <div className="flex items-center gap-4 mb-6">
                   <GoldRule />
                   <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
                     Horarios de atención
@@ -104,26 +102,20 @@ export default function ContactoPage() {
                 </div>
                 <ul className="divide-y divide-line/80">
                   {CONTACT.hours.map((h) => (
-                    <li key={h.day} className="flex items-baseline justify-between py-4">
-                      <span className="font-serif text-lg text-ink">{h.day}</span>
+                    <li key={h.day} className="flex items-baseline justify-between py-3">
+                      <span className="font-serif text-base text-ink">{h.day}</span>
                       <span className="font-mono text-sm text-ink-muted">{h.range}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 text-sm text-ink-muted leading-relaxed">
-                  [Horarios a confirmar con el cliente — pendiente en CONTENT.md]
-                </p>
               </div>
+            </FadeIn>
+          </div>
 
-              <div className="mt-8 border border-line p-8 md:p-10">
-                <p className="text-[11px] uppercase tracking-widest text-gold-700 mb-4">
-                  Formulario
-                </p>
-                <p className="text-ink-muted leading-relaxed">
-                  El formulario de consulta se habilita en Fase 2. Por ahora, contactanos por
-                  WhatsApp, teléfono o email.
-                </p>
-              </div>
+          {/* Formulario de contacto */}
+          <div className="lg:col-span-7">
+            <FadeIn delay={0.05}>
+              <ContactForm />
             </FadeIn>
           </div>
         </div>

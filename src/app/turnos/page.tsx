@@ -32,8 +32,7 @@ export default function TurnosPage() {
             <span className="italic text-gold-800">de análisis.</span>
           </h1>
           <p className="mt-8 text-lg text-ink-muted leading-relaxed">
-            Seleccioná el servicio para ver días y horarios disponibles. En Fase 2 se habilita
-            el calendario interactivo.
+            Seleccioná el servicio para ver días y horarios disponibles.
           </p>
         </div>
 
@@ -44,7 +43,7 @@ export default function TurnosPage() {
             return (
               <Link
                 key={slug}
-                href={`/servicios/${slug}`}
+                href={`/turnos/${slug}/fecha`}
                 className="group bg-white p-8 transition-colors duration-500 hover:bg-beige/60"
               >
                 <div className="flex items-start justify-between mb-8">
@@ -69,16 +68,6 @@ export default function TurnosPage() {
           })}
         </div>
 
-        <div className="mt-16 max-w-2xl bg-beige/50 border border-line p-8">
-          <p className="text-[11px] uppercase tracking-widest text-gold-700 mb-3">
-            Nota · Fase 1
-          </p>
-          <p className="text-ink-muted leading-relaxed">
-            El flujo completo de reserva (calendario, horarios, datos del paciente, confirmación
-            por email) se entrega en Fase 2 junto con el panel admin. Por ahora cada tarjeta
-            lleva a la landing del servicio.
-          </p>
-        </div>
       </Container>
     </section>
   )

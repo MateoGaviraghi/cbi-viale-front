@@ -12,7 +12,7 @@ const SLUG = 'medicina-regenerativa' as const
 const C = SERVICE_CONTENT[SLUG]
 
 export const metadata = buildMetadata({
-  title: 'Medicina Regenerativa — PRP en Viale, Entre Ríos',
+  title: 'Cosmetología Bioquímica Regenerativa — Plasma y cosméticos personalizados en Viale',
   description: C.intro,
   path: `/servicios/${SLUG}`,
 })
@@ -31,12 +31,12 @@ export default function Page() {
 
       <ServiceShowcase
         variant="quote"
-        eyebrow="¿Qué es el PRP?"
-        headline="Tu propia sangre, concentrada para regenerar tejido."
+        eyebrow="¿Qué es la cosmetología bioquímica regenerativa?"
+        headline="Ciencia aplicada al cuidado de la piel y la regeneración tisular."
         quote={{
           text:
-            'Un tratamiento que se obtiene a partir de la propia sangre del paciente — concentramos las plaquetas y liberamos factores de crecimiento naturales para acelerar la reparación.',
-          author: 'Protocolo CBI',
+            'Cada formulación se realiza de manera individual, con selección de activos y ajuste de concentraciones según las necesidades de cada piel, con la posibilidad de incorporar plasma autólogo como componente biológico propio.',
+          author: 'Bioq. Nahir Gastaldi · CBI Viale',
         }}
       />
 
@@ -44,29 +44,29 @@ export default function Page() {
 
       <ServiceShowcase
         variant="tiles"
-        eyebrow="Aplicaciones principales"
-        headline="Cuatro frentes donde el PRP genera impacto."
-        lead="Seleccionamos la preparación (concentración, volumen, enriquecimiento) según la indicación del médico tratante."
+        eyebrow="Aplicaciones"
+        headline="Un enfoque bioquímico en múltiples frentes de la salud."
+        lead="El plasma autólogo y las formulaciones personalizadas se adaptan a cada indicación, con rigor científico en cada paso del proceso."
         highlights={[
           {
-            title: 'Traumatología',
+            title: 'Estética y piel',
             body:
-              'Lesiones musculares, articulares y tendinosas — infiltraciones de rodilla, hombro, codo y cadera.',
+              'Cosméticos personalizados con activos seleccionados y concentraciones ajustadas. Rejuvenecimiento facial, tratamiento de manchas y regeneración dérmica.',
           },
           {
-            title: 'Odontología',
+            title: 'Capilar',
+            body:
+              'PRP para alopecia y pérdida de cabello. Estimulación de folículos pilosos con factores de crecimiento autólogos.',
+          },
+          {
+            title: 'Traumatología y deporte',
+            body:
+              'Lesiones musculares, articulares y tendinosas. Infiltraciones de rodilla, hombro y codo para acelerar la reparación tisular.',
+          },
+          {
+            title: 'Odontología e implantes',
             body:
               'Acelera la osteointegración en implantes y reduce tiempos de cicatrización en cirugías de encía.',
-          },
-          {
-            title: 'Dermatología estética',
-            body:
-              'Tratamiento capilar para alopecia y rejuvenecimiento facial con factores de crecimiento autólogos.',
-          },
-          {
-            title: 'Medicina del deporte',
-            body:
-              'Recuperación de lesiones deportivas crónicas y aceleración del regreso a la actividad.',
           },
         ]}
       />
@@ -82,7 +82,7 @@ export default function Page() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'MedicalProcedure',
-            name: 'Medicina Regenerativa — PRP',
+            name: 'Cosmetología Bioquímica Regenerativa',
             description: C.intro,
           }),
         }}

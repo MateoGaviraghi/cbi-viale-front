@@ -7,7 +7,7 @@ import { FinalCTA } from '@/components/marketing/FinalCTA'
 export const metadata = buildMetadata({
   title: 'Servicios — Seis áreas de análisis',
   description:
-    'Análisis clínico humano, veterinario, agro-alimentario, ambiental, medicina regenerativa y genética. Todo en un mismo laboratorio en Viale, Entre Ríos.',
+    'Análisis clínico humano, veterinario, agro-alimentario, ambiental, cosmetología bioquímica regenerativa y genética. Todo en un mismo laboratorio en Viale, Entre Ríos.',
   path: '/servicios',
 })
 

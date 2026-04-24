@@ -8,7 +8,7 @@ export const SITE = {
   legalName: 'Centro Bioquímico Integral',
   tagline: 'Donde la ciencia y el cuidado se encuentran.',
   description:
-    'Centro Bioquímico Integral en Viale, Entre Ríos. Análisis clínicos, veterinarios, agro-alimentos, ambiental, medicina regenerativa y genética. Recibimos todas las obras sociales sin adicionales.',
+    'Centro Bioquímico Integral en Viale, Entre Ríos. Análisis clínicos, veterinarios, agro-alimentos, ambiental, cosmetología bioquímica regenerativa y genética. Recibimos todas las obras sociales sin adicionales.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   locale: 'es_AR',
   phases: 4,
@@ -92,8 +92,8 @@ export const SERVICES: Record<
     consent: false,
   },
   'medicina-regenerativa': {
-    name: 'Medicina Regenerativa',
-    short: 'Plasma Rico en Plaquetas (PRP).',
+    name: 'Cosmetología Bioquímica Regenerativa',
+    short: 'Plasma autólogo, PRP y cosméticos personalizados con base bioquímica.',
     duration: 60,
     consent: true,
   },

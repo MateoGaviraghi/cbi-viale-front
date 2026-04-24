@@ -163,31 +163,32 @@ export const SERVICE_CONTENT: Record<ServiceSlug, ServiceContent> = {
   },
 
   'medicina-regenerativa': {
-    eyebrow: 'Medicina regenerativa · Plasma rico en plaquetas',
+    eyebrow: 'Cosmetología bioquímica · Plasma autólogo y formulaciones personalizadas',
     intro:
-      'Preparación y aplicación de PRP (Plasma Rico en Plaquetas) para tratamientos traumatológicos, estéticos y odontológicos.',
+      'Aplicamos principios bioquímicos al cuidado de la piel y la regeneración tisular: plasma autólogo (PRP), cosméticos formulados individualmente y protocolos con base científica.',
     description: [
-      'El Plasma Rico en Plaquetas es un procedimiento donde extraemos sangre del paciente, centrifugamos para concentrar las plaquetas y obtenemos un concentrado autólogo rico en factores de crecimiento.',
-      'Ese concentrado se utiliza para acelerar la reparación tisular en lesiones musculares, articulares, tendinosas y en tratamientos de regeneración capilar o dérmica.',
-      'En CBI preparamos el PRP con equipamiento calibrado y protocolos sanitarios estrictos. La extracción y el procesamiento se realizan el mismo día que la aplicación por parte del médico tratante.',
+      'La cosmetología bioquímica regenerativa integra el conocimiento bioquímico con el cuidado de la piel. Cada formulación se realiza de manera individual, con selección de activos y ajuste de concentraciones según las necesidades específicas de cada paciente.',
+      'El plasma autólogo (PRP) es el componente central: concentramos plaquetas de la propia sangre del paciente para liberar factores de crecimiento que estimulan la regeneración tisular. Este principio no solo tiene aplicación estética, sino también en traumatología, odontología y oftalmología.',
+      'En CBI contamos con la especialización bioquímica necesaria para garantizar que cada procedimiento se realice con rigor científico, protocolos sanitarios estrictos y equipamiento calibrado.',
     ],
     analyses: [
+      'Plasma autólogo (PRP) facial y capilar',
       'PRP para traumatología (rodilla, hombro, codo)',
       'PRP para odontología e implantes',
-      'PRP para estética facial y capilar',
-      'PRP enriquecido con factores de crecimiento',
+      'Cosméticos personalizados con activos bioquímicos',
+      'Formulaciones con incorporación de plasma autólogo',
       'Perfil sanguíneo pre-procedimiento',
     ],
     audience:
-      'Pacientes derivados por médicos traumatólogos, odontólogos implantólogos, dermatólogos o médicos estéticos.',
+      'Personas que buscan un enfoque científico en el cuidado de la piel, y pacientes derivados por médicos traumatólogos, odontólogos, dermatólogos o médicos estéticos.',
     preparation: [
-      'Ayuno no requerido, sí hidratación abundante las 24 hs previas.',
-      'Suspender antiinflamatorios y aspirina 5 días antes (consultar con el médico).',
-      'Firmar consentimiento informado el día del procedimiento.',
-      'Traer orden médica con el protocolo específico.',
+      'Hidratación abundante las 24 hs previas al procedimiento con PRP.',
+      'Suspender antiinflamatorios y aspirina 5 días antes (consultar con el médico tratante).',
+      'Firmar consentimiento informado el día del turno.',
+      'Concurrir sin maquillaje ni cremas en la zona a tratar.',
     ],
     includes:
-      'Extracción, procesamiento por centrifugación, entrega del concentrado listo para aplicación en jeringa estéril, informe del procesamiento y asesoramiento al profesional tratante.',
+      'Evaluación inicial, extracción y procesamiento del plasma autólogo (cuando aplica), formulación personalizada de cosméticos según diagnóstico de piel, protocolo escrito del tratamiento y seguimiento post-procedimiento.',
   },
 
   genetica: {

@@ -9,6 +9,7 @@ import { SERVICES, CONTACT } from '@/lib/constants'
 import { Container } from '@/components/shared/Container'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { ServiceIcon } from './ServiceIcon'
+import { ServiceInquiryModal } from './ServiceInquiryModal'
 
 interface Props {
   slug: ServiceSlug
@@ -81,18 +82,19 @@ export function ServiceHero({ slug, eyebrow, intro }: Props) {
               className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <Link
-                href={`/turnos?servicio=${slug}`}
+                href={`/turnos/${slug}/fecha`}
                 className="tap-min inline-flex h-14 items-center justify-center gap-2 bg-gold-700 px-8 font-sans text-sm uppercase tracking-widest text-white transition-all duration-500 hover:bg-gold-800 hover:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
               >
                 Reservar turno
                 <ArrowRight width={16} height={16} strokeWidth={1.5} />
               </Link>
+              <ServiceInquiryModal serviceSlug={slug} />
               {CONTACT.whatsapp && (
                 <a
                   href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hola, quisiera consultar por ${svc.name}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="tap-min inline-flex h-14 items-center justify-center gap-2 border border-ink bg-transparent px-8 font-sans text-sm uppercase tracking-widest text-ink transition-colors duration-500 hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
+                  className="tap-min inline-flex h-14 items-center justify-center gap-2 border border-line bg-transparent px-8 font-sans text-sm uppercase tracking-widest text-ink transition-colors duration-500 hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
                 >
                   <MessageCircle width={16} height={16} strokeWidth={1.5} />
                   WhatsApp

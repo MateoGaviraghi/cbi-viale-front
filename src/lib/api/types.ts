@@ -39,6 +39,88 @@ export type FormType = 'CONTACT_GENERAL' | 'SERVICE_INQUIRY' | 'CONSENT' | 'CUST
 export type FormStatus = 'PENDING' | 'ANSWERED' | 'ARCHIVED'
 
 // ---------------------------------------------------------------------------
+//  DTOs de creación
+// ---------------------------------------------------------------------------
+
+export interface CreateAppointmentDto {
+  serviceSlug: string
+  /** ISO 8601 con timezone explícita, ej: "2026-05-10T09:00:00.000-03:00" */
+  date: string
+  patientName: string
+  patientDni: string
+  patientEmail: string
+  patientPhone: string
+  notes?: string
+  consentGiven?: boolean
+}
+
+export interface CreateSubmissionDto {
+  type: FormType
+  name: string
+  email: string
+  message: string
+  phone?: string
+  subject?: string
+  /** kebab-case slug del servicio. Requerido si type === 'SERVICE_INQUIRY'. */
+  serviceSlug?: string
+  extraData?: Record<string, unknown>
+}
+
+// ---------------------------------------------------------------------------
+//  Respuesta del endpoint de disponibilidad de turnos
+// ---------------------------------------------------------------------------
+
+export interface PublicAvailabilitySlot {
+  time: string // "HH:MM"
+}
+
+export interface PublicAvailabilityDay {
+  date: string // "YYYY-MM-DD"
+  slots: string[] // ["HH:MM", ...]
+}
+
+export interface PublicAvailabilityMonth {
+  serviceSlug: string
+  durationMinutes: number
+  month: string // "YYYY-MM"
+  days: PublicAvailabilityDay[]
+}
+
+// ---------------------------------------------------------------------------
+//  Entidades Appointment y FormSubmission
+// ---------------------------------------------------------------------------
+
+export interface Appointment {
+  id: string
+  serviceId: string
+  date: string // ISO 8601
+  patientName: string
+  patientDni: string
+  patientEmail: string
+  patientPhone: string
+  notes: string | null
+  consentGiven: boolean
+  status: AppointmentStatus
+  createdAt: string
+  updatedAt: string
+}
+
+export interface FormSubmission {
+  id: string
+  type: FormType
+  status: FormStatus
+  name: string
+  email: string
+  phone: string | null
+  subject: string | null
+  message: string
+  serviceId: string | null
+  extraData: Record<string, unknown> | null
+  createdAt: string
+  updatedAt: string
+}
+
+// ---------------------------------------------------------------------------
 //  Permisos granulares (User.permissions JSON en el back)
 // ---------------------------------------------------------------------------
 
