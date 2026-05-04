@@ -1,3 +1,4 @@
+import { Users, ClipboardCheck } from 'lucide-react'
 import { Container } from '@/components/shared/Container'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { FadeIn } from '@/components/shared/FadeIn'
@@ -30,13 +31,19 @@ export function ServiceDescription({ paragraphs, audience, includes }: Props) {
         <FadeIn delay={0.1}>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-line border border-line">
             <div className="bg-white p-8 md:p-10">
-              <p className="text-[11px] uppercase tracking-widest text-gold-700 mb-4">
+              <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-gold-700/30 bg-gold-50/60">
+                <Users size={18} strokeWidth={1.5} className="text-gold-700" />
+              </span>
+              <p className="text-[11px] uppercase tracking-widest text-gold-700 mb-3 mt-4">
                 ¿Para quién es?
               </p>
               <p className="text-ink-muted leading-relaxed">{audience}</p>
             </div>
             <div className="bg-white p-8 md:p-10">
-              <p className="text-[11px] uppercase tracking-widest text-gold-700 mb-4">
+              <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-gold-700/30 bg-gold-50/60">
+                <ClipboardCheck size={18} strokeWidth={1.5} className="text-gold-700" />
+              </span>
+              <p className="text-[11px] uppercase tracking-widest text-gold-700 mb-3 mt-4">
                 ¿Qué incluye?
               </p>
               <p className="text-ink-muted leading-relaxed">{includes}</p>
