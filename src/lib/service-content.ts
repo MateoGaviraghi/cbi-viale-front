@@ -158,12 +158,13 @@ export const SERVICE_CONTENT: Record<ServiceSlug, ServiceContent> = {
     audience:
       'Propietarios de pozos, municipios, industrias con efluentes, tambos, frigoríficos y desarrollos inmobiliarios.',
     preparation: [
-      'Retirar botellas esterilizadas en el laboratorio con 48 hs de anticipación.',
-      'Toma de muestra según protocolo entregado al retirar los envases.',
-      'Entregar en un plazo máximo de 24 hs desde la toma.',
+      'Descargar el instructivo correspondiente (agua o efluentes).',
+      'Utilizar un recipiente limpio (botella plástica o de vidrio).',
+      'Tomar la muestra según indicaciones del instructivo.',
+      'Entregar la muestra dentro de las 24 hs o según lo indicado.',
     ],
     includes:
-      'Envases esterilizados, procesamiento según norma, informe oficial apto para presentación ante organismos de contralor.',
+      'Procesamiento según norma, informe oficial apto para presentación ante organismos de contralor, asesoramiento si la muestra requiere envase esterilizado.',
   },
 
   'medicina-regenerativa': {
