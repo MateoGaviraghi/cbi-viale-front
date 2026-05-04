@@ -1,10 +1,10 @@
+import Image from 'next/image'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { SERVICE_CONTENT } from '@/lib/service-content'
+import { Container } from '@/components/shared/Container'
+import { GoldRule } from '@/components/shared/GoldRule'
+import { FadeIn } from '@/components/shared/FadeIn'
 import { ServiceHero } from '@/components/marketing/ServiceHero'
-import { ServiceDescription } from '@/components/marketing/ServiceDescription'
-import { ServiceShowcase } from '@/components/marketing/ServiceShowcase'
-import { AnalysisList } from '@/components/marketing/AnalysisList'
-import { PreparationSteps } from '@/components/marketing/PreparationSteps'
 import { RelatedServices } from '@/components/marketing/RelatedServices'
 import { FinalCTA } from '@/components/marketing/FinalCTA'
 
@@ -12,46 +12,282 @@ const SLUG = 'veterinaria' as const
 const C = SERVICE_CONTENT[SLUG]
 
 export const metadata = buildMetadata({
-  title: 'Veterinaria — Análisis veterinarios en Viale',
+  title: 'Veterinaria — Diagnóstico por derivación · CBI Viale',
   description: C.intro,
   path: `/servicios/${SLUG}`,
 })
 
-// Variante "split" con 3 highlights puntuales — refleja el trabajo en
-// conjunto con el veterinario tratante.
+// ---------------------------------------------------------------------------
+//  Perfiles diagnósticos
+// ---------------------------------------------------------------------------
+
+const PROFILES: { label: string; items: string[] }[] = [
+  {
+    label: 'Básico',
+    items: ['Hemograma completo', 'Bioquímica general (urea, creatinina, glucosa, enzimas)'],
+  },
+  {
+    label: 'Renal',
+    items: ['Urea', 'Creatinina', 'Fósforo', 'Ionograma'],
+  },
+  {
+    label: 'Hepático',
+    items: ['ALT (GPT)', 'FA', 'Bilirrubina', 'Albúmina'],
+  },
+  {
+    label: 'Pancreático',
+    items: ['Amilasa', 'Lipasa', 'Glucosa'],
+  },
+  {
+    label: 'Endocrino',
+    items: ['Perfil tiroideo', 'Perfil adrenal'],
+  },
+  {
+    label: 'Infeccioso · Serología',
+    items: ['Leptospirosis', 'Brucelosis', 'Ehrlichiosis', 'Toxoplasmosis'],
+  },
+  {
+    label: 'Digestivo',
+    items: ['Coprológico', 'Parasitológico'],
+  },
+  {
+    label: 'Microbiología',
+    items: ['Cultivos', 'Antibiograma'],
+  },
+  {
+    label: 'Reproductivo',
+    items: ['Progesterona', 'Citología vaginal'],
+  },
+  {
+    label: 'Geriátrico',
+    items: ['Perfil completo adaptado a edad'],
+  },
+]
+
+// ---------------------------------------------------------------------------
+//  Page
+// ---------------------------------------------------------------------------
+
 export default function Page() {
   return (
     <>
-      <ServiceHero slug={SLUG} eyebrow={C.eyebrow} intro={C.intro} />
-      <ServiceDescription
-        paragraphs={C.description}
-        audience={C.audience}
-        includes={C.includes}
-      />
+      <ServiceHero slug={SLUG} eyebrow={C.eyebrow} intro={C.intro} image="/servicios/veterinaria/hero.jpg" />
 
-      <ServiceShowcase
-        variant="split"
-        eyebrow="En conjunto con el veterinario"
-        headline="Diagnóstico que entiende a cada especie."
-        lead="Procesamos muestras caninas, felinas, equinas y de animales de producción con valores de referencia específicos. Trabajamos en equipo con el profesional tratante."
-        highlights={[
-          {
-            title: 'Valores por especie',
-            body: 'Cada informe se entrega con rangos de referencia específicos según la especie analizada.',
-          },
-          {
-            title: 'Derivación ágil',
-            body: 'Recibimos muestras por derivación desde la clínica veterinaria — logística rápida, resultados en tiempo breve.',
-          },
-          {
-            title: 'Consulta bioquímica',
-            body: 'Ante valores atípicos, el bioquímico está disponible para consulta interpretativa sin cargo.',
-          },
-        ]}
-      />
+      {/* Bloque posicionamiento */}
+      <section className="section border-b border-line">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-      <AnalysisList items={C.analyses} />
-      <PreparationSteps steps={C.preparation} />
+            <div className="lg:col-span-7 space-y-8">
+              <FadeIn>
+                <div className="flex items-center gap-4 mb-6">
+                  <GoldRule />
+                  <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                    Soporte diagnóstico
+                  </span>
+                </div>
+                <h2 className="font-serif text-4xl md:text-5xl tracking-tightest leading-tight text-ink">
+                  Soporte diagnóstico para el médico veterinario.
+                </h2>
+                <p className="mt-6 text-lg text-ink-muted leading-relaxed">
+                  Nuestra área veterinaria está orientada exclusivamente al procesamiento y análisis
+                  de muestras derivadas. Trabajamos en conjunto con el profesional tratante,
+                  brindando resultados confiables con valores de referencia específicos por especie.
+                </p>
+                <p className="mt-4 text-lg text-ink-muted leading-relaxed">
+                  Procesamos muestras con criterios de calidad equivalentes a la clínica humana,
+                  adaptando cada análisis a la especie.
+                </p>
+              </FadeIn>
+
+              {/* Callout: no extracción en animales */}
+              <FadeIn delay={0.06}>
+                <div className="border-l-4 border-gold-700 bg-gold-50/60 px-6 py-5">
+                  <p className="font-sans text-sm font-semibold uppercase tracking-widest text-gold-800 mb-1">
+                    Importante
+                  </p>
+                  <p className="text-base text-ink leading-relaxed">
+                    No realizamos toma de muestras en animales. Las muestras son recibidas por
+                    derivación veterinaria para su procesamiento en laboratorio.
+                  </p>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Imagen lateral */}
+            <div className="lg:col-span-5">
+              <FadeIn delay={0.1}>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-beige">
+                  <Image
+                    src="/servicios/veterinaria/tubos.jpg"
+                    alt="Muestras de laboratorio veterinario — CBI Viale"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                  />
+                </div>
+              </FadeIn>
+            </div>
+
+          </div>
+        </Container>
+      </section>
+
+      {/* Perfiles diagnósticos */}
+      <section className="section border-b border-line bg-beige/30">
+        <Container>
+          <FadeIn>
+            <div className="flex items-center gap-4 mb-4">
+              <GoldRule />
+              <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                Perfiles diagnósticos
+              </span>
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl tracking-tightest text-ink mb-3">
+              Perfiles diagnósticos veterinarios.
+            </h2>
+            <p className="text-lg text-ink-muted leading-relaxed max-w-2xl mb-12">
+              Organizamos los estudios en perfiles para facilitar la evaluación clínica y optimizar
+              la interpretación de resultados.
+            </p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-line">
+            {PROFILES.map((profile, i) => (
+              <FadeIn key={profile.label} delay={i * 0.04}>
+                <div className="bg-white p-6 h-full">
+                  <p className="font-sans text-[10px] uppercase tracking-widest text-gold-700 mb-3">
+                    {profile.label}
+                  </p>
+                  <ul className="space-y-1.5">
+                    {profile.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-ink-muted">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold-700/50" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Recepción de muestras */}
+      <section className="section border-b border-line">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+            {/* Imagen */}
+            <div className="lg:col-span-5 order-last lg:order-first">
+              <FadeIn>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-beige">
+                  <Image
+                    src="/servicios/veterinaria/cultivos.jpg"
+                    alt="Procesamiento de muestras en laboratorio — CBI Viale"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                  />
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Pasos */}
+            <div className="lg:col-span-7">
+              <FadeIn delay={0.06}>
+                <div className="flex items-center gap-4 mb-6">
+                  <GoldRule />
+                  <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                    Recepción de muestras
+                  </span>
+                </div>
+                <h2 className="font-serif text-4xl md:text-5xl tracking-tightest text-ink mb-3">
+                  Cómo trabajamos.
+                </h2>
+                <p className="text-lg text-ink-muted leading-relaxed mb-10">
+                  Recibimos muestras derivadas desde clínicas veterinarias o profesionales
+                  independientes, garantizando condiciones adecuadas de procesamiento y conservación.
+                </p>
+
+                <div className="space-y-8">
+                  {[
+                    {
+                      num: '01',
+                      title: 'Derivación',
+                      body: 'Las muestras deben ser remitidas por el médico veterinario tratante.',
+                    },
+                    {
+                      num: '02',
+                      title: 'Identificación',
+                      body: 'Rotular correctamente con datos del paciente, especie y estudio solicitado.',
+                    },
+                    {
+                      num: '03',
+                      title: 'Conservación',
+                      body: 'Mantener condiciones adecuadas según el tipo de muestra hasta su recepción.',
+                    },
+                  ].map((step) => (
+                    <div key={step.num} className="flex gap-6">
+                      <span className="font-serif text-2xl text-gold-700/40 leading-none pt-0.5 w-8 shrink-0">
+                        {step.num}
+                      </span>
+                      <div>
+                        <p className="font-sans text-[11px] uppercase tracking-widest text-ink mb-1">
+                          {step.title}
+                        </p>
+                        <p className="text-base text-ink-muted leading-relaxed">{step.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </FadeIn>
+            </div>
+
+          </div>
+        </Container>
+      </section>
+
+      {/* Informes */}
+      <section className="section border-b border-line bg-beige/30">
+        <Container>
+          <div className="max-w-3xl">
+            <FadeIn>
+              <div className="flex items-center gap-4 mb-6">
+                <GoldRule />
+                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                  Informes
+                </span>
+              </div>
+              <h2 className="font-serif text-4xl md:text-5xl tracking-tightest text-ink mb-6">
+                Informes claros y adaptados.
+              </h2>
+              <p className="text-lg text-ink-muted leading-relaxed">
+                Cada resultado se entrega con valores de referencia específicos por especie, junto
+                con la posibilidad de consulta bioquímica ante hallazgos relevantes.
+              </p>
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
+      {/* Tagline cierre */}
+      <section className="section border-b border-line">
+        <Container>
+          <FadeIn>
+            <blockquote className="border-l-2 border-gold-700 pl-8 max-w-2xl">
+              <p className="font-serif text-2xl md:text-3xl italic text-ink leading-relaxed">
+                Rigurosidad de laboratorio clínico aplicada al diagnóstico veterinario.
+              </p>
+              <footer className="mt-4 font-sans text-sm text-ink-muted">
+                — CBI Viale · Centro Bioquímico Integral
+              </footer>
+            </blockquote>
+          </FadeIn>
+        </Container>
+      </section>
+
       <RelatedServices currentSlug={SLUG} />
       <FinalCTA />
 
@@ -62,7 +298,7 @@ export default function Page() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'MedicalProcedure',
-            name: 'Veterinaria',
+            name: 'Veterinaria — Diagnóstico por derivación',
             description: C.intro,
           }),
         }}

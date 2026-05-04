@@ -1,22 +1,27 @@
+import type React from 'react'
 import { Container } from '@/components/shared/Container'
 import { SectionHeading } from '@/components/shared/SectionHeading'
 import { FadeIn } from '@/components/shared/FadeIn'
 
 interface Props {
   steps: string[]
+  eyebrow?: string
+  title?: React.ReactNode
 }
 
 // Lista editorial de pasos de preparación — cada paso es una fila con número mono.
-export function PreparationSteps({ steps }: Props) {
+export function PreparationSteps({ steps, eyebrow, title }: Props) {
   return (
     <section className="section">
       <Container>
         <SectionHeading
-          eyebrow="Cómo prepararse"
+          eyebrow={eyebrow ?? 'Cómo prepararse'}
           title={
-            <>
-              Antes de tu <span className="italic text-gold-800">turno</span>.
-            </>
+            title ?? (
+              <>
+                Antes de tu <span className="italic text-gold-800">turno</span>.
+              </>
+            )
           }
         />
 

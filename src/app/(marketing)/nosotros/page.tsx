@@ -1,5 +1,6 @@
 import { buildMetadata } from '@/lib/seo/metadata'
 import { ProfilePhoto } from './ProfilePhoto'
+import { GonzaloPhoto } from './GonzaloPhoto'
 import { Container } from '@/components/shared/Container'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { FadeIn } from '@/components/shared/FadeIn'
@@ -177,6 +178,67 @@ export default function NosotrosPage() {
                 </blockquote>
               </FadeIn>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Perfil Gonzalo Alvarez */}
+      <section className="section border-b border-line">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+            {/* Card de perfil */}
+            <div className="lg:col-span-4">
+              <FadeIn>
+                <div className="bg-beige/50 border border-line overflow-hidden sticky top-24">
+
+                  <GonzaloPhoto />
+
+                  {/* Contenido de la card */}
+                  <div className="p-8">
+                    <div className="flex items-center gap-3 mb-5">
+                      <GoldRule />
+                      <span className="font-sans text-[10px] uppercase tracking-widest text-gold-700">
+                        Equipo
+                      </span>
+                    </div>
+
+                    <h2 className="font-serif text-3xl tracking-tightest text-ink">
+                      Gonzalo Alvarez
+                    </h2>
+                    <p className="mt-1 font-sans text-sm text-gold-800">
+                      Bioquímico · MP 1178
+                    </p>
+
+                    <div className="mt-7 space-y-4 divide-y divide-line">
+                      <ProfileRow label="Especialización" value="Genética · Estudios de filiación y ADN" />
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Bio */}
+            <div className="lg:col-span-8">
+              <FadeIn delay={0.08}>
+                <div className="flex items-center gap-4 mb-10">
+                  <GoldRule />
+                  <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                    Sobre el equipo
+                  </span>
+                </div>
+
+                <div className="space-y-6 text-ink-muted leading-relaxed text-lg">
+                  <p>
+                    Gonzalo forma parte del equipo de CBI Viale con especialización en estudios
+                    genéticos de filiación y análisis de ADN. Su participación garantiza el
+                    respaldo profesional y técnico en los estudios de paternidad y diagnóstico
+                    genético que ofrecemos.
+                  </p>
+                </div>
+              </FadeIn>
+            </div>
+
           </div>
         </Container>
       </section>

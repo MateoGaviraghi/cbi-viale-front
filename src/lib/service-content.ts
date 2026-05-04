@@ -77,42 +77,46 @@ export const SERVICE_CONTENT: Record<ServiceSlug, ServiceContent> = {
   },
 
   veterinaria: {
-    eyebrow: 'Análisis veterinarios · Salud y nutrición animal',
+    eyebrow: 'Laboratorio veterinario · Diagnóstico por derivación',
     intro:
-      'Estudios de laboratorio para perros, gatos, equinos y animales de producción. Trabajamos en conjunto con el veterinario tratante.',
+      'Estudios de laboratorio para pequeños y grandes animales, realizados a partir de muestras derivadas por el médico veterinario.',
     description: [
-      'Nuestra área veterinaria brinda apoyo diagnóstico al médico veterinario con la misma rigurosidad que usamos en clínica humana. Cubrimos desde hemogramas de rutina hasta perfiles específicos por especie.',
-      'Recibimos muestras por derivación o toma directa en el laboratorio. Los resultados se entregan con valores de referencia por especie.',
+      'Nuestra área veterinaria está orientada exclusivamente al procesamiento y análisis de muestras derivadas. Trabajamos en conjunto con el profesional tratante, brindando resultados confiables con valores de referencia específicos por especie.',
+      'Procesamos muestras con criterios de calidad equivalentes a la clínica humana, adaptando cada análisis a la especie. Rigurosidad de laboratorio clínico aplicada al diagnóstico veterinario.',
     ],
     analyses: [
       'Hemograma completo por especie',
-      'Perfil bioquímico general (hepático, renal, glucosa)',
-      'Perfil tiroideo y endocrinológico',
-      'Análisis de orina y sedimento',
+      'Perfil bioquímico sérico (urea, creatinina, glucosa, enzimas)',
+      'Perfil renal (urea, creatinina, fósforo, ionograma)',
+      'Perfil hepático (ALT/GPT, FA, bilirrubina, albúmina)',
+      'Perfil pancreático (amilasa, lipasa, glucosa)',
+      'Perfil endocrino (tiroideo, adrenal)',
+      'Serología (Leptospirosis, Brucelosis, Ehrlichiosis, Toxoplasmosis)',
       'Coprológico y parasitológico',
-      'Serología: leptospirosis, brucelosis, erlichiosis',
-      'Test de gestación',
-      'Cultivos microbiológicos y antibiograma',
-      'Citología de derrames y punciones',
+      'Cultivos y antibiograma',
+      'Progesterona y citología vaginal',
+      'Análisis de orina completo',
+      'Perfil geriátrico completo adaptado a edad',
     ],
     audience:
-      'Veterinarios que requieren apoyo diagnóstico y tutores que buscan controles preventivos de sus animales.',
+      'Médicos veterinarios y clínicas veterinarias que requieran derivación de muestras para procesamiento en laboratorio.',
     preparation: [
-      'Para animales pequeños: ayuno de 8 hs si el estudio lo requiere.',
-      'Coordinar horario de extracción con anticipación — minimiza el estrés del animal.',
-      'Traer carnet sanitario o historia clínica disponible.',
+      'Las muestras son recibidas por derivación — no realizamos extracción en animales.',
+      'Rotular correctamente: especie, nombre del paciente, médico veterinario y estudio solicitado.',
+      'Mantener condiciones de conservación adecuadas según el tipo de muestra.',
+      'Para consultas o envíos: contactar al laboratorio con anticipación.',
     ],
     includes:
-      'Toma de muestra o recepción de muestra derivada, informe con valores de referencia por especie, consulta con el bioquímico si hay dudas interpretativas.',
+      'Procesamiento de muestra, informe con valores de referencia específicos por especie, posibilidad de consulta bioquímica ante hallazgos relevantes.',
   },
 
   'agro-alimentos': {
-    eyebrow: 'Análisis agroalimentario · Calidad y nutrición',
+    eyebrow: 'Análisis agroalimentarios · Calidad y nutrición',
     intro:
-      'Análisis microbiológicos y bromatológicos de alimentos balanceados, materias primas, forrajes, harinas y productos terminados.',
+      'Evaluamos la calidad microbiológica, bromatológica y nutricional de materias primas, alimentos balanceados, forrajes, harinas y productos terminados, acompañando a productores e industrias en el control sanitario y la toma de decisiones.',
     description: [
       'Para productores, industrias y distribuidores — evaluamos composición nutricional, carga microbiana y calidad sanitaria de cada lote. Cumplimos con parámetros del Código Alimentario Argentino y estándares internacionales.',
-      'Tiempo de respuesta promedio de 5 a 10 días hábiles según el análisis. Los informes incluyen recomendaciones interpretativas.',
+      'Tiempo de respuesta promedio de 5 a 10 días hábiles según el análisis. Los informes incluyen valores medidos vs. referencia legal y recomendaciones interpretativas.',
     ],
     analyses: [
       'Análisis proximal (humedad, proteína, grasa, fibra, cenizas)',
@@ -194,28 +198,29 @@ export const SERVICE_CONTENT: Record<ServiceSlug, ServiceContent> = {
   genetica: {
     eyebrow: 'Análisis genéticos · Paternidad y filiación',
     intro:
-      'Estudios de ADN para determinación de paternidad, filiación y parentesco con validez legal y confidencialidad absoluta.',
+      'Estudios de ADN para determinación de paternidad y filiación con certeza mayor al 99,99 %, exclusión 100 % certera y confidencialidad absoluta.',
     description: [
-      'El estudio de paternidad por ADN compara marcadores genéticos entre los involucrados para establecer con certeza mayor al 99,999% la existencia (o exclusión) del vínculo biológico.',
-      'Realizamos tanto estudios con validez judicial (cadena de custodia, presencia de testigo) como estudios privados e informativos.',
+      'El estudio de filiación por ADN determina con una certeza mayor al 99,99 % el vínculo biológico de paternidad entre el presunto padre y el hijo/a. La exclusión es 100 % certera.',
+      'El informe es estrictamente confidencial: se entrega únicamente a las partes involucradas o debidamente autorizadas. El estudio tiene un costo de $480.000, abonables en hasta 3 cuotas sin interés en efectivo o transferencia (presupuesto válido por 15 días).',
     ],
     analyses: [
-      'Paternidad padre-hijo/a',
-      'Paternidad prenatal no invasiva',
+      'Filiación paternidad padre-hijo/a',
       'Maternidad biológica',
       'Parentesco entre hermanos',
       'Estudios de filiación post-mortem',
       'Identificación genética individual',
     ],
     audience:
-      'Particulares, abogados, juzgados y organismos estatales que requieran establecer filiación biológica.',
+      'Particulares, familias, abogados, juzgados y organismos estatales que requieran establecer filiación biológica con validez legal o informativa.',
     preparation: [
-      'Presentar documento de identidad original de cada participante.',
-      'En menores: acompañados por el adulto a cargo con documentación.',
-      'Para validez judicial: se coordina con el juzgado la cadena de custodia.',
-      'La muestra es un hisopado bucal — rápido e indoloro.',
+      'Avisar con anticipación para coordinar el turno.',
+      'Se extrae 3 mL de sangre de cada parte y se toma muestra de hisopado bucal — rápido e indoloro.',
+      'No requiere ayunas.',
+      'Horarios de toma de muestra: 7 a 13 hs y de 16 a 20 hs.',
+      'La madre y el presunto padre deben firmar el consentimiento informado.',
+      'Presentar documento de identidad original de cada participante. En menores: acompañados por el adulto a cargo con documentación.',
     ],
     includes:
-      'Toma de muestra de todos los participantes, procesamiento en laboratorio certificado, informe con validez legal o informativa según corresponda, confidencialidad total.',
+      'Toma de muestra de todos los participantes, procesamiento, informe con resultado y confidencialidad total. El informe se entrega únicamente a las partes involucradas o autorizadas.',
   },
 }

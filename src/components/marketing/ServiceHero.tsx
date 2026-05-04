@@ -15,9 +15,12 @@ interface Props {
   slug: ServiceSlug
   eyebrow: string
   intro: string
+  image?: string
+  ctaPrimaryLabel?: string
+  ctaConsultLabel?: string
 }
 
-export function ServiceHero({ slug, eyebrow, intro }: Props) {
+export function ServiceHero({ slug, eyebrow, intro, image, ctaPrimaryLabel, ctaConsultLabel }: Props) {
   const svc = SERVICES[slug]
 
   return (
@@ -85,10 +88,10 @@ export function ServiceHero({ slug, eyebrow, intro }: Props) {
                 href={`/turnos/${slug}/fecha`}
                 className="tap-min inline-flex h-14 items-center justify-center gap-2 bg-gold-700 px-8 font-sans text-sm uppercase tracking-widest text-white transition-all duration-500 hover:bg-gold-800 hover:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
               >
-                Reservar turno
+                {ctaPrimaryLabel ?? 'Reservar turno'}
                 <ArrowRight width={16} height={16} strokeWidth={1.5} />
               </Link>
-              <ServiceInquiryModal serviceSlug={slug} />
+              <ServiceInquiryModal serviceSlug={slug} label={ctaConsultLabel} />
               {CONTACT.whatsapp && (
                 <a
                   href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hola, quisiera consultar por ${svc.name}.`)}`}
@@ -131,27 +134,38 @@ export function ServiceHero({ slug, eyebrow, intro }: Props) {
               </div>
               <div className="absolute inset-x-6 top-12 h-px bg-gold/40" aria-hidden />
 
-              <div className="absolute inset-0 flex items-center justify-center">
-                <ServiceIcon slug={slug} size={180} strokeWidth={0.5} className="opacity-60" />
-              </div>
-
-              <div className="absolute right-[-40%] bottom-[-30%] opacity-20 pointer-events-none">
+              {image ? (
                 <Image
-                  src="/icon-adn-512.png"
-                  alt=""
-                  width={500}
-                  height={500}
-                  className="mix-blend-multiply"
+                  src={image}
+                  alt={`${SERVICES[slug].name} — CBI Viale`}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  priority
                 />
-              </div>
-
-              <div className="absolute inset-x-6 bottom-6">
-                <div className="mb-3 h-px bg-gold/40" aria-hidden />
-                <div className="flex items-center justify-between text-[10px] uppercase tracking-widest text-gold-800/70 font-sans">
-                  <span>[Foto del servicio — pendiente]</span>
-                  <span>CBI</span>
-                </div>
-              </div>
+              ) : (
+                <>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <ServiceIcon slug={slug} size={180} strokeWidth={0.5} className="opacity-60" />
+                  </div>
+                  <div className="absolute right-[-40%] bottom-[-30%] opacity-20 pointer-events-none">
+                    <Image
+                      src="/icon-adn-512.png"
+                      alt=""
+                      width={500}
+                      height={500}
+                      className="mix-blend-multiply"
+                    />
+                  </div>
+                  <div className="absolute inset-x-6 bottom-6">
+                    <div className="mb-3 h-px bg-gold/40" aria-hidden />
+                    <div className="flex items-center justify-between text-[10px] uppercase tracking-widest text-gold-800/70 font-sans">
+                      <span>[Foto del servicio — pendiente]</span>
+                      <span>CBI</span>
+                    </div>
+                  </div>
+                </>
+              )}
             </motion.div>
           </div>
         </div>

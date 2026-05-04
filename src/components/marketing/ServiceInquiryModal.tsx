@@ -23,9 +23,10 @@ type FormData = z.infer<typeof schema>
 
 interface Props {
   serviceSlug: ServiceSlug
+  label?: string
 }
 
-export function ServiceInquiryModal({ serviceSlug }: Props) {
+export function ServiceInquiryModal({ serviceSlug, label }: Props) {
   const [open, setOpen] = useState(false)
   const svc = SERVICES[serviceSlug]
 
@@ -60,7 +61,7 @@ export function ServiceInquiryModal({ serviceSlug }: Props) {
       <Dialog.Trigger asChild>
         <button className="tap-min inline-flex h-14 items-center justify-center gap-2 border border-line bg-transparent px-8 font-sans text-sm uppercase tracking-widest text-ink transition-colors duration-500 hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2">
           <MessageSquare width={16} height={16} strokeWidth={1.5} />
-          Consultar
+          {label ?? 'Consultar'}
         </button>
       </Dialog.Trigger>
 

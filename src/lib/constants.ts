@@ -79,7 +79,7 @@ export const SERVICES: Record<
     consent: false,
   },
   'agro-alimentos': {
-    name: 'Agro y Alimentos',
+    name: 'Análisis agroalimentarios',
     short:
       'Microbiológicos, composición de alimentos balanceados, nutrientes, calidad de materias primas.',
     duration: 45,
