@@ -1,52 +1,22 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { Container } from '@/components/shared/Container'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { Reveal } from '@/components/shared/Reveal'
 import { SplitText } from '@/components/shared/SplitText'
 import { StaggerGroup, StaggerItem } from '@/components/shared/StaggerGroup'
+import { AboutCarousel } from './AboutCarousel'
 
 export function AboutPreview() {
-  const ref = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const imageY = useTransform(scrollYProgress, [0, 1], ['-6%', '6%'])
-
   return (
-    <section ref={ref} className="section bg-beige/40 border-y border-line relative overflow-hidden">
+    <section className="section bg-beige/40 border-y border-line relative overflow-hidden">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          {/* Visual con parallax */}
+          {/* Carousel editorial — rota entre las áreas con foto */}
           <Reveal direction="left" duration={0.9} className="lg:col-span-5">
-            <div className="relative aspect-[4/5] w-full bg-white overflow-hidden border border-line">
-              <div className="absolute inset-x-6 top-6 flex items-center justify-between text-[10px] uppercase tracking-widest text-gold-800/70 font-sans">
-                <span>N° 02</span>
-                <span>Equipo · Nosotros</span>
-              </div>
-              <div className="absolute inset-x-6 top-12 h-px bg-gold/40" aria-hidden />
-
-              <motion.div style={{ y: imageY }} className="absolute inset-0 flex items-center justify-center">
-                <Image
-                  src="/icon-adn-512.png"
-                  alt=""
-                  width={320}
-                  height={320}
-                  className="w-[55%] opacity-60 mix-blend-multiply"
-                />
-              </motion.div>
-
-              <div className="absolute inset-x-6 bottom-6">
-                <div className="mb-3 h-px bg-gold/40" aria-hidden />
-                <div className="flex items-center justify-between text-[10px] uppercase tracking-widest text-gold-800/70 font-sans">
-                  <span>[Foto equipo real — pendiente]</span>
-                  <span>CBI</span>
-                </div>
-              </div>
-            </div>
+            <AboutCarousel />
           </Reveal>
 
           {/* Texto */}
@@ -84,10 +54,13 @@ export function AboutPreview() {
               </p>
             </Reveal>
 
+            {/* Solo datos verificables — el volumen real de análisis queda
+                pendiente del cliente. "+60 estudios" suma los catálogos
+                de las 6 áreas (24+12+7+7+6+5=61). */}
             <StaggerGroup stagger={0.12} className="mt-12 grid grid-cols-3 gap-x-4 md:gap-x-8 gap-y-8 border-t border-line pt-10">
               <Stat n="6" label="Áreas especializadas" />
-              <Stat n="10k+" label="Análisis realizados" />
-              <Stat n="100%" label="Obras sociales recibidas" />
+              <Stat n="+60" label="Estudios disponibles" />
+              <Stat n="Lun · Sáb" label="Atención presencial" />
             </StaggerGroup>
 
             <Reveal direction="up" delay={0.4}>

@@ -1,0 +1,173 @@
+==============================================================================
+PEDIDO DE INFORMACIÓN — HOME (página de inicio)
+CBI Viale  ·  cbiviale.com.ar
+==============================================================================
+
+Lo que YA quedó en la web:
+
+ • Hero con foto de la recepción + título principal
+ • Stats reales y verificables en el hero:
+     - 6 Áreas
+     - +60 Estudios (suma de los catálogos de las 6 áreas)
+     - Lun · Sáb (atención)
+     - 100% Viale · Entre Ríos
+ • Banda de beneficios CBI (todas las obras sociales / sin adicionales /
+   extracciones a domicilio)
+ • Grilla de los 6 servicios
+ • Sección "Acerca de CBI" con stats reales
+ • Sección de ubicación con mapa
+ • CTA final
+
+
+==============================================================================
+LO QUE SACAMOS POR NO SER REAL
+==============================================================================
+
+Para no mostrar números inventados sacamos del HERO y del bloque
+"Acerca de CBI" estos datos hasta que ustedes los confirmen:
+
+ ✗ "15+ Años" (estaba en el hero)
+ ✗ "10k+ Análisis" (estaba en el hero y en Acerca de CBI)
+
+Si ustedes nos pasan los datos REALES los volvemos a poner. Si no,
+quedan reemplazados por los datos verificables que listamos arriba.
+
+
+==============================================================================
+LO QUE NECESITAMOS PARA COMPLETAR LA HOME
+==============================================================================
+
+────────────────────────────────────────────────────────────────────────
+1) DATOS PARA STATS REALES  (alto impacto — refuerza confianza)
+────────────────────────────────────────────────────────────────────────
+
+Si tienen estos datos, los podemos sumar a las stats del hero
+y de "Acerca de CBI":
+
+ [ ] AÑOS DE TRAYECTORIA
+     ¿Desde cuándo está abierto CBI Viale? (año exacto)
+     → Calculamos automáticamente el "X+ años de servicio"
+
+ [ ] VOLUMEN DE ANÁLISIS REALIZADOS
+     Aproximado al mes o al año (ej: "más de 500 análisis al mes" /
+     "más de 6.000 análisis al año"). No tiene que ser exacto, una
+     cifra honesta y conservadora alcanza.
+     (NOTA: hoy mostramos "+60 Estudios" como cantidad de TIPOS de
+     análisis del catálogo, no de análisis realizados — son cosas
+     distintas; ambas pueden convivir.)
+
+ [ ] CANTIDAD DE PACIENTES atendidos
+     Si lo manejan — sirve más que el número de análisis a veces
+
+ [ ] CANTIDAD DE OBRAS SOCIALES con las que trabajan
+     Hoy decimos "100%" pero si son 30 / 40 / 50 obras puntuales,
+     el número exacto pega más fuerte
+
+ [ ] CANTIDAD DE PROFESIONALES en el equipo
+     Bioquímicos + técnicos + administrativos
+
+
+────────────────────────────────────────────────────────────────────────
+2) ACERCA DE CBI · TEXTO Y CAROUSEL  (lo que mencionaste)
+────────────────────────────────────────────────────────────────────────
+
+Hoy el bloque "Acerca de CBI" tiene un texto genérico y un placeholder
+de imagen "[Foto equipo real — pendiente]". Para mejorarlo:
+
+ [ ] HISTORIA REAL del laboratorio (3-4 líneas)
+     - Año de apertura
+     - Quién lo fundó
+     - Algún hito importante (mudanza, ampliación, incorporación
+       de algún área, etc.)
+     - Qué los diferencia de otros laboratorios de la zona
+
+ [✓] FOTOS PARA EL CAROUSEL  — YA HECHO
+     El carousel ya está armado con 8 slides:
+       1. Recepción
+       2. Sala de espera
+       3. Atención al paciente
+       4. Identidad CBI
+       5. Clínica humana
+       6. Veterinaria
+       7. Ambiental
+       8. Medicina regenerativa
+
+     SI QUIEREN AGREGAR / REEMPLAZAR FOTOS:
+     · Mandarlas en JPG (no HEIC — el navegador no lo soporta nativamente)
+     · Formato sugerido: vertical o cuadrado, 1080x1350 o más
+     · Pendientes: foto representativa de Agro-alimentos y de Genética
+       (esos servicios todavía no tienen foto propia en su carpeta)
+
+
+────────────────────────────────────────────────────────────────────────
+3) BENEFICIOS CBI  (la franja con los 3 cards)
+────────────────────────────────────────────────────────────────────────
+
+Hoy decimos:
+ · Todas las obras sociales
+ · Sin cobro de adicionales
+ · Extracciones a domicilio (con detalle "coordinamos por WhatsApp")
+
+ [ ] EXTRACCIONES A DOMICILIO — necesitamos:
+     - Zona de cobertura concreta (Viale + cuántos km a la redonda)
+     - Si tiene costo o es gratis para particulares
+     - Días/horarios disponibles para domicilio
+
+ [ ] ¿Hay algún OTRO BENEFICIO destacado que querrían sumar?
+     Ejemplos:
+     - Resultados online en X horas
+     - Atención inmediata sin turno previo (laboratorio abierto)
+     - Pago con tarjeta / cuotas
+     - Consulta bioquímica gratuita post-resultado
+     - Convenio con escuelas / clubes / empresas
+
+
+────────────────────────────────────────────────────────────────────────
+4) TESTIMONIOS  (opcional pero suma mucho)
+────────────────────────────────────────────────────────────────────────
+
+ [ ] 2 o 3 testimonios reales de pacientes
+     (con autorización para publicarlos, primer nombre + inicial
+     del apellido alcanza)
+
+     Tipo: "Atención impecable y resultados rápidos. Vengo desde hace
+     X años y siempre me sentí muy bien atendida. — María G."
+
+Si los tienen, podemos armar una sección nueva o sumarlos en el
+bloque "Acerca de CBI".
+
+
+────────────────────────────────────────────────────────────────────────
+5) MENSAJE DEL HERO  (revisión opcional)
+────────────────────────────────────────────────────────────────────────
+
+Hoy el subtítulo del hero dice:
+ "Rigor clínico y atención humana en el corazón de Viale.
+  Seis áreas, un mismo estándar."
+
+ [ ] ¿Querrían cambiarlo? Si tienen un slogan oficial o frase de
+     campaña, podemos usar esa.
+
+
+==============================================================================
+PRIORIDAD SUGERIDA
+==============================================================================
+
+  ALTA   → Fotos del carousel para "Acerca de CBI" (2) — son las que
+           más vacío dejan en la home
+
+  ALTA   → Año de apertura y volumen de análisis (1) — para volver
+           a mostrar stats numéricas reales en el hero
+
+  MEDIA  → Historia real para "Acerca de CBI" (2) +
+           Detalles de extracciones a domicilio (3)
+
+  BAJA   → Beneficios extra (3) +
+           Testimonios (4) +
+           Revisión del slogan del hero (5)
+
+==============================================================================
+NOTA: la home funciona perfecto como está, solo que con los datos
+verificables más conservadores. Sumando los datos reales arriba pasa
+de "ok" a "vendedora" en serio.
+==============================================================================

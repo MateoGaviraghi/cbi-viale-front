@@ -1,0 +1,178 @@
+==============================================================================
+PEDIDO DE INFORMACIÓN — PÁGINA DE AMBIENTAL
+CBI Viale  ·  cbiviale.com.ar/servicios/ambiental
+==============================================================================
+
+Lo que YA quedó en la web (lo que ustedes nos pasaron):
+
+ • Hero con foto del pH-metro
+ • Catálogo de 7 estudios (físico-químico, bacteriológico,
+   dureza/pH/conductividad, nitratos/nitritos, metales pesados,
+   DBO/DQO, sólidos)
+ • Foto editorial del laboratorio en el catálogo
+ • Sección "Toma de muestra correcta" con la estructura que pasaron:
+     - 2 botones de descarga (Agua / Efluentes)
+     - Aviso clave sobre representatividad
+     - Bloque "Antes de tu turno" — 4 pasos generales
+     - Nota: "No es necesario que el envase sea estéril..."
+     - Botón Consultar por WhatsApp
+ • Foto vertical en el bloque de toma de muestra
+
+
+==============================================================================
+LO QUE FALTA PARA TERMINAR DE COMPLETAR LA PÁGINA
+==============================================================================
+
+────────────────────────────────────────────────────────────────────────
+1) PDFs de los INSTRUCTIVOS  (URGENTE — bloqueante)
+────────────────────────────────────────────────────────────────────────
+
+Los botones "Descargar instructivo Agua" y "Descargar instructivo
+Efluentes" necesitan PDFs reales para descargar. Sin esto, los
+botones existen pero no descargan nada.
+
+ [ ] PDF del instructivo de AGUA
+     (ya lo tienen armado — el de "Indicaciones para la toma de
+     muestra: Agua" con la firma de Dra. Gastaldi y Dr. Alvarez)
+     → enviar el archivo PDF para subirlo a la web
+
+ [ ] PDF del instructivo de EFLUENTES
+     (con el mismo formato y firmado por los profesionales)
+
+
+==============================================================================
+LO QUE RECOMENDAMOS SUMAR PARA HACERLA MÁS COMPLETA  (opcional)
+==============================================================================
+
+────────────────────────────────────────────────────────────────────────
+2) HABILITACIONES Y RESPALDO LEGAL  (alto impacto en confianza)
+────────────────────────────────────────────────────────────────────────
+
+Esta es la categoría donde más diferencia hace mostrar respaldo —
+los clientes ambientales (industrias, municipios, productores) eligen
+laboratorio por la validez del informe ante organismos de contralor.
+
+ [ ] ¿Están REGISTRADOS / HABILITADOS por algún organismo provincial
+     o nacional? (Secretaría de Ambiente de Entre Ríos, ENRESS,
+     municipios) — listar habilitaciones con número de registro
+
+ [ ] ¿Tienen alguna NORMA ISO acreditada? (ISO 17025 — laboratorios
+     de ensayo, ISO 9001, etc.)
+
+ [ ] ¿Forman parte de algún PROGRAMA DE EVALUACIÓN EXTERNA DE CALIDAD
+     (PEEC) para análisis ambientales?
+
+
+────────────────────────────────────────────────────────────────────────
+3) NORMATIVAS DE REFERENCIA  (especificar cuáles usan)
+────────────────────────────────────────────────────────────────────────
+
+La página dice "según Código Alimentario Argentino y normativas
+provinciales" pero conviene ser específicos:
+
+ [ ] Código Alimentario Argentino (CAA) — capítulos exactos
+     (XII Bebidas Hídricas, etc.)
+
+ [ ] Normativa provincial de Entre Ríos para agua potable y efluentes
+     (¿Decreto / Resolución específica?)
+
+ [ ] Para efluentes: ¿siguen alguna resolución específica de vertido
+     a curso de agua / red cloacal? (ej. Res. ENRESS XXX/XX)
+
+
+────────────────────────────────────────────────────────────────────────
+4) TIEMPOS DE ENTREGA  (info que falta y la gente pregunta)
+────────────────────────────────────────────────────────────────────────
+
+ [ ] Tiempo estimado de informe por tipo de análisis:
+     - Físico-químico básico — _____ días hábiles
+     - Bacteriológico — _____ días hábiles
+     - Metales pesados — _____ días hábiles
+     - DBO5 / DQO — _____ días hábiles
+     - Análisis completo de pozo — _____ días hábiles
+
+ [ ] ¿Hay servicio URGENTE? Costo adicional / criterios
+
+
+────────────────────────────────────────────────────────────────────────
+5) LOGÍSTICA DE LA MUESTRA  (resuelve el "¿cómo lo hago?")
+────────────────────────────────────────────────────────────────────────
+
+ [ ] ¿VAN A TOMAR LA MUESTRA ustedes a campo? (esto es enorme para
+     industrias y tambos que no quieren manejar la cadena de custodia)
+     - Zona de cobertura (Viale + cuántos km a la redonda)
+     - Costo del muestreo a domicilio
+
+ [ ] ¿PROVEEN envases estériles para el cliente?
+
+ [ ] ¿CADENA DE CUSTODIA documentada?
+     (crítico para presentación legal — si lo hacen, mencionarlo
+     porque es un diferencial fuerte)
+
+
+────────────────────────────────────────────────────────────────────────
+6) ANÁLISIS QUE PODRÍAN SUMAR AL CATÁLOGO
+────────────────────────────────────────────────────────────────────────
+
+Avisar si realizan también (son demanda alta en zona agrícola):
+
+ [ ] Residuos de PLAGUICIDAS / HERBICIDAS (glifosato, atrazina, 2,4-D)
+ [ ] CIANOTOXINAS / cianobacterias en aguas superficiales
+ [ ] Análisis ISOTÓPICO (origen del agua de pozo)
+ [ ] Microbiología de aguas RECREATIVAS (piletas, balnearios)
+ [ ] Aceites y grasas en efluentes
+ [ ] Hidrocarburos totales (TPH)
+ [ ] Análisis de SEDIMENTOS o suelos contaminados
+
+
+────────────────────────────────────────────────────────────────────────
+7) FOTOS ADICIONALES  (la página tiene 3, sumaría más)
+────────────────────────────────────────────────────────────────────────
+
+ [ ] Foto del bioquímico TOMANDO MUESTRA en campo
+     (pozo, río, planta) — vale oro para la sección de toma de muestra
+
+ [ ] Foto del CROMATÓGRAFO o espectrofotómetro principal
+     (transmite capacidad técnica)
+
+ [ ] Foto de un INFORME OFICIAL CBI con sello y firma
+     (sin datos confidenciales — solo cabecera y formato)
+
+
+────────────────────────────────────────────────────────────────────────
+8) PRECIOS / COTIZACIÓN  (criterio de transparencia)
+────────────────────────────────────────────────────────────────────────
+
+ [ ] ¿Tienen un PANEL básico de pozo con precio fijo?
+     (ej. "Análisis básico de pozo domiciliario — $XX.XXX,
+     incluye bacteriológico + físico-químico + nitratos")
+
+ [ ] ¿Cotización por análisis individual? Indicar rango orientativo
+     o "consultar"
+
+ [ ] Política de DESCUENTO por volumen
+     (industrias con análisis mensual, tambos en convenio)
+
+
+==============================================================================
+PRIORIDAD SUGERIDA
+==============================================================================
+
+  CRÍTICA → PDFs de los instructivos (1) — sin esto los botones
+            de descarga no funcionan
+
+  ALTA    → Habilitaciones y respaldo legal (2) +
+            Tiempos de entrega (4) +
+            Logística de muestra/cadena de custodia (5)
+
+  MEDIA   → Normativas específicas (3) +
+            Análisis no listados que sí hacen (6)
+
+  BAJA    → Fotos adicionales (7) + Precios (8)
+
+==============================================================================
+NOTA: la sección "Toma de muestra correcta" ya quedó tal como la
+plantearon — solo falta cargar los 2 PDFs para que los botones
+descarguen. El resto de las recomendaciones son para llevar la
+página de "muy buena" a "referencia absoluta" en la región.
+==============================================================================

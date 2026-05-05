@@ -155,16 +155,17 @@ export function Hero() {
           </div>
 
           {/* Abajo: stats. En mobile sólo 3 (el último se oculta — evita overlap con el FAB de WhatsApp).
-              Padding derecho extra en mobile para dejar respirar al FAB. */}
+              Solo datos verificables — años de trayectoria y volumen real pendientes del cliente.
+              "+60 estudios" suma los catálogos de las 6 áreas (24+12+7+7+6+5=61). */}
           <StaggerGroup
             stagger={0.12}
             delay={1.9}
             whileInView={false}
             className="mt-auto flex items-end justify-between gap-6 md:gap-8 border-t border-white/20 pt-6 pr-20 md:pr-0"
           >
-            <StatInline n="15+" label="Años" />
-            <StatInline n="10k+" label="Análisis" />
             <StatInline n="6" label="Áreas" />
+            <StatInline n="+60" label="Estudios" />
+            <StatInline n="Lun · Sáb" label="Atención" />
             <div className="hidden sm:block">
               <StatInline n="100%" label="Viale · E.R." />
             </div>
