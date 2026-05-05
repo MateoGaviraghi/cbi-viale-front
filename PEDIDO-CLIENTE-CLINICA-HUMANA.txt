@@ -1,0 +1,144 @@
+==============================================================================
+PEDIDO DE INFORMACIÓN — PÁGINA DE CLÍNICA HUMANA
+CBI Viale  ·  cbiviale.com.ar/servicios/clinica-humana
+==============================================================================
+
+Lo que YA quedó en la web (lo que ustedes nos pasaron):
+
+ • 4 instructivos de toma de muestra completos:
+     - Urocultivo (chorro medio en adultos · al acecho en bebés)
+     - Micológico (piel, uñas, cuero cabelludo)
+     - Exudado vaginal
+     - Espermograma
+ • 5 fotos de laboratorio distribuidas en la página
+   (microscopio + pipeta · vertido de muestra · urocultivos ·
+    placa de Petri · centrífuga + tirilla)
+ • Catálogo de 10 categorías de estudios agrupando los ~24 análisis
+   declarados (rutina, hematología, lipídico, diabetes, hormonales,
+   vitamínico, renal, microbiología, serología, especiales)
+
+
+==============================================================================
+LO QUE NECESITAMOS DE USTEDES PARA TERMINAR DE COMPLETAR LA PÁGINA
+==============================================================================
+
+────────────────────────────────────────────────────────────────────────
+1) FOTOS ADICIONALES  (importante — las 5 que mandaron son horizontales)
+────────────────────────────────────────────────────────────────────────
+
+Necesitamos algunas fotos VERTICALES (formato celular en pie, retrato)
+para los espacios laterales de las secciones de instructivos y para
+banners editoriales. Sugerencias de qué fotografiar:
+
+ [ ] Bioquímico/a en pleno trabajo de extracción de sangre
+     (foto vertical, manos + brazo del paciente, sin mostrar rostro)
+ [ ] Tubo de ensayo o frasco rotulado en primer plano (vertical)
+ [ ] Sala de extracción / consultorio con detalles del entorno
+ [ ] Equipamiento principal (la centrífuga, el analizador hematológico,
+     el espectrofotómetro) — un equipo por foto, formato vertical
+ [ ] Detalle de manos enguantadas trabajando con micropipeta (vertical)
+ [ ] Foto general del laboratorio (puede ser horizontal — para hero)
+
+
+────────────────────────────────────────────────────────────────────────
+2) INSTRUCTIVOS DE TOMA DE MUESTRA QUE TODAVÍA NO TENEMOS
+────────────────────────────────────────────────────────────────────────
+
+Mandaron 4 (Urocultivo, Micológico, Exudado vaginal, Espermograma).
+Sugerimos sumar instructivos para los estudios más frecuentes:
+
+ [ ] Extracción de sangre con AYUNO (8–12 hs) — qué se puede tomar,
+     medicación, cuándo cancelar el turno
+ [ ] Curva de tolerancia oral a la glucosa (paso a paso, tiempos)
+ [ ] Recolección de orina de 24 hs (envase, conservación)
+ [ ] Coprocultivo / coproparasitológico (preparación, conservación)
+ [ ] Hisopado nasofaríngeo / faríngeo (si aplica)
+ [ ] Exudado vaginal y rectal en EMBARAZO — Strep grupo B
+     (semanas 35–37, indicaciones específicas)
+ [ ] Sangre oculta en materia fecal (preparación dietaria previa)
+ [ ] Cualquier otro estudio que tenga preparación particular
+
+
+────────────────────────────────────────────────────────────────────────
+3) DATOS OPERATIVOS QUE QUEREMOS MOSTRAR EN LA PÁGINA
+────────────────────────────────────────────────────────────────────────
+
+ [ ] TIEMPO DE ENTREGA promedio del informe
+     (ej: "24 / 48 hs hábiles" — diferenciado por tipo de estudio si aplica)
+
+ [ ] Listado de OBRAS SOCIALES que reciben (las principales que quieran
+     mostrar — IOSPER, OSDE, Swiss Medical, PAMI, etc.)
+
+ [ ] EXTRACCIONES A DOMICILIO:
+     - Zona de cobertura (Viale y alrededores, hasta dónde llegan)
+     - Costo / si es gratis para particulares con cierto monto
+     - Cómo coordinar (WhatsApp, teléfono)
+     - Si requieren aviso con cuánta antelación
+
+ [ ] ¿Tienen GUARDIA o servicio URGENTE? Días/horarios y cómo solicitarlo
+
+ [ ] ¿Resultados ONLINE? Si los pacientes pueden retirar el informe
+     por web/portal, dirección del portal y cómo acceder
+
+ [ ] Política de REPETICIÓN de muestras (si la muestra no sirvió,
+     se cobra de nuevo o no, en qué casos)
+
+
+────────────────────────────────────────────────────────────────────────
+4) EQUIPO BIOQUÍMICO  (quién firma los estudios)
+────────────────────────────────────────────────────────────────────────
+
+ [ ] Nombre completo y matrícula de cada profesional
+     - Dra. Nahir Gastaldi (MP 1179) — confirmado en los instructivos
+     - Dr. Gonzalo Alvarez (MP 1178) — confirmado en los instructivos
+     - ¿Hay más bioquímicos / personal técnico que quieran mostrar?
+
+ [ ] Una foto profesional de cada uno (opcional pero suma mucho)
+ [ ] Especialidad / formación destacada de cada uno
+     (posgrados, áreas en las que se especializan)
+
+
+────────────────────────────────────────────────────────────────────────
+5) CATÁLOGO DE ESTUDIOS — ¿QUEDÓ COMPLETO?
+────────────────────────────────────────────────────────────────────────
+
+Listamos 10 categorías que cubren ~24 análisis. Por favor revisar y
+avisar si falta algo o si hay estudios que NO realizan internamente:
+
+ [ ] ¿Hacen serología viral COMPLETA o derivan algunos?
+ [ ] ¿Procesan citologías / Papanicolaou?
+ [ ] ¿Hacen alergias (IgE específicas, RAST)?
+ [ ] ¿Hacen marcadores tumorales (PSA, CA-125, CA-19.9, AFP, CEA)?
+ [ ] ¿Procesan estudios de coagulación complejos (proteína C, S, factores)?
+ [ ] ¿Reciben muestras DERIVADAS de otros laboratorios?
+ [ ] Mencionar si hay algún estudio VEDETTE / poco común que ofrezcan
+     y otros laboratorios de la zona NO
+
+
+────────────────────────────────────────────────────────────────────────
+6) TEXTOS BREVES OPCIONALES PARA SUMAR PERSONALIDAD
+────────────────────────────────────────────────────────────────────────
+
+ [ ] Un párrafo (3–4 líneas) sobre la HISTORIA del laboratorio
+     (cuándo abrió, qué motivó la apertura, hito relevante)
+
+ [ ] 1 o 2 testimonios reales de pacientes
+     (con autorización para publicarlos, primer nombre + inicial del apellido)
+
+ [ ] ¿Tienen alguna ACREDITACIÓN o certificación de calidad
+     que quieran mostrar? (ISO, ConfeBioQ, Programa de Evaluación Externa
+     de Calidad — PEEC, etc.)
+
+
+==============================================================================
+PRIORIDAD SUGERIDA  (de más urgente a menos)
+==============================================================================
+
+  ALTA   → Fotos verticales (1) + Tiempos de entrega + Obras sociales (3)
+  MEDIA  → Instructivos faltantes (2) + Equipo bioquímico (4)
+  BAJA   → Catálogo extra (5) + Personalidad (6)
+
+==============================================================================
+Cualquier consulta sobre cómo entregar la información (formato, tamaño
+de fotos, etc.) escribir directamente al equipo de desarrollo.
+==============================================================================
