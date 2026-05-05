@@ -10,7 +10,7 @@ export function ProfilePhoto() {
     <div className="relative aspect-[4/5] w-full bg-beige">
       {!failed && (
         <Image
-          src="/equipo/nahir-gastaldi.jpg"
+          src="/nosotros/nahir.jpg"
           alt="Nahir Gastaldi — Bioquímica, CBI Viale"
           fill
           className="object-cover object-top"

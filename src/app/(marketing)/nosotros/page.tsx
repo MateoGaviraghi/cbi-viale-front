@@ -1,9 +1,12 @@
 import { buildMetadata } from '@/lib/seo/metadata'
 import { ProfilePhoto } from './ProfilePhoto'
 import { GonzaloPhoto } from './GonzaloPhoto'
+import { NosotrosHero } from './NosotrosHero'
+import { Timeline } from './Timeline'
 import { Container } from '@/components/shared/Container'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { FadeIn } from '@/components/shared/FadeIn'
+import { Reveal } from '@/components/shared/Reveal'
 import { FinalCTA } from '@/components/marketing/FinalCTA'
 
 export const metadata = buildMetadata({
@@ -13,48 +16,88 @@ export const metadata = buildMetadata({
   path: '/nosotros',
 })
 
+// ---------------------------------------------------------------------------
+//  Timeline de Nahir Gastaldi — orden cronológico de su trayectoria.
+//  Cada hito anima al entrar en viewport (stagger via Reveal).
+// ---------------------------------------------------------------------------
+
+const NAHIR_TIMELINE: { year: string; title: string; body: string }[] = [
+  {
+    year: '2019 – 2024',
+    title: 'Formación · Bioquímica',
+    body:
+      'Cursé la carrera entre 2019 y 2024 en la FBCB · UNL, completando prácticas y pasantías intensivas en el Hospital Cullen y el Sanatorio Santa Fe. Elegí transitar esta etapa de manera exigente — adquirí experiencia clínica real en poco tiempo.',
+  },
+  {
+    year: '2024',
+    title: 'Experiencia internacional',
+    body:
+      'Después de la cursada viajé a Estados Unidos. Una experiencia alejada del ámbito profesional pero clave: me dio independencia, disciplina y los recursos para concretar el proyecto personal de volver y crear mi propio espacio.',
+  },
+  {
+    year: 'Mayo 2025',
+    title: 'Título de Bioquímica',
+    body:
+      'Obtuve el título oficial en la FBCB · UNL. Cierre de un ciclo y arranque del próximo: regresar a Viale y dar el siguiente paso.',
+  },
+  {
+    year: '2025',
+    title: 'Fundación de CBI Viale',
+    body:
+      'Junto al equipo abrimos el Centro Bioquímico Integral en Viale, mi lugar de origen. Una apuesta por brindar un servicio de calidad en la comunidad donde crecí.',
+  },
+  {
+    year: 'En curso',
+    title: 'Especializaciones',
+    body:
+      'Continúo mi formación con orientación clínica: bioquímica endocrinológica (miembro SAEM — Sociedad Argentina de Endocrinología y Metabolismo), bacteriología clínica y cosmetología regenerativa.',
+  },
+  {
+    year: '2025',
+    title: 'Línea biológica',
+    body:
+      'Desarrollo de una línea de cosméticos personalizados (Sérum Biológico, Loción Capilar Biológica, Crema Biológica) formulada con plasma autólogo y activos seleccionados según cada piel.',
+  },
+]
+
+// ---------------------------------------------------------------------------
+//  Timeline de Gonzalo Álvarez — pendiente de info completa del cliente.
+// ---------------------------------------------------------------------------
+
+const GONZALO_TIMELINE: { year: string; title: string; body: string }[] = [
+  {
+    year: 'Actualidad',
+    title: 'Genética y filiación en CBI Viale',
+    body:
+      'Bioquímico (MP 1178). Especialización en estudios genéticos de filiación y análisis de ADN. Su participación garantiza el respaldo profesional y técnico en los estudios de paternidad y diagnóstico genético.',
+  },
+]
+
+// ---------------------------------------------------------------------------
+//  Page
+// ---------------------------------------------------------------------------
+
 export default function NosotrosPage() {
   return (
     <>
-      {/* Hero intro */}
-      <section className="section border-b border-line">
-        <Container>
-          <div className="max-w-3xl">
-            <FadeIn>
-              <div className="flex items-center gap-4 mb-8">
-                <GoldRule />
-                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
-                  El equipo
-                </span>
-              </div>
-              <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl tracking-tightest leading-[1.02] text-ink">
-                Un equipo humano.
-                <br />
-                <span className="italic text-gold-800">Un trabajo</span> preciso.
-              </h1>
-              <p className="mt-8 text-lg text-ink-muted leading-relaxed max-w-2xl">
-                Fundado en 2025 en Viale, Entre Ríos, CBI nació de la decisión de brindar un
-                servicio bioquímico de calidad en la comunidad. Ciencia, responsabilidad y
-                atención personalizada en cada análisis.
-              </p>
-            </FadeIn>
-          </div>
-        </Container>
-      </section>
+      {/* ============================================================
+          HERO — split editorial con texto a la izquierda y composición
+          de las dos fotos del equipo a la derecha (parallax sutil).
+          ============================================================ */}
+      <NosotrosHero />
 
-      {/* Perfil Nahir Gastaldi */}
+      {/* ============================================================
+          PERFIL · NAHIR GASTALDI — card sticky + timeline cronológico
+          ============================================================ */}
       <section className="section border-b border-line">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
-            {/* Card de perfil */}
+            {/* Card sticky de perfil */}
             <div className="lg:col-span-4">
               <FadeIn>
                 <div className="bg-beige/50 border border-line overflow-hidden sticky top-24">
-
                   <ProfilePhoto />
-
-                  {/* Contenido de la card */}
                   <div className="p-8">
                     <div className="flex items-center gap-3 mb-5">
                       <GoldRule />
@@ -62,14 +105,10 @@ export default function NosotrosPage() {
                         Fundadora
                       </span>
                     </div>
-
                     <h2 className="font-serif text-3xl tracking-tightest text-ink">
                       Nahir Gastaldi
                     </h2>
-                    <p className="mt-1 font-sans text-sm text-gold-800">
-                      Bioquímica
-                    </p>
-
+                    <p className="mt-1 font-sans text-sm text-gold-800">Bioquímica</p>
                     <div className="mt-7 space-y-4 divide-y divide-line">
                       <ProfileRow label="Título" value="Bioquímica — FBCB · UNL (2025)" />
                       <ProfileRow label="Especialización" value="Bioquímica endocrinológica" />
@@ -85,88 +124,32 @@ export default function NosotrosPage() {
               </FadeIn>
             </div>
 
-            {/* Bio */}
+            {/* Timeline cronológico */}
             <div className="lg:col-span-8">
-              <FadeIn delay={0.08}>
-                <div className="flex items-center gap-4 mb-10">
+              <FadeIn delay={0.06}>
+                <div className="flex items-center gap-4 mb-4">
                   <GoldRule />
                   <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
-                    Sobre mí
+                    Trayectoria
                   </span>
                 </div>
+                <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tightest text-ink mb-6">
+                  Mi <span className="italic text-gold-800">historia</span>.
+                </h3>
+                <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-2xl mb-12">
+                  Desde el inicio supe que quería dedicarme a las ciencias de la salud. Dudé entre
+                  medicina y bioquímica, y elegí este camino casi por azar — hoy puedo decir con
+                  total certeza que fue la decisión correcta.
+                </p>
+              </FadeIn>
 
-                <div className="space-y-6 text-ink-muted leading-relaxed text-lg">
-                  <p>
-                    Desde el inicio supe que quería dedicarme a las ciencias de la salud. Dudé
-                    entre medicina y bioquímica, y finalmente elegí este camino casi por
-                    azar… pero hoy puedo decir con total certeza que fue la decisión correcta.
-                  </p>
+              {/* Timeline scroll-linked: línea dorada con progress fill +
+                  cada item interpola opacity/translateY al scroll del bbox. */}
+              <Timeline items={NAHIR_TIMELINE} ringColor="ring-white" />
 
-                  <p>
-                    Durante mi formación descubrí una profunda vocación por el diagnóstico:
-                    entender qué ocurre en el cuerpo, interpretar procesos biológicos y, sobre
-                    todo, poder ayudar a las personas desde un enfoque científico y preciso.
-                  </p>
-
-                  <p>
-                    Cursé la carrera de Bioquímica entre 2019 y 2024, completando no solo la
-                    formación académica sino también prácticas y pasantías intensivas en el
-                    Hospital Cullen y el Sanatorio Santa Fe. Elegí transitar esta etapa de
-                    manera exigente, lo que me permitió adquirir experiencia clínica en un
-                    corto tiempo.
-                  </p>
-
-                  <p>
-                    Al finalizar, decidí dar un paso distinto: viajé al exterior y trabajé en
-                    Estados Unidos. Esta experiencia, aunque alejada del ámbito profesional, me
-                    permitió desarrollar independencia, disciplina y reunir los recursos
-                    necesarios para concretar mi proyecto personal: regresar, recibirme y crear
-                    mi propio espacio.
-                  </p>
-
-                  <p>
-                    En mayo de 2025 obtuve mi título y, poco tiempo después, junto a mi equipo,
-                    fundamos el laboratorio en Viale, mi lugar de origen. Este proyecto no solo
-                    representa un crecimiento profesional, sino también una apuesta por brindar
-                    un servicio de calidad en la comunidad donde crecí.
-                  </p>
-                </div>
-
-                {/* Especialización */}
-                <div className="mt-12 border-t border-line pt-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <GoldRule />
-                    <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
-                      Especialización
-                    </span>
-                  </div>
-                  <div className="space-y-6 text-ink-muted leading-relaxed text-lg">
-                    <p>
-                      Actualmente continúo mi formación con una fuerte orientación científica y
-                      clínica. Me especializo en bioquímica endocrinológica y soy miembro de la
-                      Sociedad Argentina de Endocrinología y Metabolismo (SAEM). Además, inicié
-                      la especialización en bacteriología clínica, consolidando un perfil
-                      integral dentro del laboratorio.
-                    </p>
-                    <p>
-                      Paralelamente, desarrollé mi formación en cosmetología profesional y
-                      bioquímica regenerativa, un área que me apasiona profundamente. Este
-                      enfoque permite aplicar principios científicos al cuidado de la piel y la
-                      regeneración tisular, utilizando herramientas como el plasma autólogo y
-                      formulaciones personalizadas.
-                    </p>
-                    <p>
-                      Recientemente desarrollé una línea de cosméticos personalizados basada en
-                      un enfoque bioquímico y regenerativo. Cada formulación se realiza de
-                      manera individual, con selección de activos y ajuste de concentraciones
-                      según las necesidades de cada piel, con la posibilidad de incorporar
-                      plasma autólogo como componente biológico propio.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Cita cierre */}
-                <blockquote className="mt-12 border-l-2 border-gold-700 pl-6">
+              {/* Cita de cierre */}
+              <Reveal direction="up" delay={0.1}>
+                <blockquote className="mt-16 border-l-2 border-gold-700 pl-6">
                   <p className="font-serif text-xl italic text-ink leading-relaxed">
                     &ldquo;Mi objetivo es claro: trabajar con precisión, responsabilidad y base
                     científica, ofreciendo soluciones reales y personalizadas, tanto en el
@@ -176,25 +159,24 @@ export default function NosotrosPage() {
                     — Nahir Gastaldi, Bioquímica · CBI Viale
                   </footer>
                 </blockquote>
-              </FadeIn>
+              </Reveal>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Perfil Gonzalo Alvarez */}
-      <section className="section border-b border-line">
+      {/* ============================================================
+          PERFIL · GONZALO ÁLVAREZ — misma estructura, timeline corto
+          (pendiente info completa del cliente).
+          ============================================================ */}
+      <section className="section border-b border-line bg-beige/30">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
-            {/* Card de perfil */}
             <div className="lg:col-span-4">
               <FadeIn>
-                <div className="bg-beige/50 border border-line overflow-hidden sticky top-24">
-
+                <div className="bg-white border border-line overflow-hidden sticky top-24">
                   <GonzaloPhoto />
-
-                  {/* Contenido de la card */}
                   <div className="p-8">
                     <div className="flex items-center gap-3 mb-5">
                       <GoldRule />
@@ -202,43 +184,42 @@ export default function NosotrosPage() {
                         Equipo
                       </span>
                     </div>
-
                     <h2 className="font-serif text-3xl tracking-tightest text-ink">
                       Gonzalo Alvarez
                     </h2>
                     <p className="mt-1 font-sans text-sm text-gold-800">
                       Bioquímico · MP 1178
                     </p>
-
                     <div className="mt-7 space-y-4 divide-y divide-line">
-                      <ProfileRow label="Especialización" value="Genética · Estudios de filiación y ADN" />
+                      <ProfileRow
+                        label="Especialización"
+                        value="Genética · Estudios de filiación y ADN"
+                      />
                     </div>
                   </div>
                 </div>
               </FadeIn>
             </div>
 
-            {/* Bio */}
             <div className="lg:col-span-8">
-              <FadeIn delay={0.08}>
-                <div className="flex items-center gap-4 mb-10">
+              <FadeIn delay={0.06}>
+                <div className="flex items-center gap-4 mb-4">
                   <GoldRule />
                   <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
-                    Sobre el equipo
+                    Trayectoria
                   </span>
                 </div>
-
-                <div className="space-y-6 text-ink-muted leading-relaxed text-lg">
-                  <p>
-                    Gonzalo forma parte del equipo de CBI Viale con especialización en estudios
-                    genéticos de filiación y análisis de ADN. Su participación garantiza el
-                    respaldo profesional y técnico en los estudios de paternidad y diagnóstico
-                    genético que ofrecemos.
-                  </p>
-                </div>
+                <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tightest text-ink mb-6">
+                  Sobre <span className="italic text-gold-800">Gonzalo</span>.
+                </h3>
+                <p className="text-base sm:text-lg text-ink-muted leading-relaxed max-w-2xl mb-12">
+                  Bioquímico con orientación específica en genética. Aporta el respaldo profesional
+                  y técnico de los estudios de filiación y análisis de ADN que ofrece CBI.
+                </p>
               </FadeIn>
-            </div>
 
+              <Timeline items={GONZALO_TIMELINE} ringColor="ring-beige/30" />
+            </div>
           </div>
         </Container>
       </section>

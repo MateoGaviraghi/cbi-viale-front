@@ -1,0 +1,153 @@
+==============================================================================
+PEDIDO DE INFORMACIÓN — PÁGINA NOSOTROS
+CBI Viale  ·  cbiviale.com.ar/nosotros
+==============================================================================
+
+Lo que YA quedó en la web:
+
+ • Hero rediseñado: split editorial con texto + composición de las
+   2 fotos del equipo (Nahir + Gonzalo) con parallax sutil al scroll
+ • Stats reales: 2 bioquímicos matriculados · 2025 año de fundación
+ • Sección de Nahir Gastaldi — TIMELINE cronológico con stagger
+   reveal al scroll (6 hitos):
+     1. 2019-2024 · Formación · Bioquímica
+     2. 2024 · Experiencia internacional (USA)
+     3. Mayo 2025 · Título de Bioquímica
+     4. 2025 · Fundación de CBI Viale
+     5. En curso · Especializaciones (SAEM, bacteriología, regenerativa)
+     6. 2025 · Lanzamiento de la línea biológica
+ • Card sticky con datos académicos (título, sociedad, prácticas)
+ • Cita de cierre de Nahir
+ • Sección de Gonzalo Alvarez — misma estructura, timeline más corto
+   (1 solo hito por falta de info)
+
+
+==============================================================================
+LO QUE FALTA / RECOMENDAMOS COMPLETAR
+==============================================================================
+
+────────────────────────────────────────────────────────────────────────
+1) FOTOS DEL EQUIPO  (URGENTE — bloqueante)
+────────────────────────────────────────────────────────────────────────
+
+Hoy las fotos muestran un placeholder con las iniciales (NG / GA)
+porque los archivos no existen. Necesitamos:
+
+ [ ] Foto profesional de NAHIR GASTALDI
+     - Vertical (3:4 o 4:5), retrato medio o plano americano
+     - Vestimenta de trabajo (ambo blanco o ropa profesional)
+     - Fondo neutro o del laboratorio
+     - Ubicación: subir a /public/equipo/nahir-gastaldi.jpg
+
+ [ ] Foto profesional de GONZALO ALVAREZ
+     - Mismo formato y criterio
+     - Ubicación: subir a /public/equipo/gonzalo-alvarez.jpg
+
+ [ ] OPCIONAL: foto de los dos JUNTOS para usar en el hero
+     - Sería una alternativa más editorial al split de 2 fotos
+     - Si la pasan, podemos elegir cuál opción queda mejor
+
+
+────────────────────────────────────────────────────────────────────────
+2) INFORMACIÓN DE GONZALO ALVAREZ  (URGENTE — el timeline está casi vacío)
+────────────────────────────────────────────────────────────────────────
+
+Hoy solo tenemos: nombre, MP 1178, especialización en genética. El
+timeline tiene UN solo hito genérico. Para que la sección quede
+equilibrada con la de Nahir necesitamos:
+
+ [ ] AÑO de obtención del título de Bioquímica + universidad
+ [ ] PRÁCTICAS / pasantías relevantes durante la cursada
+ [ ] EXPERIENCIA profesional previa a CBI
+     (laboratorios, hospitales, consultorías, etc.)
+ [ ] AÑO de incorporación a CBI Viale
+ [ ] FORMACIÓN específica en GENÉTICA y FILIACIÓN
+     - Cursos / posgrados realizados
+     - Año(s) de la formación
+ [ ] SOCIEDAD profesional a la que pertenece (si aplica)
+ [ ] CITA personal o frase que defina su enfoque
+     (similar a la de Nahir al final de su sección)
+ [ ] DATOS para enriquecer la card (especialización extra,
+     formación adicional, hitos)
+
+
+────────────────────────────────────────────────────────────────────────
+3) INFORMACIÓN ADICIONAL DE NAHIR  (opcional, complementa)
+────────────────────────────────────────────────────────────────────────
+
+La trayectoria está bien armada pero podríamos sumar:
+
+ [ ] CURSOS / posgrados específicos cursados después del título
+     (con año y institución para enriquecer el timeline)
+ [ ] PUBLICACIONES, presentaciones en congresos o disertaciones
+     (si tiene alguna)
+ [ ] PROYECTOS futuros o líneas de investigación abiertas
+ [ ] HOBBIES / aspecto personal que humanice el perfil
+     (algo breve que refleje quién es fuera del laboratorio)
+
+
+────────────────────────────────────────────────────────────────────────
+4) HEADERS / TÍTULOS DE SECCIÓN  (decisión editorial)
+────────────────────────────────────────────────────────────────────────
+
+Hoy usamos:
+ • Hero: "Un equipo humano. Un trabajo preciso."
+ • Sección Nahir: "Mi historia."
+ • Sección Gonzalo: "Sobre Gonzalo."
+ • Eyebrow general: "Trayectoria"
+
+¿Les gustaría cambiar alguno de estos? Algunas opciones alternativas:
+
+ [ ] Hero: "Personas detrás de la ciencia." / "Bioquímica con cara."
+ [ ] Sección Nahir: "El recorrido de Nahir." / "De Viale a Viale."
+ [ ] Sección Gonzalo: "El aporte de Gonzalo." / "Genética en CBI."
+ [ ] Una FRASE/MANIFIESTO institucional sobre CBI antes del hero
+     (3-4 líneas que resuman la filosofía del laboratorio)
+
+
+────────────────────────────────────────────────────────────────────────
+5) HISTORIA DEL LABORATORIO  (sería un plus muy lindo)
+────────────────────────────────────────────────────────────────────────
+
+Hoy la fundación aparece dentro del timeline personal de Nahir.
+Podríamos sumar una sección dedicada al CBI como institución:
+
+ [ ] Primer año del laboratorio: hitos importantes
+     - Cuándo abrieron las puertas
+     - Primer mes de funcionamiento
+     - Primer convenio con obra social
+     - Cuándo incorporaron cada área (clínica, ambiental, genética, etc.)
+ [ ] Ampliaciones futuras planeadas
+ [ ] Filosofía / valores como organización (no solo personal)
+
+
+────────────────────────────────────────────────────────────────────────
+6) MEMBRESÍAS, CERTIFICACIONES, AVALES  (suma confianza)
+────────────────────────────────────────────────────────────────────────
+
+ [ ] ¿Tienen logos o sellos de:
+     - Colegio de Bioquímicos de Entre Ríos (matrícula)
+     - Sociedad SAEM (de la que es miembro Nahir)
+     - Algún programa de evaluación externa de calidad
+     - ISO / acreditaciones técnicas
+ [ ] Si tienen, podemos sumar una franja de "Avales y respaldo"
+
+
+==============================================================================
+PRIORIDAD SUGERIDA
+==============================================================================
+
+  CRÍTICA → Fotos del equipo (1) — sin esto se ven los placeholders
+  CRÍTICA → Info completa de Gonzalo (2) — su sección está casi vacía
+
+  ALTA    → Headers / títulos definitivos (4) — confirmar o ajustar
+  ALTA    → Info adicional de Nahir (3) si tienen cursos o publicaciones
+
+  MEDIA   → Historia del laboratorio (5) — dedicarle sección propia
+  MEDIA   → Membresías y avales (6) — franja de confianza
+
+==============================================================================
+NOTA: la página ya tiene una estructura sólida con timeline animado
+y composición editorial. Sumando fotos reales + info de Gonzalo, pasa
+de "placeholder profesional" a "página vendedora" en serio.
+==============================================================================
