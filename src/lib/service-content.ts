@@ -168,11 +168,11 @@ export const SERVICE_CONTENT: Record<ServiceSlug, ServiceContent> = {
   },
 
   'medicina-regenerativa': {
-    eyebrow: 'Cosmetología bioquímica · Plasma autólogo y formulaciones personalizadas',
+    eyebrow: 'Medicina regenerativa · Plasma autólogo y formulaciones personalizadas',
     intro:
       'Aplicamos principios bioquímicos al cuidado de la piel y la regeneración tisular: plasma autólogo (PRP), cosméticos formulados individualmente y protocolos con base científica.',
     description: [
-      'La cosmetología bioquímica regenerativa integra el conocimiento bioquímico con el cuidado de la piel. Cada formulación se realiza de manera individual, con selección de activos y ajuste de concentraciones según las necesidades específicas de cada paciente.',
+      'La medicina regenerativa integra el conocimiento bioquímico con el cuidado de la piel y la regeneración tisular. Cada formulación se realiza de manera individual, con selección de activos y ajuste de concentraciones según las necesidades específicas de cada paciente.',
       'El plasma autólogo (PRP) es el componente central: concentramos plaquetas de la propia sangre del paciente para liberar factores de crecimiento que estimulan la regeneración tisular. Este principio no solo tiene aplicación estética, sino también en traumatología, odontología y oftalmología.',
       'En CBI contamos con la especialización bioquímica necesaria para garantizar que cada procedimiento se realice con rigor científico, protocolos sanitarios estrictos y equipamiento calibrado.',
     ],

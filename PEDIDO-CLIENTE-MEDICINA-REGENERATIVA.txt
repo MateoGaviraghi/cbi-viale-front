@@ -1,0 +1,169 @@
+==============================================================================
+PEDIDO DE INFORMACIÓN — PÁGINA DE MEDICINA REGENERATIVA
+CBI Viale  ·  cbiviale.com.ar/servicios/medicina-regenerativa
+==============================================================================
+
+Lo que YA quedó en la web (lo que ustedes nos pasaron):
+
+ • Hero con foto del Sérum Biológico
+ • Manifiesto con el eslogan "No todo el mundo necesita lo mismo.
+   Por eso no todo está hecho para todos."
+ • Línea Biológica con los 3 productos confirmados:
+     - Sérum Biológico (30 ml)
+     - Loción Capilar Biológica (30 ml)
+     - Crema Biológica (50 ml)
+ • Aplicaciones del PRP en 4 áreas (estética facial, capilar,
+   traumatología y deporte, odontología e implantes)
+ • Bloque de presentación premium (caja regalo + QR de beneficios)
+ • Pasos de preparación previa al turno
+ • Foto de extracción para PRP en la sección de aplicaciones
+
+
+==============================================================================
+LO QUE NECESITAMOS DE USTEDES PARA TERMINAR DE COMPLETAR LA PÁGINA
+==============================================================================
+
+────────────────────────────────────────────────────────────────────────
+1) FOTOS  (URGENTE — bloqueante)
+────────────────────────────────────────────────────────────────────────
+
+A) RE-EXPORTAR las 3 fotos en formato HEIC como JPG  (CRÍTICO)
+
+   Tenemos en la carpeta IMG_1114.HEIC, IMG_1254.HEIC, IMG_1256.HEIC
+   pero no se pueden mostrar en navegadores web. Son justo las fotos
+   más importantes de la línea biológica (caja regalo + trío de productos
+   con pétalos). Necesitamos que las re-exporten como JPG.
+
+   Cómo hacerlo desde iPhone:
+     · Abrir la foto en la app Fotos
+     · Compartir → Mail (o cualquier app)
+     · Te pregunta "¿Comprimir?" / formato — elegir "Más compatible" → JPG
+   O directamente:
+     · Configuración → Cámara → Formatos → "Más compatible"
+       (a partir de ahí todas las fotos nuevas salen en JPG)
+
+   La foto IMG_1256 (los 3 productos juntos con pétalos de rosa)
+   es CLAVE para reemplazar el placeholder visual de la sección "Línea
+   biológica" — esa foto es la mejor del set.
+
+B) FOTOS QUE SUMARÍAN MUCHO (recomendadas)
+
+ [ ] Foto vertical de la CAJA REGALO abierta con el moño dorado y los 2
+     productos visibles (ya tienen 2 — IMG_1114 y IMG_1254 — solo
+     re-exportarlas como JPG)
+ [ ] Detalle macro de UNA etiqueta personalizada con un nombre real
+     (con autorización del paciente) — refuerza el "creado para vos"
+ [ ] Procedimiento de PRP en cabina/consultorio:
+     - Centrífuga procesando los tubos con sangre
+     - Bioquímica preparando el plasma con guantes
+     - Aplicación facial / capilar (sin mostrar rostro del paciente)
+ [ ] Foto del setup completo de tratamiento (camilla, instrumental,
+     ambiente del consultorio)
+
+
+────────────────────────────────────────────────────────────────────────
+2) PRECIOS DE LA LÍNEA BIOLÓGICA  (importante para conversión)
+────────────────────────────────────────────────────────────────────────
+
+ [ ] Precio de cada producto individual:
+     - Sérum Biológico (30 ml) — $______
+     - Loción Capilar Biológica (30 ml) — $______
+     - Crema Biológica (50 ml) — $______
+
+ [ ] Precio del KIT (caja regalo con 2 o 3 productos juntos)
+
+ [ ] Precio de las sesiones de PRP por área:
+     - PRP facial (sesión / pack de 3) — $______
+     - PRP capilar (sesión / pack) — $______
+     - PRP traumatológico (por infiltración) — $______
+     - PRP odontológico (por sesión) — $______
+
+ [ ] ¿Aceptan tarjeta? ¿Cuotas sin interés? ¿Solo efectivo/transferencia?
+
+
+────────────────────────────────────────────────────────────────────────
+3) DETALLES DE PRODUCTO  (info que puede ir en cada card)
+────────────────────────────────────────────────────────────────────────
+
+Para cada producto de la línea biológica, querríamos:
+
+ [ ] Lista de ACTIVOS más comunes que incorporan
+     (ej: vitamina C, ácido hialurónico, niacinamida, péptidos, etc.)
+ [ ] DURACIÓN de uso recomendada (¿1 mes? ¿2 meses?)
+ [ ] FRECUENCIA de aplicación diaria
+ [ ] CONSERVACIÓN (¿requiere heladera? ¿temperatura ambiente?)
+ [ ] VIDA ÚTIL desde que se entrega
+ [ ] Si los activos se ELIGEN según diagnóstico de piel/cuero cabelludo,
+     ¿hay una consulta previa? ¿Cómo es ese proceso?
+
+
+────────────────────────────────────────────────────────────────────────
+4) PROTOCOLO DEL PRP  (el paso a paso del paciente)
+────────────────────────────────────────────────────────────────────────
+
+Estaría bueno mostrar el proceso completo en la página, paso a paso:
+
+ [ ] Cuántos ml de SANGRE se extraen por sesión
+ [ ] Cuántas sesiones recomiendan típicamente para cada área
+     (ej: facial → 3 sesiones espaciadas X semanas)
+ [ ] CADA CUÁNTO TIEMPO se repite el tratamiento de mantenimiento
+ [ ] TIEMPO total de cada sesión (extracción + procesamiento + aplicación)
+ [ ] Resultados ESPERADOS y a partir de cuándo se ven
+ [ ] ¿Hay POST-PROCEDIMIENTO específico? (no exposición solar, no maquillaje,
+     etc.) — más allá de los 4 pasos de preparación previa que ya hay
+
+
+────────────────────────────────────────────────────────────────────────
+5) PROFESIONAL RESPONSABLE  (una cita a destacar)
+────────────────────────────────────────────────────────────────────────
+
+La página actual menciona a la Dra. Nahir Gastaldi como referente.
+
+ [ ] ¿Quieren que vaya una cita textual de ella sobre la línea biológica
+     o sobre la filosofía de tratamiento personalizado?
+     Algo tipo: "Cada formulación nace de la necesidad real de cada
+     paciente. No creemos en productos universales..."
+ [ ] Una foto profesional de la doctora trabajando (opcional)
+ [ ] Formación específica en cosmetología bioquímica / regenerativa
+     que quieran destacar
+
+
+────────────────────────────────────────────────────────────────────────
+6) TESTIMONIOS  (poderoso para esta categoría)
+────────────────────────────────────────────────────────────────────────
+
+ [ ] 1 o 2 testimonios reales de pacientes que probaron la línea
+     biológica o el PRP (con autorización para publicarlos)
+ [ ] Si tienen fotos antes/después de PRP capilar o facial,
+     servirían MUCHÍSIMO para la web (con consentimiento del paciente
+     para difusión)
+
+
+────────────────────────────────────────────────────────────────────────
+7) DERIVACIONES MÉDICAS  (claridad para profesionales)
+────────────────────────────────────────────────────────────────────────
+
+ [ ] Para PRP traumatológico/odontológico, ¿qué profesionales aplican
+     después en Viale o zona? Si hay una red de profesionales asociados
+     que quieran nombrar (con autorización), suma mucha confianza.
+ [ ] ¿Reciben derivaciones de fuera de Viale? ¿Hay un protocolo
+     para enviar el plasma procesado a otro consultorio?
+
+
+==============================================================================
+PRIORIDAD SUGERIDA  (de más urgente a menos)
+==============================================================================
+
+  CRÍTICA → Re-exportar las 3 HEIC como JPG (1A) — sin esto no
+            podemos mostrar la mejor foto del set (los 3 productos juntos)
+
+  ALTA    → Precios de la línea (2) + Más fotos de proceso (1B)
+
+  MEDIA   → Detalles de producto (3) + Protocolo PRP (4)
+
+  BAJA    → Cita profesional (5) + Testimonios (6) + Derivaciones (7)
+
+==============================================================================
+Cualquier consulta sobre cómo entregar la información (formato, tamaño
+de fotos, etc.) escribir directamente al equipo de desarrollo.
+==============================================================================

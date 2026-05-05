@@ -9,7 +9,7 @@ import { FinalCTA } from '@/components/marketing/FinalCTA'
 export const metadata = buildMetadata({
   title: 'Nosotros — Centro Bioquímico Integral',
   description:
-    'Conocé al equipo del Centro Bioquímico Integral de Viale, Entre Ríos. Bioquímica especializada en endocrinología, bacteriología clínica y cosmetología regenerativa.',
+    'Conocé al equipo del Centro Bioquímico Integral de Viale, Entre Ríos. Bioquímica especializada en endocrinología, bacteriología clínica y medicina regenerativa.',
   path: '/nosotros',
 })
 
