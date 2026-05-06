@@ -35,8 +35,100 @@ export type AppointmentStatus =
   | 'COMPLETED'
   | 'NO_SHOW'
 
-export type FormType = 'CONTACT_GENERAL' | 'SERVICE_INQUIRY' | 'CONSENT' | 'CUSTOM'
+export type FormType =
+  | 'CONTACT_GENERAL'
+  | 'SERVICE_INQUIRY'
+  | 'CONSENT'
+  | 'CUSTOM'
+  | 'CLINICAL'
+  | 'UROCULTURE'
+  | 'VAGINAL_EXUDATE'
+  | 'VETERINARY'
+  | 'AGRO_FOOD'
+  | 'ENVIRONMENTAL'
+  | 'GENETIC'
 export type FormStatus = 'PENDING' | 'ANSWERED' | 'ARCHIVED'
+
+// ---------------------------------------------------------------------------
+//  Enums de los formularios públicos (FRONTEND_FORMS.md del back)
+//  Listas cerradas validadas server-side. Cualquier cambio requiere coordinar
+//  con el back. Veterinaria/Agro/Ambiental/Genética están "propuestos" — el
+//  cliente puede pedir ajustes, en cuyo caso solo cambia el array de opciones.
+// ---------------------------------------------------------------------------
+
+export const VET_SPECIES = [
+  'Canino',
+  'Felino',
+  'Equino',
+  'Bovino',
+  'Porcino',
+  'Ovino',
+  'Caprino',
+  'Aves',
+  'Otros',
+] as const
+export type VetSpecies = (typeof VET_SPECIES)[number]
+
+export const VET_SAMPLE_TYPES = [
+  'Sangre',
+  'Suero',
+  'Orina',
+  'Materia fecal',
+  'Hisopado',
+  'Tejido',
+  'Líquido sinovial',
+  'Otros',
+] as const
+export type VetSampleType = (typeof VET_SAMPLE_TYPES)[number]
+
+export const AGRO_ANALYSIS_TYPES = [
+  'Microbiológico',
+  'Fisicoquímico',
+  'Composición nutricional',
+  'Detección de contaminantes',
+  'Pesticidas / agroquímicos',
+  'Micotoxinas',
+  'Otros',
+] as const
+export type AgroAnalysisType = (typeof AGRO_ANALYSIS_TYPES)[number]
+
+export const ENV_SAMPLE_TYPES = [
+  'Agua potable',
+  'Agua de pozo',
+  'Agua de red',
+  'Efluente cloacal',
+  'Efluente industrial',
+  'Aire',
+  'Suelo',
+  'Otros',
+] as const
+export type EnvSampleType = (typeof ENV_SAMPLE_TYPES)[number]
+
+export const ENV_ANALYSIS_TYPES = [
+  'Bacteriológico',
+  'Fisicoquímico',
+  'Metales pesados',
+  'Detección de coliformes',
+  'Otros',
+] as const
+export type EnvAnalysisType = (typeof ENV_ANALYSIS_TYPES)[number]
+
+export const GENETIC_STUDY_TYPES = [
+  'Filiación / paternidad',
+  'Identificación forense',
+  'Estudio molecular / mutaciones',
+  'Cariotipo',
+  'Estudio oncológico',
+  'Otros',
+] as const
+export type GeneticStudyType = (typeof GENETIC_STUDY_TYPES)[number]
+
+export const UROCULTURE_SAMPLE_TYPES = [
+  'Sonda',
+  'Punción Suprapúbica',
+  'Chorro medio',
+] as const
+export type UrocultureSampleType = (typeof UROCULTURE_SAMPLE_TYPES)[number]
 
 // ---------------------------------------------------------------------------
 //  DTOs de creación
@@ -64,6 +156,160 @@ export interface CreateSubmissionDto {
   /** kebab-case slug del servicio. Requerido si type === 'SERVICE_INQUIRY'. */
   serviceSlug?: string
   extraData?: Record<string, unknown>
+}
+
+// ---------------------------------------------------------------------------
+//  DTOs de los formularios públicos (1 endpoint POST por form, ver FRONTEND_FORMS.md)
+//  Todos retornan 201 con `{ data: FormSubmission }`. Errores: 400 (validación),
+//  404 (parentSubmissionId inválido), 429 (rate limit).
+// ---------------------------------------------------------------------------
+
+export interface CreateClinicalDto {
+  name: string
+  dni: string
+  email: string
+  /** YYYY-MM-DD o ISO 8601 */
+  birthDate: string
+  /** 8-15 dígitos, "+" opcional */
+  phone: string
+  healthInsurance?: string
+  requestingDoctor?: string
+  observations?: string
+  /** Debe ser true */
+  consentGiven: boolean
+  /** URL Cloudinary devuelta por uploadMedicalOrder() */
+  medicalOrderUrl: string
+}
+
+export interface CreateUrocultureDto {
+  /** Si se setea, email/phone son opcionales (heredados del CLINICAL padre). */
+  parentSubmissionId?: string
+  name: string
+  dni: string
+  email?: string
+  phone?: string
+  age: number
+  /** "HH:MM" 24h */
+  collectionTime: string
+  /** YYYY-MM-DD o ISO */
+  collectionDate: string
+  sampleType?: UrocultureSampleType
+  symptoms: string
+  pregnancy?: boolean
+  /** "Ninguno" si no aplica */
+  previousAntibiotics: string
+  /** "Ninguna" si no aplica */
+  baselinePathology: string
+  consentGiven: boolean
+}
+
+export interface CreateVaginalExudateDto {
+  /** Si se setea, name/email/phone son opcionales (heredados del CLINICAL padre). */
+  parentSubmissionId?: string
+  name?: string
+  dni?: string
+  email?: string
+  phone?: string
+  age: number
+  /** YYYY-MM-DD o ISO */
+  lastMenstruationDate: string
+  symptoms: string
+  pregnancies: number
+  flowCharacteristics: string
+  /** "Ninguno" si no usa */
+  contraceptiveUse: string
+  /** "Ninguno" si no tiene */
+  vaginalInfectionHistory: string
+  abortionCount: number
+  consentGiven: boolean
+}
+
+export interface CreateVeterinaryDto {
+  ownerName: string
+  /** DNI (7-9 dígitos) o CUIT (11 dígitos, con o sin guiones) */
+  dniOrCuit: string
+  phone: string
+  email: string
+  animalName: string
+  species: VetSpecies
+  breed: string
+  animalAge: number
+  requestingVet: string
+  sampleType: VetSampleType
+  /** YYYY-MM-DD o ISO */
+  collectionDate: string
+  observations?: string
+}
+
+export interface CreateAgroFoodDto {
+  companyName: string
+  /** 11 dígitos, con o sin guiones */
+  cuit: string
+  phone: string
+  email: string
+  productType: string
+  batch?: string
+  /** YYYY-MM-DD o ISO */
+  productionDate?: string
+  analysisType: AgroAnalysisType
+  /** Texto libre con unidad, ej: "500g", "1L" */
+  sampleQuantity: string
+  /** YYYY-MM-DD o ISO */
+  collectionDate: string
+  origin?: string
+  observations?: string
+}
+
+export interface CreateEnvironmentalDto {
+  companyName: string
+  cuit: string
+  phone: string
+  email: string
+  sampleType: EnvSampleType
+  samplingPoint: string
+  location: string
+  /** YYYY-MM-DD o ISO */
+  collectionDate: string
+  /** "HH:MM" */
+  collectionTime?: string
+  analysisType: EnvAnalysisType
+  samplingResponsible?: string
+  observations?: string
+}
+
+export interface CreateGeneticDto {
+  name: string
+  dni: string
+  phone: string
+  email: string
+  studyType: GeneticStudyType
+  studyReason: string
+  sampleRelationship?: string
+  sampleCount: number
+  /** YYYY-MM-DD o ISO */
+  collectionDate: string
+  requestingProfessional?: string
+  observations?: string
+  consentGiven: boolean
+  ethnicity: string
+  diseaseStatus?: string
+  boneMarrowTransplant?: boolean
+  studyDetail: string
+  previousGeneticStudies?: string
+}
+
+// ---------------------------------------------------------------------------
+//  Cloudinary — firma de upload del pedido médico (Clínica Humana)
+// ---------------------------------------------------------------------------
+
+export interface MedicalOrderUploadSignature {
+  cloudName: string
+  apiKey: string
+  timestamp: number
+  folder: string
+  uploadPreset: string
+  signature: string
+  uploadUrl: string
 }
 
 // ---------------------------------------------------------------------------
@@ -118,6 +364,12 @@ export interface FormSubmission {
   extraData: Record<string, unknown> | null
   createdAt: string
   updatedAt: string
+  /** Sólo presente para los forms públicos nuevos (CLINICAL, etc). */
+  parentSubmissionId?: string | null
+  /** Idem. */
+  consentGiven?: boolean
+  answeredAt?: string | null
+  answeredBy?: string | null
 }
 
 // ---------------------------------------------------------------------------

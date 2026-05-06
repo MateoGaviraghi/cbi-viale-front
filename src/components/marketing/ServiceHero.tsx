@@ -9,7 +9,6 @@ import { SERVICES, CONTACT } from '@/lib/constants'
 import { Container } from '@/components/shared/Container'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { ServiceIcon } from './ServiceIcon'
-import { ServiceInquiryModal } from './ServiceInquiryModal'
 
 interface Props {
   slug: ServiceSlug
@@ -17,10 +16,9 @@ interface Props {
   intro: string
   image?: string
   ctaPrimaryLabel?: string
-  ctaConsultLabel?: string
 }
 
-export function ServiceHero({ slug, eyebrow, intro, image, ctaPrimaryLabel, ctaConsultLabel }: Props) {
+export function ServiceHero({ slug, eyebrow, intro, image, ctaPrimaryLabel }: Props) {
   const svc = SERVICES[slug]
 
   return (
@@ -85,13 +83,12 @@ export function ServiceHero({ slug, eyebrow, intro, image, ctaPrimaryLabel, ctaC
               className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <Link
-                href={`/turnos/${slug}/fecha`}
+                href={`/servicios/${slug}/solicitar`}
                 className="tap-min inline-flex h-14 items-center justify-center gap-2 bg-gold-700 px-8 font-sans text-sm uppercase tracking-widest text-white transition-all duration-500 hover:bg-gold-800 hover:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
               >
-                {ctaPrimaryLabel ?? 'Reservar turno'}
+                {ctaPrimaryLabel ?? 'Solicitar análisis'}
                 <ArrowRight width={16} height={16} strokeWidth={1.5} />
               </Link>
-              <ServiceInquiryModal serviceSlug={slug} label={ctaConsultLabel} />
               {CONTACT.whatsapp && (
                 <a
                   href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(`Hola, quisiera consultar por ${svc.name}.`)}`}

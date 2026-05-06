@@ -19,7 +19,6 @@ import { SERVICE_CONTENT } from '@/lib/service-content'
 import { CONTACT, SERVICES } from '@/lib/constants'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { Reveal } from '@/components/shared/Reveal'
-import { ServiceInquiryModal } from '@/components/marketing/ServiceInquiryModal'
 import { ServiceDescription } from '@/components/marketing/ServiceDescription'
 import { AnalysisList, type AnalysisItem } from '@/components/marketing/AnalysisList'
 import { PreparationSteps, type PreparationStep } from '@/components/marketing/PreparationSteps'
@@ -140,14 +139,12 @@ export default function Page() {
             <Reveal direction="up" delay={0.3} duration={0.5}>
               <div className="mt-8 lg:mt-10 flex flex-col sm:flex-row sm:flex-wrap gap-3">
                 <Link
-                  href={`/turnos/${SLUG}/fecha`}
+                  href={`/servicios/${SLUG}/solicitar`}
                   className="tap-min inline-flex h-14 items-center justify-center gap-2 bg-gold-700 px-7 sm:px-8 font-sans text-sm uppercase tracking-widest text-white transition-all duration-500 hover:bg-gold-800 hover:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
                 >
                   Solicitar análisis
                   <ArrowRight width={16} height={16} strokeWidth={1.5} />
                 </Link>
-
-                <ServiceInquiryModal serviceSlug={SLUG} label="Consultar muestra" />
 
                 {CONTACT.whatsapp && (
                   <a

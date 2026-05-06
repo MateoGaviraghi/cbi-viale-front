@@ -108,11 +108,11 @@ export function MobileMenu({ open, onClose }: Props) {
           </ul>
 
           <Link
-            href="/turnos"
+            href="/servicios"
             onClick={onClose}
             className="mt-10 tap-min flex h-14 items-center justify-center bg-gold-700 font-sans text-sm uppercase tracking-widest text-white hover:bg-gold-800"
           >
-            Sacar turno →
+            Solicitar análisis →
           </Link>
         </nav>
 

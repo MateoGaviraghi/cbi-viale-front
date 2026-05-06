@@ -12,6 +12,8 @@ import { servicesApi } from './endpoints/services'
 import { availabilityApi } from './endpoints/availability'
 import { appointmentsApi } from './endpoints/appointments'
 import { submissionsApi } from './endpoints/submissions'
+import { publicSubmissionsApi } from './endpoints/public-submissions'
+import { uploadsApi } from './endpoints/uploads'
 
 export const api = {
   auth: authApi,
@@ -19,4 +21,6 @@ export const api = {
   availability: availabilityApi,
   appointments: appointmentsApi,
   submissions: submissionsApi,
+  publicSubmissions: publicSubmissionsApi,
+  uploads: uploadsApi,
 }

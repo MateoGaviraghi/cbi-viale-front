@@ -129,11 +129,11 @@ export function Hero() {
             >
               <StaggerItem>
                 <Link
-                  href="/turnos"
+                  href="/servicios"
                   className="group relative tap-min inline-flex h-12 md:h-13 items-center justify-center gap-2 overflow-hidden bg-gold-700 px-8 font-sans text-xs uppercase tracking-[0.22em] text-white transition-all duration-500 hover:bg-gold-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
                 >
                   <span className="relative z-10 transition-transform duration-700 ease-editorial group-hover:-translate-x-1">
-                    Sacar turno
+                    Conocer servicios
                   </span>
                   <ArrowRight
                     width={15}
@@ -145,10 +145,10 @@ export function Hero() {
               </StaggerItem>
               <StaggerItem>
                 <Link
-                  href="/servicios"
+                  href="/contacto"
                   className="tap-min inline-flex h-12 md:h-13 items-center justify-center border border-white/70 bg-transparent px-8 font-sans text-xs uppercase tracking-[0.22em] text-white transition-colors duration-500 hover:bg-white hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  Conocer servicios
+                  Contacto
                 </Link>
               </StaggerItem>
             </StaggerGroup>

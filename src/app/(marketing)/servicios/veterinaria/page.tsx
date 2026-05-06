@@ -8,7 +8,6 @@ import { Container } from '@/components/shared/Container'
 import { GoldRule } from '@/components/shared/GoldRule'
 import { FadeIn } from '@/components/shared/FadeIn'
 import { Reveal } from '@/components/shared/Reveal'
-import { ServiceInquiryModal } from '@/components/marketing/ServiceInquiryModal'
 import { RelatedServices } from '@/components/marketing/RelatedServices'
 import { FinalCTA } from '@/components/marketing/FinalCTA'
 
@@ -161,14 +160,12 @@ export default function Page() {
             <Reveal direction="up" delay={0.3} duration={0.5}>
               <div className="mt-8 lg:mt-10 flex flex-col sm:flex-row sm:flex-wrap gap-3">
                 <Link
-                  href={`/turnos/${SLUG}/fecha`}
+                  href={`/servicios/${SLUG}/solicitar`}
                   className="tap-min inline-flex h-14 items-center justify-center gap-2 bg-gold-700 px-7 sm:px-8 font-sans text-sm uppercase tracking-widest text-white transition-all duration-500 hover:bg-gold-800 hover:gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
                 >
-                  Reservar turno
+                  Solicitar análisis
                   <ArrowRight width={16} height={16} strokeWidth={1.5} />
                 </Link>
-
-                <ServiceInquiryModal serviceSlug={SLUG} />
 
                 {CONTACT.whatsapp && (
                   <a

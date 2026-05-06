@@ -106,7 +106,7 @@ export function Navbar() {
                     scrolled ? 'text-ink-muted' : 'text-white/60',
                   )}
                 >
-                  Centro Bioquímico
+                  Centro Bioquímico Integral
                 </span>
               </span>
             </Link>
@@ -145,11 +145,11 @@ export function Navbar() {
             className="hidden lg:flex items-center"
           >
             <Link
-              href="/turnos"
+              href="/servicios"
               className="group tap-min relative inline-flex h-11 items-center overflow-hidden bg-gold-700 px-6 font-sans text-xs uppercase tracking-widest text-white transition-colors duration-500 hover:bg-gold-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
             >
               <span className="relative z-10 transition-transform duration-500 group-hover:translate-x-[-2px]">
-                Sacar turno
+                Solicitar análisis
               </span>
               <span
                 aria-hidden

@@ -17,7 +17,7 @@ export function FinalCTA() {
             <div className="flex items-center justify-center gap-4 mb-8">
               <GoldRule />
               <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold-800">
-                Reservá tu turno
+                Solicitar análisis
               </span>
               <GoldRule />
             </div>
@@ -25,31 +25,31 @@ export function FinalCTA() {
 
           <h2 className="font-serif text-[clamp(2.5rem,6vw,5rem)] leading-[1.02] tracking-tightest text-ink">
             <SplitText inView staggerChildren={0.08} duration={0.9}>
-              Sin llamadas.
+              Tu solicitud,
             </SplitText>
             <br />
             <span className="italic text-gold-800">
               <SplitText inView delay={0.3} staggerChildren={0.08} duration={0.9}>
-                En minutos.
+                en línea.
               </SplitText>
             </span>
           </h2>
 
           <Reveal direction="up" delay={0.6}>
             <p className="mt-8 max-w-xl mx-auto text-lg text-ink-muted leading-relaxed">
-              Elegí el servicio, el día y el horario que mejor te queden. Recibís confirmación
-              por email y un recordatorio 24 horas antes.
+              Elegí tu área de análisis, completá los datos del estudio y mandá la solicitud.
+              Te respondemos para coordinar la toma de muestras y los próximos pasos.
             </p>
           </Reveal>
 
           <Reveal direction="up" delay={0.8}>
             <div className="mt-12">
               <Link
-                href="/turnos"
+                href="/servicios"
                 className="group tap-min inline-flex h-16 items-center gap-3 bg-gold-700 px-12 font-sans text-sm uppercase tracking-[0.25em] text-white transition-all duration-700 ease-editorial hover:bg-gold-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
               >
                 <span className="transition-transform duration-700 group-hover:-translate-x-1">
-                  Sacar turno online
+                  Ver servicios
                 </span>
                 <ArrowRight
                   width={18}
