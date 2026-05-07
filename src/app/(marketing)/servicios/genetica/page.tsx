@@ -32,12 +32,12 @@ const PREPARATION: PreparationStep[] = [
 ]
 
 const ANALYSES: AnalysisItem[] = [
-  { label: 'Filiación paternidad padre-hijo/a', icon: Users },
-  { label: 'Maternidad biológica', icon: Baby },
-  { label: 'Parentesco entre hermanos', icon: GitMerge },
-  { label: 'Estudios de filiación post-mortem', icon: Clock },
-  { label: 'Identificación genética individual', icon: Fingerprint },
-  { label: 'Análisis de ADN — certeza >99,99 %', icon: Dna },
+  { num: '01', icon: Users, title: 'Filiación paternidad padre-hijo/a', body: 'Determinación del vínculo biológico con certeza mayor al 99,99 % y exclusión 100 % certera.' },
+  { num: '02', icon: Baby, title: 'Maternidad biológica', body: 'Estudio para confirmar el vínculo materno-filial mediante análisis de marcadores de ADN.' },
+  { num: '03', icon: GitMerge, title: 'Parentesco entre hermanos', body: 'Análisis comparativo de perfiles genéticos para determinar filiación entre hermanos.' },
+  { num: '04', icon: Clock, title: 'Estudios de filiación post-mortem', body: 'Determinación de paternidad o maternidad a partir de muestras biológicas del fallecido.' },
+  { num: '05', icon: Fingerprint, title: 'Identificación genética individual', body: 'Perfil genético único para identificación forense o personal.' },
+  { num: '06', icon: Dna, title: 'Análisis de ADN — certeza >99,99 %', body: '100 % confidencial. El informe se entrega solo a las partes involucradas o autorizadas.' },
 ]
 
 export default function Page() {

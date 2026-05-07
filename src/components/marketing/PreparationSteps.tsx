@@ -23,9 +23,13 @@ function StepRow({ step, idx }: { step: PreparationStep; idx: number }) {
     <FadeIn delay={idx * 0.05}>
       <div className="flex items-start gap-5 py-6 border-b border-line">
         {Icon ? (
-          <span className="shrink-0 mt-0.5 flex h-9 w-9 items-center justify-center rounded-full border border-gold-700/30 bg-gold-50/60">
-            <Icon size={16} strokeWidth={1.5} className="text-gold-700" />
-          </span>
+          <Icon
+            width={22}
+            height={22}
+            strokeWidth={1.25}
+            className="text-gold-700 shrink-0 mt-1"
+            aria-hidden
+          />
         ) : (
           <span className="font-mono text-xs uppercase tracking-widest text-gold-700 shrink-0 pt-1 w-8">
             {String(idx + 1).padStart(2, '0')}

@@ -36,13 +36,13 @@ const PREPARATION: PreparationStep[] = [
 ]
 
 const ANALYSES: AnalysisItem[] = [
-  { label: 'Análisis proximal (humedad, proteína, grasa, fibra, cenizas)', icon: FlaskConical },
-  { label: 'Minerales mayores y menores', icon: Gem },
-  { label: 'Aflatoxinas y micotoxinas', icon: AlertTriangle },
-  { label: 'Carga microbiana total y específica (E. coli, Salmonella, coliformes)', icon: Bug },
-  { label: 'Análisis de agua para uso animal', icon: Droplets },
-  { label: 'Control de calidad de materias primas', icon: Factory },
-  { label: 'Perfil de aminoácidos', icon: Dna },
+  { num: '01', icon: FlaskConical, title: 'Análisis proximal', body: 'Humedad, proteína, grasa, fibra cruda y cenizas para caracterización nutricional completa.' },
+  { num: '02', icon: Gem, title: 'Minerales mayores y menores', body: 'Calcio, fósforo, magnesio, sodio, potasio y oligoelementos esenciales.' },
+  { num: '03', icon: AlertTriangle, title: 'Aflatoxinas y micotoxinas', body: 'Detección y cuantificación de toxinas fúngicas en granos, harinas y alimentos balanceados.' },
+  { num: '04', icon: Bug, title: 'Carga microbiana', body: 'Recuento total, E. coli, Salmonella, coliformes y microorganismos indicadores de calidad sanitaria.' },
+  { num: '05', icon: Droplets, title: 'Análisis de agua', body: 'Control fisicoquímico y microbiológico de agua para uso animal y riego.' },
+  { num: '06', icon: Factory, title: 'Control de materias primas', body: 'Evaluación de calidad en origen: granos, harinas, forrajes y subproductos industriales.' },
+  { num: '07', icon: Dna, title: 'Perfil de aminoácidos', body: 'Composición aminoacídica para formulación y verificación de alimentos balanceados.' },
 ]
 
 export const metadata = buildMetadata({
