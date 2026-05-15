@@ -482,6 +482,27 @@ export interface ApiErrorShape {
 }
 
 // ---------------------------------------------------------------------------
+//  Admin — entidades del panel de gestión
+// ---------------------------------------------------------------------------
+
+export interface AdminConsent {
+  id: string
+  submissionId: string
+  patientName: string
+  patientDni: string
+  serviceSlug: string | null
+  formType: FormType
+  consentText: string | null
+  createdAt: string
+}
+
+export interface AdminStats {
+  appointments: { total: number; pending: number; confirmed: number; cancelled: number }
+  submissions: { total: number; pending: number }
+  consents: { total: number }
+}
+
+// ---------------------------------------------------------------------------
 //  Mapeo slug URL (kebab-case) ↔ enum (UPPERCASE)
 //  El back expone el endpoint con kebab-case (`/services/clinica-humana`)
 //  y ServicesService.SLUG_MAP hace la conversión interna. El front mantiene

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { X } from 'lucide-react'
+import { X, Lock } from 'lucide-react'
 import { SERVICE_SLUGS, SERVICES, CONTACT } from '@/lib/constants'
 import { ServiceIcon } from './ServiceIcon'
 import { cn } from '@/lib/utils'
@@ -113,6 +113,14 @@ export function MobileMenu({ open, onClose }: Props) {
             className="mt-10 tap-min flex h-14 items-center justify-center bg-gold-700 font-sans text-sm uppercase tracking-widest text-white hover:bg-gold-800"
           >
             Solicitar análisis →
+          </Link>
+          <Link
+            href="/login"
+            onClick={onClose}
+            className="mt-3 tap-min flex h-12 items-center justify-center gap-2 border border-line font-sans text-xs uppercase tracking-widest text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors"
+          >
+            <Lock width={13} height={13} strokeWidth={1.5} aria-hidden />
+            Iniciar sesión
           </Link>
         </nav>
 

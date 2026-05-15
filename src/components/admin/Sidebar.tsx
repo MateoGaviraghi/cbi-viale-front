@@ -10,6 +10,7 @@ import {
   ScrollText,
   BarChart3,
   LayoutDashboard,
+  FileCheck,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { AuthUser, Permission } from '@/lib/api/types'
@@ -27,8 +28,9 @@ interface NavItem {
 
 const ITEMS: NavItem[] = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, permission: null },
-  { href: '/admin/turnos', label: 'Turnos', icon: Calendar, permission: 'manageAppointments', phase: 'Fase 2' },
-  { href: '/admin/consultas', label: 'Consultas', icon: MessageSquare, permission: 'manageSubmissions', phase: 'Fase 2' },
+  { href: '/admin/turnos', label: 'Turnos', icon: Calendar, permission: 'manageAppointments' },
+  { href: '/admin/consultas', label: 'Consultas', icon: MessageSquare, permission: 'manageSubmissions' },
+  { href: '/admin/consentimientos', label: 'Consentimientos', icon: FileCheck, permission: 'manageSubmissions' },
   { href: '/admin/disponibilidad', label: 'Disponibilidad', icon: Clock, permission: 'manageAvailability' },
   { href: '/admin/usuarios', label: 'Usuarios', icon: Users, permission: 'manageUsers', phase: 'Fase 2' },
   { href: '/admin/auditoria', label: 'Auditoría', icon: ScrollText, permission: 'viewAuditLog', phase: 'Fase 2' },

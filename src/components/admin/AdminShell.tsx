@@ -12,8 +12,9 @@ interface Props {
 
 export function AdminShell({ user, children }: Props) {
   return (
-    <div className="min-h-dvh bg-beige/20 flex flex-col md:flex-row">
-      <aside className="md:w-64 md:flex-shrink-0 md:min-h-dvh bg-white border-b md:border-b-0 md:border-r border-line flex flex-col">
+    <div className="flex min-h-dvh bg-beige/20">
+      {/* Sidebar */}
+      <aside className="hidden md:flex md:w-64 md:flex-shrink-0 md:flex-col bg-white border-r border-line min-h-dvh sticky top-0 self-start">
         <div className="px-6 py-8 border-b border-line">
           <Link
             href="/admin"
@@ -26,7 +27,7 @@ export function AdminShell({ user, children }: Props) {
           </p>
         </div>
 
-        <div className="flex-1 px-3 py-6">
+        <div className="flex-1 px-3 py-6 overflow-y-auto">
           <Sidebar user={user} />
         </div>
 
@@ -42,7 +43,20 @@ export function AdminShell({ user, children }: Props) {
         </div>
       </aside>
 
-      <main className="flex-1 px-6 py-10 md:px-12 md:py-16 max-w-5xl">{children}</main>
+      {/* Mobile top bar */}
+      <div className="md:hidden fixed inset-x-0 top-0 z-30 bg-white border-b border-line flex items-center justify-between px-5 h-14">
+        <Link href="/admin" className="font-serif text-lg tracking-tight text-ink">
+          CBI · <span className="italic text-gold-800">Admin</span>
+        </Link>
+        <LogoutButton />
+      </div>
+
+      {/* Main content */}
+      <div className="flex-1 min-w-0 pt-14 md:pt-0">
+        <div className="px-6 py-10 md:px-12 md:py-16 max-w-5xl">
+          {children}
+        </div>
+      </div>
     </div>
   )
 }

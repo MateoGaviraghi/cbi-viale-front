@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu } from 'lucide-react'
+import { Menu, Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Container } from '@/components/shared/Container'
 import { MegaMenu } from './MegaMenu'
@@ -142,8 +142,20 @@ export function Navbar() {
             initial={{ opacity: 0, x: 12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:flex items-center"
+            className="hidden lg:flex items-center gap-3"
           >
+            <Link
+              href="/login"
+              className={cn(
+                'tap-min inline-flex h-11 items-center gap-2 px-4 font-sans text-xs uppercase tracking-widest transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2',
+                scrolled
+                  ? 'text-ink-muted hover:text-gold-700 border border-line hover:border-gold-700/40'
+                  : 'text-white/70 hover:text-white border border-white/20 hover:border-white/50',
+              )}
+            >
+              <Lock width={13} height={13} strokeWidth={1.5} aria-hidden />
+              Iniciar sesión
+            </Link>
             <Link
               href="/servicios"
               className="group tap-min relative inline-flex h-11 items-center overflow-hidden bg-gold-700 px-6 font-sans text-xs uppercase tracking-widest text-white transition-colors duration-500 hover:bg-gold-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
