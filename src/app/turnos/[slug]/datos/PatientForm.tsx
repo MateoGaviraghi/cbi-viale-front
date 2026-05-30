@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -9,6 +9,7 @@ import { Loader2, ArrowLeft, Info } from 'lucide-react'
 import { api, ApiError } from '@/lib/api'
 import { toast } from '@/components/shared/Toaster'
 import { GoldRule } from '@/components/shared/GoldRule'
+import { SignatureModal } from '@/components/forms'
 import { cn } from '@/lib/utils'
 import {
   SERVICE_FORM_CONFIGS,
@@ -55,6 +56,8 @@ function toArgISO(date: string, time: string): string {
 export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceName }: Props) {
   const router = useRouter()
   const config = SERVICE_FORM_CONFIGS[serviceSlug]
+  const [signatureUrl, setSignatureUrl] = useState<string | null>(null)
+  const [signatureOpen, setSignatureOpen] = useState(false)
 
   const schema = useMemo(
     () => buildFullSchema(serviceSlug, requiresConsent),
@@ -72,6 +75,11 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
   })
 
   async function onSubmit(data: Record<string, unknown>) {
+    // Exigir firma SOLO si el servicio requiere consentimiento.
+    if (requiresConsent && !signatureUrl) {
+      setSignatureOpen(true)
+      return
+    }
     try {
       const { data: appointment } = await api.appointments.create({
         serviceSlug,
@@ -82,6 +90,7 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
         patientPhone: data.patientPhone as string,
         notes: (data.notes as string) || undefined,
         consentGiven: requiresConsent ? true : undefined,
+        signatureUrl: requiresConsent ? (signatureUrl ?? undefined) : undefined,
       })
 
       // Send extra service-specific fields as a CUSTOM submission
@@ -213,7 +222,7 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
 
       {/* ── Consentimiento ── */}
       {requiresConsent && (
-        <div className="border border-gold-700/30 bg-gold-50/30 p-5">
+        <div className="border border-gold-700/30 bg-gold-50/30 p-5 space-y-4">
           <label className="flex items-start gap-3 cursor-pointer">
             <input
               {...register('consentGiven')}
@@ -234,8 +243,35 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
             </span>
           </label>
           {fieldError(errors, 'consentGiven') && (
-            <p className="mt-2 ml-7 text-xs text-red-500">{fieldError(errors, 'consentGiven')}</p>
+            <p className="ml-7 text-xs text-red-500">{fieldError(errors, 'consentGiven')}</p>
           )}
+
+          {/* Firma del paciente */}
+          <div>
+            <span className="block text-[11px] uppercase tracking-widest text-ink-muted mb-2">
+              Firma del paciente <span className="text-gold-700">*</span>
+            </span>
+            {signatureUrl ? (
+              <div className="flex items-center justify-between border border-gold-700 bg-white px-4 py-3 text-sm text-ink">
+                <span>Firma registrada.</span>
+                <button
+                  type="button"
+                  onClick={() => setSignatureOpen(true)}
+                  className="text-xs uppercase tracking-widest text-gold-700 hover:text-gold-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
+                >
+                  Volver a firmar
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setSignatureOpen(true)}
+                className="tap-min flex w-full items-center justify-center gap-3 border border-dashed border-line bg-white px-4 py-6 text-sm text-ink-muted hover:border-gold-700 hover:text-gold-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
+              >
+                <span className="uppercase tracking-widest text-[11px]">Firmar consentimiento</span>
+              </button>
+            )}
+          </div>
         </div>
       )}
 
@@ -264,6 +300,12 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
           Volver a elegir horario
         </button>
       </div>
+
+      <SignatureModal
+        open={signatureOpen}
+        onOpenChange={setSignatureOpen}
+        onConfirmed={(url) => setSignatureUrl(url)}
+      />
     </form>
   )
 }

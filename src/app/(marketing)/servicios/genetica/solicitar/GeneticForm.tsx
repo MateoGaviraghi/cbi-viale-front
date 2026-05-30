@@ -24,6 +24,7 @@ import {
   Field,
   FormSection,
   Select,
+  SignatureModal,
   SubmitButton,
   SuccessScreen,
   TextArea,
@@ -61,6 +62,8 @@ type FormData = z.infer<typeof schema>
 export function GeneticForm() {
   const [submitted, setSubmitted] = useState<{ email: string } | null>(null)
   const [serverError, setServerError] = useState<string | null>(null)
+  const [signatureUrl, setSignatureUrl] = useState<string | null>(null)
+  const [signatureOpen, setSignatureOpen] = useState(false)
 
   const {
     register,
@@ -74,6 +77,13 @@ export function GeneticForm() {
 
   async function onSubmit(data: FormData) {
     setServerError(null)
+
+    // Exigir firma antes de enviar (requisito de negocio: genética requiere consentimiento).
+    if (!signatureUrl) {
+      setSignatureOpen(true)
+      return
+    }
+
     try {
       await api.publicSubmissions.createGenetic({
         name: data.name,
@@ -93,6 +103,7 @@ export function GeneticForm() {
         boneMarrowTransplant: data.boneMarrowTransplant,
         studyDetail: data.studyDetail,
         previousGeneticStudies: data.previousGeneticStudies || undefined,
+        signatureUrl,
       })
       setSubmitted({ email: data.email })
     } catch (err) {
@@ -311,6 +322,33 @@ export function GeneticForm() {
           label="Acepto que CBI Viale procese mis datos personales y muestras biológicas con el único fin de realizar el estudio genético solicitado, conforme a la normativa vigente de protección de datos."
           error={errors.consentGiven?.message}
         />
+
+        {/* Firma del paciente */}
+        <div className="mt-5">
+          <span className="block text-[11px] uppercase tracking-widest text-ink-muted mb-2">
+            Firma del paciente <span className="text-gold-700">*</span>
+          </span>
+          {signatureUrl ? (
+            <div className="flex items-center justify-between border border-gold-700 bg-white px-4 py-3 text-sm text-ink">
+              <span>Firma registrada.</span>
+              <button
+                type="button"
+                onClick={() => setSignatureOpen(true)}
+                className="text-xs uppercase tracking-widest text-gold-700 hover:text-gold-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
+              >
+                Volver a firmar
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setSignatureOpen(true)}
+              className="tap-min flex w-full items-center justify-center gap-3 border border-dashed border-line bg-beige/30 px-4 py-6 text-sm text-ink-muted hover:border-gold-700 hover:text-gold-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
+            >
+              <span className="uppercase tracking-widest text-[11px]">Firmar consentimiento</span>
+            </button>
+          )}
+        </div>
       </FormSection>
 
       {serverError && (
@@ -323,6 +361,12 @@ export function GeneticForm() {
       )}
 
       <SubmitButton loading={isSubmitting} label="Enviar solicitud" />
+
+      <SignatureModal
+        open={signatureOpen}
+        onOpenChange={setSignatureOpen}
+        onConfirmed={(url) => setSignatureUrl(url)}
+      />
     </form>
   )
 }

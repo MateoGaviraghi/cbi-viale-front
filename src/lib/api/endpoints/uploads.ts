@@ -1,5 +1,5 @@
 import { apiFetch } from '../client'
-import type { MedicalOrderUploadSignature } from '../types'
+import type { MedicalOrderUploadSignature, SignatureUploadSignature } from '../types'
 
 /**
  * Endpoints de upload firmado al storage del back (Cloudinary).
@@ -17,6 +17,20 @@ export const uploadsApi = {
   signMedicalOrder() {
     return apiFetch<MedicalOrderUploadSignature>('/uploads/medical-order/sign', {
       method: 'POST',
+    })
+  },
+
+  /**
+   * POST /uploads/signature/sign
+   *
+   * Devuelve credenciales firmadas para subir la firma del paciente
+   * (canvas exportado a PNG) directo a Cloudinary. Ver `@/lib/signature-upload`.
+   * Body `{}` para no enviar body vacío con Content-Type application/json.
+   */
+  signSignature() {
+    return apiFetch<SignatureUploadSignature>('/uploads/signature/sign', {
+      method: 'POST',
+      body: {},
     })
   },
 }

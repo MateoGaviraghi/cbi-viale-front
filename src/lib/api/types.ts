@@ -144,6 +144,8 @@ export interface CreateAppointmentDto {
   patientPhone: string
   notes?: string
   consentGiven?: boolean
+  /** URL Cloudinary de la firma del paciente (solo servicios con requiresConsent). */
+  signatureUrl?: string
 }
 
 export interface CreateSubmissionDto {
@@ -179,6 +181,8 @@ export interface CreateClinicalDto {
   consentGiven: boolean
   /** URL Cloudinary devuelta por uploadMedicalOrder() */
   medicalOrderUrl: string
+  /** URL Cloudinary de la firma del paciente (folder cbi-viale/consent-signatures). Opcional a nivel API; requerido por negocio cuando hay consentimiento. */
+  signatureUrl?: string
 }
 
 export interface CreateUrocultureDto {
@@ -296,6 +300,8 @@ export interface CreateGeneticDto {
   boneMarrowTransplant?: boolean
   studyDetail: string
   previousGeneticStudies?: string
+  /** URL Cloudinary de la firma del paciente. */
+  signatureUrl?: string
 }
 
 // ---------------------------------------------------------------------------
@@ -311,6 +317,13 @@ export interface MedicalOrderUploadSignature {
   signature: string
   uploadUrl: string
 }
+
+/**
+ * Firma de upload para la firma de consentimiento del paciente (canvas → PNG).
+ * Shape idéntico a MedicalOrderUploadSignature; el back usa otro folder
+ * (cbi-viale/consent-signatures) pero el front no lo distingue.
+ */
+export type SignatureUploadSignature = MedicalOrderUploadSignature
 
 // ---------------------------------------------------------------------------
 //  Respuesta del endpoint de disponibilidad de turnos
