@@ -108,7 +108,7 @@ export function SubmissionRow({ submission: c }: Props) {
             </span>
             <button
               onClick={() => setOpen(true)}
-              className="tap-min inline-flex items-center justify-center h-7 w-7 border border-line text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors"
+              className="tap-min inline-flex items-center justify-center h-7 w-7 border border-line text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
               aria-label={`Editar consulta de ${c.name}`}
             >
               <Pencil width={12} height={12} strokeWidth={1.5} aria-hidden />
@@ -156,7 +156,7 @@ export function SubmissionRow({ submission: c }: Props) {
               id={`status-${c.id}`}
               value={status}
               onChange={(e) => setStatus(e.target.value as FormStatus)}
-              className="mt-1.5 w-full h-12 border border-line bg-white px-3 font-sans text-sm text-ink focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-1"
+              className="mt-1.5 w-full h-12 border border-line bg-white px-3 font-sans text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
             >
               {STATUS_OPTS.map((o) => (
                 <option key={o.value} value={o.value}>

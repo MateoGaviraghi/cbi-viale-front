@@ -143,7 +143,6 @@ export function SignatureModal({
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/30 backdrop-blur-[2px] animate-in fade-in-0" />
         <Dialog.Content
           className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto bg-white border border-line shadow-2xl focus:outline-none animate-in fade-in-0 zoom-in-95"
-          onOpenAutoFocus={(e) => e.preventDefault()}
           onEscapeKeyDown={(e) => {
             if (isUploading) e.preventDefault()
           }}
@@ -175,8 +174,10 @@ export function SignatureModal({
           <div className="px-7 py-6 space-y-5">
             {/* Texto legal */}
             <div className="border-l-2 border-gold-700/40 pl-4">
-              <p className="font-sans text-sm leading-relaxed text-ink">{CONSENT_LEGAL_TEXT}</p>
-              <p className="mt-2 font-sans text-xs text-ink-muted">{CONSENT_FINE_PRINT}</p>
+              <Dialog.Description className="font-sans text-base leading-relaxed text-ink">
+                {CONSENT_LEGAL_TEXT}
+              </Dialog.Description>
+              <p className="mt-2 font-sans text-sm text-ink-muted">{CONSENT_FINE_PRINT}</p>
             </div>
 
             {/* Canvas */}
@@ -187,7 +188,7 @@ export function SignatureModal({
               <div
                 className={cn(
                   'relative w-full border bg-white',
-                  status === 'error' ? 'border-red-400' : 'border-line',
+                  status === 'error' ? 'border-danger' : 'border-line',
                 )}
               >
                 <canvas
@@ -211,7 +212,7 @@ export function SignatureModal({
                   type="button"
                   onClick={clear}
                   disabled={isUploading}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink-muted hover:text-ink transition-colors disabled:opacity-40 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
+                  className="inline-flex min-h-[44px] items-center gap-2 text-xs uppercase tracking-widest text-ink-muted hover:text-ink transition-colors disabled:opacity-40 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
                 >
                   <Eraser size={14} strokeWidth={1.5} />
                   Borrar
@@ -220,7 +221,7 @@ export function SignatureModal({
             </div>
 
             {errorMsg && (
-              <p role="alert" className="text-xs text-red-500">
+              <p role="alert" className="text-xs text-danger">
                 {errorMsg}
               </p>
             )}
@@ -238,7 +239,7 @@ export function SignatureModal({
               <button
                 type="button"
                 onClick={confirm}
-                disabled={isUploading}
+                disabled={isUploading || !hasStrokes}
                 className="tap-min inline-flex h-12 items-center justify-center gap-2 bg-gold-700 px-7 font-sans text-xs uppercase tracking-wide text-white hover:bg-gold-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
               >
                 {isUploading ? (

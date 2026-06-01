@@ -31,7 +31,7 @@ export function FeaturesBanner() {
       <Container>
         <div className="flex items-center gap-4 mb-10 md:mb-14 justify-center">
           <GoldRule />
-          <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold-700">
+          <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold-800">
             Beneficios CBI
           </span>
           <GoldRule />

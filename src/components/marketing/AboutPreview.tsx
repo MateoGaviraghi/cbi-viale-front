@@ -24,7 +24,7 @@ export function AboutPreview() {
             <Reveal direction="up">
               <div className="flex items-center gap-4 mb-8">
                 <GoldRule />
-                <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold-700">
+                <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold-800">
                   Acerca de CBI
                 </span>
               </div>

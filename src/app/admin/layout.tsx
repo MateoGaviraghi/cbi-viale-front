@@ -15,7 +15,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     const res = await api.auth.me(cookies().toString())
     return <AdminShell user={res.data}>{children}</AdminShell>
   } catch (err) {
-    if (err instanceof ApiError && (err.statusCode === 401 || err.statusCode === 403)) {
+    // 401/403 (sin sesión / sin permiso) y 429 (rate-limit del back, p.ej. flood
+    // a /auth/me sin token) → enviar a login en vez de propagar un 500 del panel.
+    if (err instanceof ApiError && [401, 403, 429].includes(err.statusCode)) {
       redirect('/login')
     }
     throw err

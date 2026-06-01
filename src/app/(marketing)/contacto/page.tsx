@@ -96,7 +96,7 @@ export default function ContactoPage() {
               <div className="mt-12 bg-beige/50 border border-line p-8">
                 <div className="flex items-center gap-4 mb-6">
                   <GoldRule />
-                  <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                  <span className="font-sans text-[11px] uppercase tracking-widest text-gold-800">
                     Horarios de atención
                   </span>
                 </div>

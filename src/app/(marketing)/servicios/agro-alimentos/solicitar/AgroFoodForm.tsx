@@ -244,7 +244,7 @@ export function AgroFoodForm() {
       {serverError && (
         <div
           role="alert"
-          className="border border-red-400 bg-red-50/40 px-4 py-3 text-sm text-red-600"
+          className="border border-danger bg-danger/5 px-4 py-3 text-sm text-danger"
         >
           {serverError}
         </div>

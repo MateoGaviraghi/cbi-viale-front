@@ -148,7 +148,7 @@ export default function NosotrosPage() {
                   <div className="p-8">
                     <div className="flex items-center gap-3 mb-5">
                       <GoldRule />
-                      <span className="font-sans text-[10px] uppercase tracking-widest text-gold-700">
+                      <span className="font-sans text-[10px] uppercase tracking-widest text-gold-800">
                         Fundadora
                       </span>
                     </div>
@@ -252,7 +252,7 @@ export default function NosotrosPage() {
               <FadeIn delay={0.06}>
                 <div className="flex items-center gap-4 mb-4">
                   <GoldRule />
-                  <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                  <span className="font-sans text-[11px] uppercase tracking-widest text-gold-800">
                     Trayectoria
                   </span>
                 </div>
@@ -301,7 +301,7 @@ export default function NosotrosPage() {
                   <div className="p-8">
                     <div className="flex items-center gap-3 mb-5">
                       <GoldRule />
-                      <span className="font-sans text-[10px] uppercase tracking-widest text-gold-700">
+                      <span className="font-sans text-[10px] uppercase tracking-widest text-gold-800">
                         Equipo
                       </span>
                     </div>

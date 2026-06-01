@@ -28,7 +28,7 @@ export function RequestFormPage({
   children,
 }: Props) {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       <Container className="py-14 md:py-20 lg:py-24">
         {/* Breadcrumb */}
         <nav
@@ -79,7 +79,7 @@ export function RequestFormPage({
 
         <div className="mt-12 max-w-3xl">{children}</div>
       </Container>
-    </main>
+    </div>
   )
 }
 

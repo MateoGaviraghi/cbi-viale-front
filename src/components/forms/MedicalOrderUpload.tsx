@@ -159,8 +159,8 @@ export function MedicalOrderUpload({
             type="button"
             onClick={() => inputRef.current?.click()}
             className={cn(
-              'tap-min flex w-full items-center justify-center gap-3 border border-dashed border-red-400',
-              'bg-red-50/50 px-4 py-6 text-sm text-red-500 hover:border-red-500',
+              'tap-min flex w-full items-center justify-center gap-3 border border-dashed border-danger',
+              'bg-danger/5 px-4 py-6 text-sm text-danger hover:border-danger',
               'transition-colors duration-200',
             )}
           >

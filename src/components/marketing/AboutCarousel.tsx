@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
@@ -8,6 +8,11 @@ import { motion } from 'framer-motion'
 //  Carousel editorial para AboutPreview. Auto-rotación con crossfade,
 //  pausa en hover, dots clickeables. Mantiene el frame editorial del
 //  placeholder original (label arriba, contador + dots abajo).
+//
+//  Accesibilidad (M-10):
+//  · role="region" + aria-label + aria-roledescription en el contenedor
+//  · aria-live="polite" en el contenedor de la imagen activa
+//  · prefers-reduced-motion: si está activo, la auto-rotación no arranca
 //
 //  Orden narrativo: 4 fotos del espacio físico (presentación del lugar) +
 //  4 fotos de las áreas de servicio (qué hacen).
@@ -67,21 +72,40 @@ const ROTATE_MS = 2400
 export function AboutCarousel() {
   const [idx, setIdx] = useState(0)
   const [paused, setPaused] = useState(false)
+  // Detectar prefers-reduced-motion al montar; si está activo, no auto-rotar.
+  const prefersReducedMotionRef = useRef(false)
 
   useEffect(() => {
-    if (paused) return
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    prefersReducedMotionRef.current = mq.matches
+    const handler = (e: MediaQueryListEvent) => {
+      prefersReducedMotionRef.current = e.matches
+    }
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  useEffect(() => {
+    if (paused || prefersReducedMotionRef.current) return
     const t = setInterval(() => setIdx((i) => (i + 1) % SLIDES.length), ROTATE_MS)
     return () => clearInterval(t)
   }, [paused])
 
   return (
     <div
+      role="region"
+      aria-label="Galería de imágenes"
+      aria-roledescription="carrusel"
       className="relative aspect-[4/5] w-full bg-white overflow-hidden border border-line"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       {/* Image stack — todas las imágenes renderizadas, solo cambia opacity.
-          Esto evita el "blink" de AnimatePresence y da crossfade puro. */}
+          Esto evita el "blink" de AnimatePresence y da crossfade puro.
+          El div con aria-live envuelve el slide activo para anunciar el cambio. */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {SLIDES[idx]?.caption ?? ''}
+      </div>
       {SLIDES.map((slide, i) => (
         <motion.div
           key={i}
@@ -89,6 +113,7 @@ export function AboutCarousel() {
           animate={{ opacity: i === idx ? 1 : 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0"
+          aria-hidden={i !== idx}
         >
           <Image
             src={slide.src}
@@ -108,7 +133,8 @@ export function AboutCarousel() {
             key={i}
             type="button"
             onClick={() => setIdx(i)}
-            aria-label={`Ir a slide ${i + 1}`}
+            aria-label={`Ir a imagen ${i + 1} de ${SLIDES.length}`}
+            aria-current={i === idx ? 'true' : undefined}
             className={`h-px transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               i === idx
                 ? 'w-7 bg-gold-700'

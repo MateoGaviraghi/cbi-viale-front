@@ -56,14 +56,14 @@ export function Toaster() {
             'data-[state=open]:animate-in data-[state=closed]:animate-out',
             'data-[state=open]:slide-in-from-right-full data-[state=closed]:slide-out-to-right-full',
             'data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)]',
-            t.variant === 'success' ? 'border-gold-700' : 'border-red-400',
+            t.variant === 'success' ? 'border-gold-700' : 'border-danger',
           )}
         >
           <div className="mt-0.5 shrink-0">
             {t.variant === 'success' ? (
               <CheckCircle size={16} className="text-gold-700" />
             ) : (
-              <AlertCircle size={16} className="text-red-500" />
+              <AlertCircle size={16} className="text-danger" />
             )}
           </div>
           <div className="flex-1 min-w-0">

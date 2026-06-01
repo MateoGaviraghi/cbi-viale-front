@@ -74,7 +74,7 @@ export function TimeField<T extends FieldValues>({
                     'w-full border bg-white px-4 py-3 pr-12 font-sans text-base text-ink min-h-[44px]',
                     'placeholder:text-ink-muted/60 transition-colors duration-200',
                     'focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-0',
-                    error ? 'border-red-400' : 'border-line',
+                    error ? 'border-danger' : 'border-line',
                   )}
                 />
                 <Popover.Trigger asChild>

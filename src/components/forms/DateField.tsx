@@ -74,7 +74,7 @@ export function DateField<T extends FieldValues>({
                     'font-sans text-base text-ink min-h-[44px] transition-colors duration-200',
                     'focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-0',
                     'hover:border-gold-700/60',
-                    error ? 'border-red-400' : 'border-line',
+                    error ? 'border-danger' : 'border-line',
                     !selected && 'text-ink-muted/70',
                   )}
                   aria-label={label}

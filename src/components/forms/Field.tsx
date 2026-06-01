@@ -11,10 +11,10 @@ import { cn } from '@/lib/utils'
 export function inputCls(hasError: boolean, extra?: string) {
   return cn(
     'w-full border bg-white px-4 py-3 font-sans text-base text-ink placeholder:text-ink-muted/60',
-    'focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-0',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-0',
     'transition-colors duration-200 min-h-[44px]',
     'disabled:bg-beige/40 disabled:text-ink-muted disabled:cursor-not-allowed',
-    hasError ? 'border-red-400' : 'border-line',
+    hasError ? 'border-danger' : 'border-line',
     extra,
   )
 }
@@ -29,15 +29,44 @@ interface FieldProps {
 }
 
 export function Field({ label, required, error, hint, children, className }: FieldProps) {
+  const autoId = React.useId()
+  const controlId =
+    (React.isValidElement<{ id?: string }>(children) && children.props.id) || autoId
+  const errorId = `${autoId}-error`
+  const hintId = `${autoId}-hint`
+  const describedBy =
+    [error ? errorId : null, hint && !error ? hintId : null].filter(Boolean).join(' ') || undefined
+
+  // Asocia el control (input/textarea/select) con su label, error y hint para
+  // tecnología asistiva: htmlFor↔id, aria-invalid y aria-describedby.
+  const control = React.isValidElement(children)
+    ? React.cloneElement(children as React.ReactElement<Record<string, unknown>>, {
+        id: controlId,
+        'aria-invalid': error ? true : undefined,
+        'aria-describedby': describedBy,
+      })
+    : children
+
   return (
     <div className={className}>
-      <label className="block text-[11px] uppercase tracking-widest text-ink-muted mb-2">
+      <label
+        htmlFor={controlId}
+        className="block text-[11px] uppercase tracking-widest text-ink-muted mb-2"
+      >
         {label}
         {required && <span className="text-gold-700 ml-1">*</span>}
       </label>
-      {children}
-      {hint && !error && <p className="mt-1.5 text-xs text-ink-muted">{hint}</p>}
-      {error && <p className="mt-1.5 text-xs text-red-500">{error}</p>}
+      {control}
+      {hint && !error && (
+        <p id={hintId} className="mt-1.5 text-xs text-ink-muted">
+          {hint}
+        </p>
+      )}
+      {error && (
+        <p id={errorId} role="alert" className="mt-1.5 text-xs text-danger">
+          {error}
+        </p>
+      )}
     </div>
   )
 }
@@ -119,15 +148,20 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             type="checkbox"
             className={cn(
               'mt-0.5 h-5 w-5 shrink-0 cursor-pointer border border-line bg-white',
-              'accent-gold-700 focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-2',
-              error && 'border-red-400',
+              'accent-gold-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2',
+              error && 'border-danger',
             )}
+            aria-invalid={error ? true : undefined}
             {...rest}
           />
           <span className="text-sm leading-relaxed text-ink">{label}</span>
         </label>
         {hint && !error && <p className="mt-1.5 ml-8 text-xs text-ink-muted">{hint}</p>}
-        {error && <p className="mt-1.5 ml-8 text-xs text-red-500">{error}</p>}
+        {error && (
+          <p role="alert" className="mt-1.5 ml-8 text-xs text-danger">
+            {error}
+          </p>
+        )}
       </div>
     )
   },

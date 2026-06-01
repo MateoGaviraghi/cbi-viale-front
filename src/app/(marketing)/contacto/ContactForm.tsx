@@ -133,7 +133,7 @@ function inputCls(hasError: boolean) {
     'focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-0',
     'transition-colors duration-200',
     'min-h-[44px]', // iOS no-zoom requires font-size ≥ 16px (set via Tailwind base)
-    hasError ? 'border-red-400' : 'border-line',
+    hasError ? 'border-danger' : 'border-line',
   ].join(' ')
 }
 
@@ -152,7 +152,7 @@ function Field({
         {label}
       </label>
       {children}
-      {error && <p className="mt-1.5 text-xs text-red-500">{error}</p>}
+      {error && <p className="mt-1.5 text-xs text-danger">{error}</p>}
     </div>
   )
 }

@@ -259,7 +259,7 @@ export default function Page() {
           <FadeIn>
             <div className="flex items-center gap-4 mb-4">
               <GoldRule />
-              <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+              <span className="font-sans text-[11px] uppercase tracking-widest text-gold-800">
                 Perfiles diagnósticos
               </span>
             </div>
@@ -376,7 +376,7 @@ export default function Page() {
             <FadeIn>
               <div className="flex items-center gap-4 mb-6">
                 <GoldRule />
-                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-800">
                   Informes
                 </span>
               </div>

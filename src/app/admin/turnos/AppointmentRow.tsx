@@ -21,7 +21,7 @@ const STATUS_OPTS: { value: AppointmentStatus; label: string }[] = [
 const STATUS_CLASS: Record<AppointmentStatus, string> = {
   PENDING: 'bg-amber-50 text-amber-700 border-amber-200',
   CONFIRMED: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  CANCELLED: 'bg-red-50 text-red-600 border-red-200',
+  CANCELLED: 'bg-danger/5 text-danger border-danger/30',
   COMPLETED: 'bg-beige text-ink-muted border-line',
   NO_SHOW: 'bg-zinc-50 text-zinc-500 border-zinc-200',
 }
@@ -95,7 +95,7 @@ export function AppointmentRow({ appointment: t }: Props) {
             </span>
             <button
               onClick={() => setOpen(true)}
-              className="tap-min inline-flex items-center justify-center h-7 w-7 border border-line text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors"
+              className="tap-min inline-flex items-center justify-center h-7 w-7 border border-line text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
               aria-label={`Editar turno de ${t.patientName}`}
             >
               <Pencil width={12} height={12} strokeWidth={1.5} aria-hidden />
@@ -120,7 +120,7 @@ export function AppointmentRow({ appointment: t }: Props) {
               id={`status-${t.id}`}
               value={status}
               onChange={(e) => setStatus(e.target.value as AppointmentStatus)}
-              className="mt-1.5 w-full h-12 border border-line bg-white px-3 font-sans text-sm text-ink focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-1"
+              className="mt-1.5 w-full h-12 border border-line bg-white px-3 font-sans text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
             >
               {STATUS_OPTS.map((o) => (
                 <option key={o.value} value={o.value}>

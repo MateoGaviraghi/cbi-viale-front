@@ -283,7 +283,7 @@ export default function Page() {
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex items-center justify-center gap-4 mb-8">
                 <GoldRule />
-                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-800">
                   Manifiesto · Línea biológica
                 </span>
                 <GoldRule />
@@ -393,7 +393,7 @@ export default function Page() {
               <FadeIn>
                 <div className="flex items-center gap-4 mb-4">
                   <GoldRule />
-                  <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                  <span className="font-sans text-[11px] uppercase tracking-widest text-gold-800">
                     Aplicaciones del PRP
                   </span>
                 </div>

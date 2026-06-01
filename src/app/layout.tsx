@@ -97,6 +97,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es-AR" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="min-h-dvh flex flex-col">
+        {/* Skip-to-content — primer foco para usuarios de teclado/lector. */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-gold-700 focus:px-4 focus:py-2 focus:text-sm focus:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+        >
+          Saltar al contenido
+        </a>
         {/* JSON-LD organization schema global */}
         <script
           type="application/ld+json"

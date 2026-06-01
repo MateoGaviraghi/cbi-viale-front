@@ -22,7 +22,10 @@ export function SlotPicker({ serviceSlug, date }: Props) {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    // Try sessionStorage first (data already fetched in step 2)
+    let cancelled = false
+    let hadCache = false
+
+    // Render optimista desde el cache que dejó el calendario en el paso 2…
     const cached = sessionStorage.getItem('turnos_availability')
     if (cached) {
       try {
@@ -31,24 +34,35 @@ export function SlotPicker({ serviceSlug, date }: Props) {
         if (day) {
           setSlots(day.slots)
           setLoading(false)
-          return
+          hadCache = true
         }
       } catch {
-        // fall through to fetch
+        // cache inválido → se ignora y se hace fetch
       }
     }
 
-    // Fallback: fetch for the month of the selected date
+    // …pero SIEMPRE refrescamos contra el back (fuente de verdad), así un slot
+    // ocupado entre el paso 2 y este no se muestra como libre.
     const month = date.slice(0, 7) // YYYY-MM
     api.appointments
       .getAvailability(serviceSlug, month)
       .then(({ data }) => {
+        if (cancelled) return
         sessionStorage.setItem('turnos_availability', JSON.stringify(data))
         const day = data.days.find((d) => d.date === date)
         setSlots(day?.slots ?? [])
       })
-      .catch(() => setError('No pudimos cargar los horarios. Intentá de nuevo.'))
-      .finally(() => setLoading(false))
+      .catch(() => {
+        if (!cancelled && !hadCache)
+          setError('No pudimos cargar los horarios. Intentá de nuevo.')
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+
+    return () => {
+      cancelled = true
+    }
   }, [serviceSlug, date])
 
   function handleContinue() {
@@ -73,7 +87,7 @@ export function SlotPicker({ serviceSlug, date }: Props) {
 
       {error && (
         <div className="py-8 text-center">
-          <p className="text-sm text-red-500 mb-4">{error}</p>
+          <p className="text-sm text-danger mb-4">{error}</p>
           <button
             onClick={() => window.location.reload()}
             className="text-sm text-gold-700 underline underline-offset-2"

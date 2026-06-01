@@ -37,7 +37,7 @@ const STATUS_CHIP: Record<AppointmentStatus, string> = {
   PENDING:   'bg-amber-50   text-amber-800  border border-amber-200',
   CONFIRMED: 'bg-emerald-50 text-emerald-800 border border-emerald-200',
   COMPLETED: 'bg-beige      text-ink-muted  border border-line',
-  CANCELLED: 'bg-red-50     text-red-600    border border-red-200',
+  CANCELLED: 'bg-danger/5   text-danger     border border-danger/30',
   NO_SHOW:   'bg-zinc-100   text-zinc-500   border border-zinc-200',
 }
 
@@ -45,7 +45,7 @@ const STATUS_BADGE: Record<AppointmentStatus, string> = {
   PENDING:   'bg-amber-50   text-amber-700  border border-amber-200',
   CONFIRMED: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
   COMPLETED: 'bg-beige      text-ink-muted  border border-line',
-  CANCELLED: 'bg-red-50     text-red-600    border border-red-200',
+  CANCELLED: 'bg-danger/5   text-danger     border border-danger/30',
   NO_SHOW:   'bg-zinc-100   text-zinc-500   border border-zinc-200',
 }
 
@@ -93,7 +93,7 @@ export function CalendarView() {
     const query: Record<string, string | number> = { pageSize: 100 }
     if (statusFilter) query.status = statusFilter
     apiFetch<Appointment[]>('/admin/appointments', { query })
-      .then(({ data }) => { if (!cancelled) { console.log('[Turnos]', data); setAppointments(data); setLoading(false) } })
+      .then(({ data }) => { if (!cancelled) { setAppointments(data); setLoading(false) } })
       .catch(() => { if (!cancelled) setLoading(false) })
     return () => { cancelled = true }
   }, [month, statusFilter])
@@ -226,12 +226,12 @@ export function CalendarView() {
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
               placeholder="Buscar por nombre o DNI…"
-              className="w-full h-11 border border-line bg-white pl-9 pr-8 font-sans text-sm text-ink placeholder:text-ink-soft focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-1"
+              className="w-full h-11 border border-line bg-white pl-9 pr-8 font-sans text-sm text-ink placeholder:text-ink-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
             />
             {searchText && (
               <button
                 onClick={() => { setSearchText(''); setSearchResults(null) }}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
                 aria-label="Limpiar búsqueda"
               >
                 <X width={13} height={13} strokeWidth={1.5} />
@@ -252,7 +252,7 @@ export function CalendarView() {
               type="date"
               value={dateSearch}
               onChange={(e) => setDateSearch(e.target.value)}
-              className="w-full h-11 border border-line bg-white pl-9 pr-3 font-sans text-sm text-ink focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-1 appearance-none"
+              className="w-full h-11 border border-line bg-white pl-9 pr-3 font-sans text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1 appearance-none"
             />
           </div>
 
@@ -261,7 +261,7 @@ export function CalendarView() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value as AppointmentStatus | '')}
-              className="w-full h-11 border border-line bg-white px-3 font-sans text-sm text-ink focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-1"
+              className="w-full h-11 border border-line bg-white px-3 font-sans text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
             >
               <option value="">Todos los estados</option>
               {STATUS_OPTS.map((o) => (
@@ -287,7 +287,7 @@ export function CalendarView() {
             </Button>
             <button
               onClick={() => setStatusFilter('')}
-              className="font-sans text-xs text-ink-muted hover:text-gold-700 transition-colors"
+              className="font-sans text-xs text-ink-muted hover:text-gold-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
             >
               Quitar filtro
             </button>
@@ -314,7 +314,7 @@ export function CalendarView() {
                   <button
                     key={apt.id}
                     onClick={() => selectSearchResult(apt)}
-                    className="w-full text-left flex items-center justify-between gap-4 px-3 py-2 hover:bg-beige/40 transition-colors group"
+                    className="w-full text-left flex items-center justify-between gap-4 px-3 py-2 hover:bg-beige/40 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
                   >
                     <div className="min-w-0">
                       <p className="font-serif text-sm text-ink truncate">{apt.patientName}</p>
@@ -337,7 +337,7 @@ export function CalendarView() {
       <div className="flex items-center justify-between mb-6">
         <button
           onClick={() => setMonth((m) => subMonths(m, 1))}
-          className="tap-min inline-flex items-center justify-center h-10 w-10 border border-line text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors"
+          className="tap-min inline-flex items-center justify-center h-10 w-10 border border-line text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
           aria-label="Mes anterior"
         >
           <ChevronLeft width={16} height={16} strokeWidth={1.5} />
@@ -356,13 +356,13 @@ export function CalendarView() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setMonth(startOfMonth(new Date()))}
-            className="hidden sm:block tap-min px-3 h-10 border border-line font-sans text-xs text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors"
+            className="hidden sm:block tap-min px-3 h-10 border border-line font-sans text-xs text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
           >
             Hoy
           </button>
           <button
             onClick={() => setMonth((m) => addMonths(m, 1))}
-            className="tap-min inline-flex items-center justify-center h-10 w-10 border border-line text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors"
+            className="tap-min inline-flex items-center justify-center h-10 w-10 border border-line text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
             aria-label="Mes siguiente"
           >
             <ChevronRight width={16} height={16} strokeWidth={1.5} />
@@ -412,7 +412,7 @@ export function CalendarView() {
                 {apts.length > 0 ? (
                   <button
                     onClick={() => setDayDetail({ key, date: day, apts })}
-                    className={`inline-flex items-center justify-center w-6 h-6 font-sans text-xs mb-1 transition-colors ${
+                    className={`inline-flex items-center justify-center w-6 h-6 font-sans text-xs mb-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1 ${
                       today
                         ? 'bg-gold-700 text-white hover:bg-gold-800'
                         : inMo
@@ -443,7 +443,7 @@ export function CalendarView() {
                       key={apt.id}
                       onClick={() => openEdit(apt)}
                       title={`${apt.patientName} — ${format(localDate(apt.date), 'HH:mm')}`}
-                      className={`w-full text-left px-1.5 py-0.5 text-[10px] leading-snug truncate transition-opacity hover:opacity-75 ${STATUS_CHIP[apt.status]}`}
+                      className={`w-full text-left px-1.5 py-0.5 text-[10px] leading-snug truncate transition-opacity hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1 ${STATUS_CHIP[apt.status]}`}
                     >
                       <span className="font-medium tabular-nums">
                         {format(localDate(apt.date), 'HH:mm')}
@@ -456,7 +456,7 @@ export function CalendarView() {
                   {extraCount > 0 && (
                     <button
                       onClick={() => setDayDetail({ key, date: day, apts })}
-                      className="w-full text-left px-1.5 py-0.5 font-sans text-[10px] text-gold-700 hover:text-gold-800 hover:bg-gold-50/50 transition-colors"
+                      className="w-full text-left px-1.5 py-0.5 font-sans text-[10px] text-gold-700 hover:text-gold-800 hover:bg-gold-50/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
                     >
                       +{extraCount} más
                     </button>
@@ -474,7 +474,7 @@ export function CalendarView() {
           <button
             key={o.value}
             onClick={() => setStatusFilter(statusFilter === o.value ? '' : o.value)}
-            className={`px-2 py-0.5 font-sans text-[10px] uppercase tracking-widest transition-opacity ${STATUS_BADGE[o.value]} ${statusFilter === o.value ? 'opacity-100 ring-2 ring-offset-1 ring-gold-700/40' : 'opacity-70 hover:opacity-100'}`}
+            className={`px-2 py-0.5 font-sans text-[10px] uppercase tracking-widest transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1 ${STATUS_BADGE[o.value]} ${statusFilter === o.value ? 'opacity-100 ring-2 ring-offset-1 ring-gold-700/40' : 'opacity-70 hover:opacity-100'}`}
           >
             {o.label}
           </button>
@@ -482,7 +482,7 @@ export function CalendarView() {
         {statusFilter && (
           <button
             onClick={() => setStatusFilter('')}
-            className="font-sans text-[10px] text-ink-muted hover:text-gold-700 transition-colors ml-1"
+            className="font-sans text-[10px] text-ink-muted hover:text-gold-700 transition-colors ml-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
           >
             × limpiar filtro
           </button>
@@ -566,7 +566,7 @@ export function CalendarView() {
                 id="cal-status"
                 value={editStatus}
                 onChange={(e) => setEditStatus(e.target.value as AppointmentStatus)}
-                className="mt-1.5 w-full h-12 border border-line bg-white px-3 font-sans text-sm text-ink focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-1"
+                className="mt-1.5 w-full h-12 border border-line bg-white px-3 font-sans text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-1"
               >
                 {STATUS_OPTS.map((o) => (
                   <option key={o.value} value={o.value}>{o.label}</option>

@@ -77,7 +77,7 @@ export function Navbar() {
             <Link
               href="/"
               aria-label="CBI Viale — ir al inicio"
-              className="group flex items-center gap-3 focus-visible:outline-none"
+              className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
             >
               {/* SVG del cliente — el mask interno crea el logo dorado con transparencia.
                   Se muestra igual en ambos estados (no tile, no filter). */}
@@ -219,7 +219,7 @@ function NavLink({
       <Link
         href={href}
         className={cn(
-          'group relative px-4 py-3 font-sans text-sm transition-colors duration-500 focus-visible:outline-none',
+          'group relative px-4 py-3 font-sans text-sm transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2',
           scrolled
             ? 'text-ink hover:text-gold-700 focus-visible:text-gold-700'
             : 'text-white/90 hover:text-gold-300 focus-visible:text-gold-300',

@@ -334,7 +334,7 @@ export default function Page() {
           <FadeIn>
             <div className="flex items-center gap-4 mb-4">
               <GoldRule />
-              <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+              <span className="font-sans text-[11px] uppercase tracking-widest text-gold-800">
                 Estudios que realizamos
               </span>
             </div>
@@ -545,7 +545,7 @@ export default function Page() {
             <FadeIn className="lg:col-span-5">
               <div className="flex items-center gap-4 mb-4">
                 <GoldRule />
-                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-800">
                   Indicaciones · Micológico
                 </span>
               </div>
@@ -633,7 +633,7 @@ export default function Page() {
             <FadeIn className="lg:col-span-5">
               <div className="flex items-center gap-4 mb-4">
                 <GoldRule />
-                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-700">
+                <span className="font-sans text-[11px] uppercase tracking-widest text-gold-800">
                   Indicaciones · Espermograma
                 </span>
               </div>

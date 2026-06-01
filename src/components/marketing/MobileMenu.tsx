@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { X, Lock } from 'lucide-react'
 import { SERVICE_SLUGS, SERVICES, CONTACT } from '@/lib/constants'
 import { ServiceIcon } from './ServiceIcon'
@@ -15,20 +15,57 @@ interface Props {
 // Overlay full-screen para mobile — links principales + grid de servicios compacto.
 // Bloquea el scroll del body mientras está abierto.
 export function MobileMenu({ open, onClose }: Props) {
+  const panelRef = useRef<HTMLDivElement | null>(null)
+
   useEffect(() => {
     if (!open) return
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
+    const previouslyFocused = document.activeElement as HTMLElement | null
+
+    const getFocusables = () =>
+      panelRef.current
+        ? Array.from(
+            panelRef.current.querySelectorAll<HTMLElement>(
+              'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+            ),
+          ).filter((el) => el.offsetParent !== null)
+        : []
+
+    // Foco inicial dentro del menú (botón cerrar).
+    getFocusables()[0]?.focus()
+
+    // Focus trap + Escape: el foco no escapa al fondo mientras el menú está abierto.
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+      if (e.key !== 'Tab') return
+      const items = getFocusables()
+      const first = items[0]
+      const last = items[items.length - 1]
+      if (!first || !last) return
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
     document.addEventListener('keydown', onKey)
+
     return () => {
       document.body.style.overflow = prev
       document.removeEventListener('keydown', onKey)
+      previouslyFocused?.focus?.()
     }
   }, [open, onClose])
 
   return (
     <div
+      ref={panelRef}
       aria-hidden={!open}
       className={cn(
         'lg:hidden fixed inset-0 z-50 bg-white transition-all duration-500 ease-editorial',

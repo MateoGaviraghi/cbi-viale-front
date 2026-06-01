@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   format,
@@ -47,16 +47,22 @@ export function BookingCalendar({ serviceSlug }: Props) {
 
   const monthKey = format(currentMonth, 'yyyy-MM')
 
+  // Guard contra respuestas fuera de orden: si se cambia de mes rápido, solo la
+  // última petición aplica su resultado (evita que un mes viejo pise al actual).
+  const reqIdRef = useRef(0)
+
   const fetchAvailability = useCallback(async () => {
+    const myReq = ++reqIdRef.current
     setLoading(true)
     setError(null)
     try {
       const { data } = await api.appointments.getAvailability(serviceSlug, monthKey)
-      setAvailability(data)
+      if (myReq === reqIdRef.current) setAvailability(data)
     } catch {
-      setError('No pudimos cargar la disponibilidad. Intentá de nuevo.')
+      if (myReq === reqIdRef.current)
+        setError('No pudimos cargar la disponibilidad. Intentá de nuevo.')
     } finally {
-      setLoading(false)
+      if (myReq === reqIdRef.current) setLoading(false)
     }
   }, [serviceSlug, monthKey])
 
@@ -144,7 +150,7 @@ export function BookingCalendar({ serviceSlug }: Props) {
         </div>
       ) : error ? (
         <div className="py-10 text-center">
-          <p className="text-sm text-red-500 mb-4">{error}</p>
+          <p className="text-sm text-danger mb-4">{error}</p>
           <button
             onClick={fetchAvailability}
             className="text-sm text-gold-700 underline underline-offset-2"

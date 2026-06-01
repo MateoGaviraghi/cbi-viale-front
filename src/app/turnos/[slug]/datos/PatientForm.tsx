@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { fromZonedTime } from 'date-fns-tz'
 import { useRouter } from 'next/navigation'
 import { Loader2, ArrowLeft, Info } from 'lucide-react'
 import { api, ApiError } from '@/lib/api'
@@ -45,8 +46,13 @@ function buildFullSchema(serviceSlug: string, requiresConsent: boolean) {
   return z.intersection(baseSchema, extraSchema) as unknown as z.ZodType<Record<string, unknown>>
 }
 
+// Zona horaria del laboratorio. Convertimos el "wall clock" elegido por el
+// paciente al instante UTC con el offset real de la zona (sin hardcodear -03:00),
+// consistente con el calendario que ya usa date-fns-tz.
+const LAB_TZ = 'America/Argentina/Buenos_Aires'
+
 function toArgISO(date: string, time: string): string {
-  return `${date}T${time}:00.000-03:00`
+  return fromZonedTime(`${date}T${time}:00`, LAB_TZ).toISOString()
 }
 
 // ---------------------------------------------------------------------------
@@ -58,6 +64,7 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
   const config = SERVICE_FORM_CONFIGS[serviceSlug]
   const [signatureUrl, setSignatureUrl] = useState<string | null>(null)
   const [signatureOpen, setSignatureOpen] = useState(false)
+  const [signatureError, setSignatureError] = useState(false)
 
   const schema = useMemo(
     () => buildFullSchema(serviceSlug, requiresConsent),
@@ -77,6 +84,7 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
   async function onSubmit(data: Record<string, unknown>) {
     // Exigir firma SOLO si el servicio requiere consentimiento.
     if (requiresConsent && !signatureUrl) {
+      setSignatureError(true)
       setSignatureOpen(true)
       return
     }
@@ -243,7 +251,7 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
             </span>
           </label>
           {fieldError(errors, 'consentGiven') && (
-            <p className="ml-7 text-xs text-red-500">{fieldError(errors, 'consentGiven')}</p>
+            <p className="ml-7 text-xs text-danger">{fieldError(errors, 'consentGiven')}</p>
           )}
 
           {/* Firma del paciente */}
@@ -270,6 +278,11 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
               >
                 <span className="uppercase tracking-widest text-[11px]">Firmar consentimiento</span>
               </button>
+            )}
+            {signatureError && !signatureUrl && (
+              <p role="alert" className="mt-2 text-xs text-danger">
+                Necesitás firmar el consentimiento para confirmar el turno.
+              </p>
             )}
           </div>
         </div>
@@ -304,7 +317,10 @@ export function PatientForm({ serviceSlug, date, time, requiresConsent, serviceN
       <SignatureModal
         open={signatureOpen}
         onOpenChange={setSignatureOpen}
-        onConfirmed={(url) => setSignatureUrl(url)}
+        onConfirmed={(url) => {
+          setSignatureUrl(url)
+          setSignatureError(false)
+        }}
       />
     </form>
   )
@@ -445,7 +461,7 @@ function ExtraField({
       {field.helperText && !err && (
         <p className="mt-1.5 text-xs text-ink-muted/70">{field.helperText}</p>
       )}
-      {err && <p className="mt-1.5 text-xs text-red-500">{err}</p>}
+      {err && <p className="mt-1.5 text-xs text-danger">{err}</p>}
     </div>
   )
 }
@@ -466,9 +482,9 @@ function fieldError(errors: Record<string, unknown>, key: string): string | unde
 function inputCls(hasError: boolean) {
   return cn(
     'w-full border bg-white px-4 py-3 font-sans text-base text-ink placeholder:text-ink-muted/60',
-    'focus:outline-none focus:ring-2 focus:ring-gold-700 focus:ring-offset-0',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-0',
     'transition-colors duration-200 min-h-[44px]',
-    hasError ? 'border-red-400' : 'border-line',
+    hasError ? 'border-danger' : 'border-line',
   )
 }
 
@@ -487,7 +503,7 @@ function Field({
         {label}
       </label>
       {children}
-      {error && <p className="mt-1.5 text-xs text-red-500">{error}</p>}
+      {error && <p className="mt-1.5 text-xs text-danger">{error}</p>}
     </div>
   )
 }

@@ -117,7 +117,7 @@ function SplitVariant({ eyebrow, headline, lead, image, imageAlt, highlights }: 
             <Reveal direction="up">
               <div className="flex items-center gap-4 mb-6">
                 <GoldRule />
-                <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold-700">{eyebrow}</span>
+                <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold-800">{eyebrow}</span>
               </div>
               <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.02] tracking-[-0.03em] text-ink">
                 <SplitText inView staggerChildren={0.06} duration={0.75}>
@@ -137,7 +137,7 @@ function SplitVariant({ eyebrow, headline, lead, image, imageAlt, highlights }: 
                 {highlights.map((h, i) => (
                   <Reveal key={i} direction="up" delay={0.3 + i * 0.08}>
                     <li>
-                      <p className="font-sans text-[11px] uppercase tracking-widest text-gold-700 mb-1.5">
+                      <p className="font-sans text-[11px] uppercase tracking-widest text-gold-800 mb-1.5">
                         {String(i + 1).padStart(2, '0')} · {h.title}
                       </p>
                       <p className="text-ink leading-relaxed">{h.body}</p>
@@ -211,7 +211,7 @@ function TilesVariant({ eyebrow, headline, lead, image, imageAlt, highlights }: 
         <Reveal direction="up" className="max-w-3xl mb-14">
           <div className="flex items-center gap-4 mb-6">
             <GoldRule />
-            <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold-700">{eyebrow}</span>
+            <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold-800">{eyebrow}</span>
           </div>
           <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-[1.02] tracking-[-0.03em] text-ink">
             <SplitText inView staggerChildren={0.06} duration={0.75}>

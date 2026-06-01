@@ -175,14 +175,14 @@ export function Footer() {
       {/* Baseline — línea delgada abajo */}
       <div className="border-t border-line">
         <Container className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 py-6">
-          <p className="text-xs text-ink-soft">
+          <p className="text-xs text-ink-muted">
             © {year} {SITE.name}. Todos los derechos reservados.
           </p>
           <a
             href="https://nodotech.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-1.5 text-xs text-ink-soft hover:text-gold-700 transition-colors"
+            className="group inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-gold-700 transition-colors"
           >
             Desarrollado por{' '}
             <span className="text-gold-700 group-hover:text-gold-800">nodotech.dev</span>

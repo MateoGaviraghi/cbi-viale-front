@@ -184,6 +184,7 @@ export function ClinicalForm() {
   const [serverError, setServerError] = useState<string | null>(null)
   const [signatureUrl, setSignatureUrl] = useState<string | null>(null)
   const [signatureOpen, setSignatureOpen] = useState(false)
+  const [signatureError, setSignatureError] = useState(false)
 
   const {
     register,
@@ -214,6 +215,7 @@ export function ClinicalForm() {
 
     // Exigir firma antes de enviar (requisito de negocio: clínica requiere consentimiento).
     if (!signatureUrl) {
+      setSignatureError(true)
       setSignatureOpen(true)
       return
     }
@@ -302,7 +304,7 @@ export function ClinicalForm() {
         <div className="space-y-6">
           <div
             role="alert"
-            className="border border-red-400 bg-red-50/40 px-4 py-4 text-sm text-red-700 flex gap-3"
+            className="border border-danger bg-danger/5 px-4 py-4 text-sm text-danger flex gap-3"
           >
             <AlertTriangle size={18} className="shrink-0 mt-0.5" />
             <div>
@@ -679,13 +681,18 @@ export function ClinicalForm() {
               <span className="uppercase tracking-widest text-[11px]">Firmar consentimiento</span>
             </button>
           )}
+          {signatureError && !signatureUrl && (
+            <p role="alert" className="mt-2 text-xs text-danger">
+              Necesitás firmar el consentimiento para enviar la solicitud.
+            </p>
+          )}
         </div>
       </FormSection>
 
       {serverError && (
         <div
           role="alert"
-          className="border border-red-400 bg-red-50/40 px-4 py-3 text-sm text-red-600"
+          className="border border-danger bg-danger/5 px-4 py-3 text-sm text-danger"
         >
           {serverError}
         </div>
@@ -700,7 +707,10 @@ export function ClinicalForm() {
       <SignatureModal
         open={signatureOpen}
         onOpenChange={setSignatureOpen}
-        onConfirmed={(url) => setSignatureUrl(url)}
+        onConfirmed={(url) => {
+          setSignatureUrl(url)
+          setSignatureError(false)
+        }}
       />
     </form>
   )
