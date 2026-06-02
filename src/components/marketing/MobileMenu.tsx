@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-import { X, Lock } from 'lucide-react'
+import { X, CalendarDays } from 'lucide-react'
 import { SERVICE_SLUGS, SERVICES, CONTACT } from '@/lib/constants'
 import { ServiceIcon } from './ServiceIcon'
 import { cn } from '@/lib/utils'
@@ -152,12 +152,12 @@ export function MobileMenu({ open, onClose }: Props) {
             Solicitar análisis →
           </Link>
           <Link
-            href="/login"
+            href="/turnos"
             onClick={onClose}
-            className="mt-3 tap-min flex h-12 items-center justify-center gap-2 border border-line font-sans text-xs uppercase tracking-widest text-ink-muted hover:border-gold-700/40 hover:text-gold-700 transition-colors"
+            className="mt-3 tap-min flex h-12 items-center justify-center gap-2 border border-gold-700/40 font-sans text-xs uppercase tracking-widest text-gold-700 hover:border-gold-700 hover:bg-gold-700 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
           >
-            <Lock width={13} height={13} strokeWidth={1.5} aria-hidden />
-            Iniciar sesión
+            <CalendarDays width={14} height={14} strokeWidth={1.5} aria-hidden />
+            Reservar turno
           </Link>
         </nav>
 

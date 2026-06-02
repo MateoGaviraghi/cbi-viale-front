@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, Lock } from 'lucide-react'
+import { Menu, CalendarDays } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Container } from '@/components/shared/Container'
 import { MegaMenu } from './MegaMenu'
@@ -145,16 +145,16 @@ export function Navbar() {
             className="hidden lg:flex items-center gap-3"
           >
             <Link
-              href="/login"
+              href="/turnos"
               className={cn(
                 'tap-min inline-flex h-11 items-center gap-2 px-4 font-sans text-xs uppercase tracking-widest transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2',
                 scrolled
-                  ? 'text-ink-muted hover:text-gold-700 border border-line hover:border-gold-700/40'
-                  : 'text-white/70 hover:text-white border border-white/20 hover:border-white/50',
+                  ? 'border border-gold-700/40 text-gold-700 hover:border-gold-700 hover:bg-gold-700 hover:text-white'
+                  : 'border border-white/30 text-white hover:border-white hover:bg-white/10',
               )}
             >
-              <Lock width={13} height={13} strokeWidth={1.5} aria-hidden />
-              Iniciar sesión
+              <CalendarDays width={13} height={13} strokeWidth={1.5} aria-hidden />
+              Reservar turno
             </Link>
             <Link
               href="/servicios"

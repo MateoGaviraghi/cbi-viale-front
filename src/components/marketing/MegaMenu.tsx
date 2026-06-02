@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, CalendarDays } from 'lucide-react'
 import { SERVICE_SLUGS, SERVICES } from '@/lib/constants'
 import { ServiceIcon } from './ServiceIcon'
 import { cn } from '@/lib/utils'
@@ -109,12 +109,16 @@ export function MegaMenu({ scrolled = true }: { scrolled?: boolean }) {
             })}
           </div>
           <div className="flex items-center justify-between bg-beige/60 px-6 py-4 border-t border-line">
-            <p className="text-xs font-sans uppercase tracking-widest text-ink-muted">
-              Seis áreas, un mismo estándar
-            </p>
+            <Link
+              href="/turnos"
+              className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-widest text-gold-800 hover:text-gold-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
+            >
+              <CalendarDays width={13} height={13} strokeWidth={1.5} aria-hidden />
+              Reservar un turno
+            </Link>
             <Link
               href="/servicios"
-              className="text-xs font-sans uppercase tracking-widest text-gold-700 hover:text-gold-800 transition-colors"
+              className="text-xs font-sans uppercase tracking-widest text-gold-700 hover:text-gold-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
             >
               Ver todos →
             </Link>
