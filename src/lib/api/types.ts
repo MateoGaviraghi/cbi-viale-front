@@ -346,6 +346,52 @@ export interface PublicAvailabilityMonth {
 }
 
 // ---------------------------------------------------------------------------
+//  Disponibilidad — admin (reglas de horario + bloqueos por fecha)
+// ---------------------------------------------------------------------------
+
+/** Regla de horario de atención. serviceId null = aplica a todos los servicios. */
+export interface AvailabilityRule {
+  id: string
+  weekday: Weekday
+  startTime: string // "HH:MM" 24h
+  endTime: string // "HH:MM" 24h
+  serviceId: string | null
+  active: boolean
+  createdAt: string
+}
+
+export interface CreateAvailabilityRuleDto {
+  weekday: Weekday
+  startTime: string
+  endTime: string
+  /** cuid del servicio; null/omitido = regla global. */
+  serviceId?: string | null
+  active?: boolean
+}
+
+export type UpdateAvailabilityRuleDto = Partial<CreateAvailabilityRuleDto>
+
+/** Bloqueo de fechas (feriados, vacaciones). serviceId null = bloquea todos. */
+export interface BlockedDate {
+  id: string
+  startDate: string // ISO 8601
+  endDate: string // ISO 8601
+  reason: string | null
+  serviceId: string | null
+  createdBy: string
+  createdAt: string
+}
+
+export interface CreateBlockedDateDto {
+  startDate: string // ISO 8601
+  endDate: string // ISO 8601
+  reason?: string | null
+  serviceId?: string | null
+}
+
+export type UpdateBlockedDateDto = Partial<CreateBlockedDateDto>
+
+// ---------------------------------------------------------------------------
 //  Entidades Appointment y FormSubmission
 // ---------------------------------------------------------------------------
 
