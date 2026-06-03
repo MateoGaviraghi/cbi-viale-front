@@ -1,24 +1,34 @@
 import { cookies } from 'next/headers'
 import Link from 'next/link'
 import { Calendar, TrendingUp, MessageSquare, FileCheck, ArrowUpRight } from 'lucide-react'
-import { api } from '@/lib/api'
+import { api, ApiError } from '@/lib/api'
+import type { AdminStats } from '@/lib/api/types'
 import { GoldRule } from '@/components/shared/GoldRule'
 
 export const dynamic = 'force-dynamic'
 
 export default async function AdminDashboardPage() {
   const cookieHeader = cookies().toString()
-  const [{ data: user }, { data: stats }] = await Promise.all([
-    api.auth.me(cookieHeader),
-    api.admin.getStats(cookieHeader),
-  ])
+  const { data: user } = await api.auth.me(cookieHeader)
 
-  const metrics = [
-    { label: 'Turnos totales', value: stats.totalAppointments, icon: Calendar },
-    { label: 'Turnos este mes', value: stats.appointmentsThisMonth, icon: TrendingUp },
-    { label: 'Consultas', value: stats.totalSubmissions, icon: MessageSquare },
-    { label: 'Consentimientos', value: stats.totalConsents, icon: FileCheck },
-  ]
+  // Las métricas requieren viewAnalytics; sin ese permiso, el dashboard se
+  // muestra igual pero sin el bloque de stats (no rompe para empleados).
+  let stats: AdminStats | null = null
+  try {
+    const res = await api.admin.getStats(cookieHeader)
+    stats = res.data
+  } catch (err) {
+    if (!(err instanceof ApiError && err.statusCode === 403)) throw err
+  }
+
+  const metrics = stats
+    ? [
+        { label: 'Turnos totales', value: stats.totalAppointments, icon: Calendar },
+        { label: 'Turnos este mes', value: stats.appointmentsThisMonth, icon: TrendingUp },
+        { label: 'Consultas', value: stats.totalSubmissions, icon: MessageSquare },
+        { label: 'Consentimientos', value: stats.totalConsents, icon: FileCheck },
+      ]
+    : []
 
   const shortcuts = [
     { href: '/admin/turnos', label: 'Turnos' },
@@ -44,26 +54,28 @@ export default async function AdminDashboardPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line">
-        {metrics.map((m) => {
-          const Icon = m.icon
-          return (
-            <div key={m.label} className="bg-white p-7">
-              <Icon
-                width={20}
-                height={20}
-                strokeWidth={1.5}
-                className="text-gold-700 mb-4"
-                aria-hidden
-              />
-              <p className="font-serif text-4xl text-ink tracking-tight">{m.value}</p>
-              <p className="mt-2 font-sans text-[11px] uppercase tracking-widest text-ink-muted">
-                {m.label}
-              </p>
-            </div>
-          )
-        })}
-      </div>
+      {metrics.length > 0 && (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line">
+          {metrics.map((m) => {
+            const Icon = m.icon
+            return (
+              <div key={m.label} className="bg-white p-7">
+                <Icon
+                  width={20}
+                  height={20}
+                  strokeWidth={1.5}
+                  className="text-gold-700 mb-4"
+                  aria-hidden
+                />
+                <p className="font-serif text-4xl text-ink tracking-tight">{m.value}</p>
+                <p className="mt-2 font-sans text-[11px] uppercase tracking-widest text-ink-muted">
+                  {m.label}
+                </p>
+              </div>
+            )
+          })}
+        </div>
+      )}
 
       <div>
         <p className="font-sans text-[11px] uppercase tracking-widest text-ink-muted mb-4">
