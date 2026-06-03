@@ -32,9 +32,9 @@ const ITEMS: NavItem[] = [
   { href: '/admin/consultas', label: 'Consultas', icon: MessageSquare, permission: 'manageSubmissions' },
   { href: '/admin/consentimientos', label: 'Consentimientos', icon: FileCheck, permission: 'manageSubmissions' },
   { href: '/admin/disponibilidad', label: 'Disponibilidad', icon: Clock, permission: 'manageAvailability' },
-  { href: '/admin/usuarios', label: 'Usuarios', icon: Users, permission: 'manageUsers', phase: 'Fase 2' },
-  { href: '/admin/auditoria', label: 'Auditoría', icon: ScrollText, permission: 'viewAuditLog', phase: 'Fase 2' },
-  { href: '/admin/metricas', label: 'Métricas', icon: BarChart3, permission: 'viewAnalytics', phase: 'Fase 3' },
+  { href: '/admin/usuarios', label: 'Usuarios', icon: Users, permission: 'manageUsers' },
+  { href: '/admin/auditoria', label: 'Auditoría', icon: ScrollText, permission: 'viewAuditLog' },
+  { href: '/admin/metricas', label: 'Métricas', icon: BarChart3, permission: 'viewAnalytics' },
 ]
 
 interface Props {

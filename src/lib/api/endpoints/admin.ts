@@ -6,6 +6,7 @@ import type {
   FormStatus,
   AdminConsent,
   AdminStats,
+  AuditLogEntry,
 } from '../types'
 
 export const adminApi = {
@@ -52,5 +53,17 @@ export const adminApi = {
   /** GET /admin/stats — métricas rápidas del panel. */
   getStats(cookieHeader?: string) {
     return apiFetch<AdminStats>('/admin/stats', { cookieHeader })
+  },
+
+  /**
+   * GET /admin/audit-logs — registro de auditoría paginado (permiso viewAuditLog).
+   * El back ya escribe el AuditLog; este endpoint de lectura está pendiente (la
+   * página /admin/auditoria maneja el 404 hasta que exista).
+   */
+  listAuditLogs(params: { page?: number; pageSize?: number } = {}, cookieHeader?: string) {
+    return apiFetch<AuditLogEntry[]>('/admin/audit-logs', {
+      query: { page: params.page ?? 1, pageSize: params.pageSize ?? 100 },
+      cookieHeader,
+    })
   },
 }

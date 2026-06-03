@@ -458,6 +458,34 @@ export interface AuthUser {
   permissions: Partial<Record<Permission, boolean>>
 }
 
+/** Usuario en el listado del panel admin (AuthUser + estado y alta). */
+export interface AdminUser extends AuthUser {
+  active: boolean
+  createdAt: string
+}
+
+export interface CreateUserDto {
+  name: string
+  email: string
+  password: string
+  role?: Role
+  permissions?: Partial<Record<Permission, boolean>>
+}
+
+export interface UpdateUserDto {
+  name?: string
+  email?: string
+  role?: Role
+  active?: boolean
+}
+
+/** Body del PATCH /users/:id/permissions — mapa de permisos completo. */
+export type UpdateUserPermissionsDto = Partial<Record<Permission, boolean>>
+
+export interface UpdateUserPasswordDto {
+  newPassword: string
+}
+
 export interface ServiceImage {
   id: string
   serviceId: string
@@ -556,9 +584,23 @@ export interface AdminConsent {
 }
 
 export interface AdminStats {
-  appointments: { total: number; pending: number; confirmed: number; cancelled: number }
-  submissions: { total: number; pending: number }
-  consents: { total: number }
+  totalAppointments: number
+  totalSubmissions: number
+  totalConsents: number
+  appointmentsThisMonth: number
+}
+
+/** Entrada del registro de auditoría (admin). */
+export interface AuditLogEntry {
+  id: string
+  userId: string
+  action: string
+  entity: string
+  entityId: string | null
+  metadata: Record<string, unknown>
+  createdAt: string
+  /** Presente cuando el back incluye la relación del usuario. */
+  user?: { id: string; name: string; email: string } | null
 }
 
 // ---------------------------------------------------------------------------

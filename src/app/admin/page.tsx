@@ -1,13 +1,31 @@
 import { cookies } from 'next/headers'
+import Link from 'next/link'
+import { Calendar, TrendingUp, MessageSquare, FileCheck, ArrowUpRight } from 'lucide-react'
 import { api } from '@/lib/api'
 import { GoldRule } from '@/components/shared/GoldRule'
 
-// Dashboard stub — se reemplaza por un resumen con métricas reales cuando el
-// back tenga AnalyticsModule (Fase 3). Hoy solo sirve como landing post-login.
+export const dynamic = 'force-dynamic'
+
 export default async function AdminDashboardPage() {
-  // El layout ya validó la sesión; acá re-fetcheamos al user solo para usar
-  // su nombre en el saludo. Next deduplica fetches idénticos en el mismo render.
-  const { data: user } = await api.auth.me(cookies().toString())
+  const cookieHeader = cookies().toString()
+  const [{ data: user }, { data: stats }] = await Promise.all([
+    api.auth.me(cookieHeader),
+    api.admin.getStats(cookieHeader),
+  ])
+
+  const metrics = [
+    { label: 'Turnos totales', value: stats.totalAppointments, icon: Calendar },
+    { label: 'Turnos este mes', value: stats.appointmentsThisMonth, icon: TrendingUp },
+    { label: 'Consultas', value: stats.totalSubmissions, icon: MessageSquare },
+    { label: 'Consentimientos', value: stats.totalConsents, icon: FileCheck },
+  ]
+
+  const shortcuts = [
+    { href: '/admin/turnos', label: 'Turnos' },
+    { href: '/admin/consultas', label: 'Consultas' },
+    { href: '/admin/consentimientos', label: 'Consentimientos' },
+    { href: '/admin/disponibilidad', label: 'Disponibilidad' },
+  ]
 
   return (
     <div className="space-y-12">
@@ -22,48 +40,54 @@ export default async function AdminDashboardPage() {
           Hola, <span className="italic text-gold-800">{user.name.split(' ')[0]}</span>.
         </h1>
         <p className="mt-4 text-ink-muted text-[15px] leading-relaxed max-w-xl">
-          Desde acá vas a gestionar turnos, consultas y la disponibilidad del laboratorio. Los
-          módulos se habilitan por fases a medida que se entregan.
+          Resumen de la actividad del laboratorio.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-line border border-line">
-        <div className="bg-white p-8">
-          <p className="font-sans text-[11px] uppercase tracking-widest text-gold-700 mb-3">
-            Próximamente · Fase 2
-          </p>
-          <h2 className="font-serif text-xl tracking-tight text-ink mb-2">Turnos</h2>
-          <p className="text-sm text-ink-muted leading-relaxed">
-            Agenda digital, confirmaciones, reprogramaciones y cancelaciones. Se habilita cuando
-            esté activo el módulo de turnos del back.
-          </p>
-        </div>
-        <div className="bg-white p-8">
-          <p className="font-sans text-[11px] uppercase tracking-widest text-gold-700 mb-3">
-            Próximamente · Fase 2
-          </p>
-          <h2 className="font-serif text-xl tracking-tight text-ink mb-2">Consultas</h2>
-          <p className="text-sm text-ink-muted leading-relaxed">
-            Bandeja unificada de formularios del sitio, con filtros y estados.
-          </p>
-        </div>
-        <div className="bg-white p-8">
-          <p className="font-sans text-[11px] uppercase tracking-widest text-gold-700 mb-3">
-            Disponible hoy
-          </p>
-          <h2 className="font-serif text-xl tracking-tight text-ink mb-2">Disponibilidad</h2>
-          <p className="text-sm text-ink-muted leading-relaxed">
-            Horarios de atención y bloqueos por feriados o vacaciones. El back ya expone el CRUD.
-          </p>
-        </div>
-        <div className="bg-white p-8">
-          <p className="font-sans text-[11px] uppercase tracking-widest text-gold-700 mb-3">
-            Próximamente · Fase 2
-          </p>
-          <h2 className="font-serif text-xl tracking-tight text-ink mb-2">Usuarios</h2>
-          <p className="text-sm text-ink-muted leading-relaxed">
-            Gestión de empleados y permisos granulares. Exclusivo de administradores.
-          </p>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line">
+        {metrics.map((m) => {
+          const Icon = m.icon
+          return (
+            <div key={m.label} className="bg-white p-7">
+              <Icon
+                width={20}
+                height={20}
+                strokeWidth={1.5}
+                className="text-gold-700 mb-4"
+                aria-hidden
+              />
+              <p className="font-serif text-4xl text-ink tracking-tight">{m.value}</p>
+              <p className="mt-2 font-sans text-[11px] uppercase tracking-widest text-ink-muted">
+                {m.label}
+              </p>
+            </div>
+          )
+        })}
+      </div>
+
+      <div>
+        <p className="font-sans text-[11px] uppercase tracking-widest text-ink-muted mb-4">
+          Accesos rápidos
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line">
+          {shortcuts.map((s) => (
+            <Link
+              key={s.href}
+              href={s.href}
+              className="group flex items-center justify-between bg-white p-5 transition-colors hover:bg-beige/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-inset"
+            >
+              <span className="font-serif text-lg text-ink transition-colors group-hover:text-gold-800">
+                {s.label}
+              </span>
+              <ArrowUpRight
+                width={16}
+                height={16}
+                strokeWidth={1.5}
+                className="text-ink-muted transition-colors group-hover:text-gold-700"
+                aria-hidden
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </div>
