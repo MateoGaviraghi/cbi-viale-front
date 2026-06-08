@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, CalendarDays } from 'lucide-react'
+import { Menu, CalendarDays, Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Container } from '@/components/shared/Container'
 import { MegaMenu } from './MegaMenu'
@@ -169,6 +169,31 @@ export function Navbar() {
               >
                 →
               </span>
+            </Link>
+
+            {/* Divisor sutil — separa los CTA públicos del acceso al panel */}
+            <span
+              aria-hidden
+              className={cn(
+                'h-5 w-px transition-colors duration-500',
+                scrolled ? 'bg-line' : 'bg-white/20',
+              )}
+            />
+
+            {/* Acceso al panel — discreto a propósito. La ruta /login está protegida
+                server-side y con noindex; esto solo lo hace alcanzable, no público. */}
+            <Link
+              href="/login"
+              aria-label="Acceso al panel"
+              title="Acceso al panel"
+              className={cn(
+                'tap-min inline-flex h-11 w-11 items-center justify-center transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2',
+                scrolled
+                  ? 'text-ink-muted hover:text-gold-700'
+                  : 'text-white/50 hover:text-white',
+              )}
+            >
+              <Lock width={15} height={15} strokeWidth={1.5} aria-hidden />
             </Link>
           </motion.div>
 

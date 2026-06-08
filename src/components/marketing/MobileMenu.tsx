@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-import { X, CalendarDays } from 'lucide-react'
+import { X, CalendarDays, Lock } from 'lucide-react'
 import { SERVICE_SLUGS, SERVICES, CONTACT } from '@/lib/constants'
 import { ServiceIcon } from './ServiceIcon'
 import { cn } from '@/lib/utils'
@@ -188,6 +188,16 @@ export function MobileMenu({ open, onClose }: Props) {
               </a>
             )}
           </div>
+
+          {/* Acceso al panel — discreto. /login está protegida server-side + noindex. */}
+          <Link
+            href="/login"
+            onClick={onClose}
+            className="mt-5 inline-flex items-center gap-2 font-sans text-xs uppercase tracking-widest text-ink-muted hover:text-gold-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-700 focus-visible:ring-offset-2"
+          >
+            <Lock width={13} height={13} strokeWidth={1.5} aria-hidden />
+            Acceso al panel
+          </Link>
         </div>
       </div>
     </div>
